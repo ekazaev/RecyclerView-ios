@@ -9,8 +9,8 @@ Pod::Spec.new do |s|
     s.license      = { :type => 'MIT', :file => 'LICENSE' }
     s.author       = { 'Eugene Kazaev' => 'eugene.kazaev@gmail.com' }
     s.source       = { :git => 'https://github.com/ekazaev/RecyclerView-ios.git', :tag => s.version.to_s }
-    s.public_header_files = "RecyclerView.framework/Headers/*.h"
-    s.source_files = "RecyclerView.framework/Headers/*.h"
+    s.public_header_files = "RecyclerView.xcframework/**/RecyclerView.framework/Headers/*.h"
+    s.source_files = "RecyclerView.xcframework/**/RecyclerView.framework/Headers/*.h"    
     s.vendored_frameworks = "RecyclerView.framework"
     s.platform = :ios
     s.swift_version = "5.8"
