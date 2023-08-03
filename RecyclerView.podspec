@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
     s.source       = { :git => 'https://github.com/ekazaev/RecyclerView-ios.git', :tag => s.version.to_s }
     s.public_header_files = "RecyclerView.xcframework/**/RecyclerView.framework/Headers/*.h"
     s.source_files = "RecyclerView.xcframework/**/RecyclerView.framework/Headers/*.h"    
-    s.vendored_frameworks = "RecyclerView.framework"
+    s.vendored_frameworks = "RecyclerView.xcframework"
     s.platform = :ios
     s.swift_version = "5.8"
     s.ios.deployment_target  = '15.0'
