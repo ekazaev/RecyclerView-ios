@@ -3468,7 +3468,6 @@ public func log(_ type: RecyclerView.LogType, _ items: Any..., separator: Swift.
   @_Concurrency.MainActor(unsafe) final public func dequeueReusableCellWithReuseIdentifier<View>(_ identifier: Engine.Identifier) -> View? where View : UIKit.UIView
   @_Concurrency.MainActor(unsafe) final public func payloadForIdentifier(_ identifier: Engine.Identifier) -> Engine.Payload?
   @_Concurrency.MainActor(unsafe) @objc override final public func layoutSubviews()
-  @_Concurrency.MainActor(unsafe) final public func forceUpdateConfigurationToVisibleCellWithIdentifier(_ identifier: Engine.Identifier)
   @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
   @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent?)
@@ -3866,7 +3865,7 @@ public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewE
   @_Concurrency.MainActor(unsafe) @objc override final public func reset()
   @objc deinit
 }
-public func roundToScale(_ value: CoreFoundation.CGFloat, scale: CoreFoundation.CGFloat = 1) -> CoreFoundation.CGFloat
+public func fitToScale(_ value: CoreFoundation.CGFloat, scale: CoreFoundation.CGFloat = 1) -> CoreFoundation.CGFloat
 @_hasMissingDesignatedInitializers final public class ContinuousLayoutModel<Identifier> where Identifier : Swift.Hashable {
   public typealias Element = RecyclerView.ContinuousElement<Identifier>
   final public var contentHeight: CoreFoundation.CGFloat {
@@ -3916,10 +3915,22 @@ extension RecyclerView.OrderedSet : Swift.Decodable where Element : Swift.Decoda
 public protocol SimpleLayoutSupporting {
   var isSticky: Swift.Bool { get }
 }
+#if compiler(>=5.3) && $PrimaryAssociatedTypes2
+public protocol SimpleLayoutEngineDelegate<Identifier> : AnyObject {
+  associatedtype Identifier : Swift.Hashable
+  func heightForView(_ view: UIKit.UIView, with identifier: Self.Identifier) -> CoreFoundation.CGFloat?
+}
+#else
+public protocol SimpleLayoutEngineDelegate : AnyObject {
+  associatedtype Identifier : Swift.Hashable
+  func heightForView(_ view: UIKit.UIView, with identifier: Self.Identifier) -> CoreFoundation.CGFloat?
+}
+#endif
 final public class SimpleLayoutEngine<Identifier, Payload> : RecyclerView.RecyclerViewEngine where Identifier : Swift.Hashable, Payload : RecyclerView.SimpleLayoutSupporting, Payload : Swift.Equatable {
   public typealias Identifier = Identifier
   public typealias Payload = Payload
   public typealias Item = RecyclerView.ItemModel<Identifier, Payload>
+  weak final public var delegate: (any RecyclerView.SimpleLayoutEngineDelegate<Identifier>)?
   final public var contentSize: CoreFoundation.CGSize {
     get
   }
@@ -4063,6 +4074,7 @@ public protocol LayoutCoordinator<Identifier, Payload> {
   associatedtype Payload : Swift.Equatable
   var identifiers: [Self.Identifier] { get }
   var representation: any RecyclerView.ScrollViewRepresentation { get }
+  var scrollView: UIKit.UIScrollView? { get }
   func payloadForIdentifier(_ identifier: Self.Identifier) -> Self.Payload
 }
 #else
@@ -4071,6 +4083,7 @@ public protocol LayoutCoordinator {
   associatedtype Payload : Swift.Equatable
   var identifiers: [Self.Identifier] { get }
   var representation: any RecyclerView.ScrollViewRepresentation { get }
+  var scrollView: UIKit.UIScrollView? { get }
   func payloadForIdentifier(_ identifier: Self.Identifier) -> Self.Payload
 }
 #endif
@@ -4096,10 +4109,10 @@ public protocol InvalidationCoordinator {
 public struct RecyclerViewCellState {
 }
 public protocol RecyclerViewCellEvenHandler : UIKit.UIView {
-  func updatePayload<P>(_ payload: P)
+  func updateRecyclerItemConfiguration(identifier: some Any, payload: some Any)
 }
 extension RecyclerView.RecyclerViewCellEvenHandler {
-  public func updatePayload(_ payload: some Any)
+  public func updateRecyclerItemConfiguration(identifier: some Any, payload: some Any)
 }
 public enum ModificationActions<Identifier> {
   public enum CaseType {
