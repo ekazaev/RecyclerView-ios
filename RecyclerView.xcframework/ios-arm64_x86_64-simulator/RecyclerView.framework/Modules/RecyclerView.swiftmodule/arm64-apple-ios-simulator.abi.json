@@ -43982,13 +43982,6 @@
       },
       {
         "kind": "Import",
-        "name": "RecyclerView",
-        "printedName": "RecyclerView",
-        "declKind": "Import",
-        "moduleName": "RecyclerView"
-      },
-      {
-        "kind": "Import",
         "name": "UIKit",
         "printedName": "UIKit",
         "declKind": "Import",
@@ -44032,6 +44025,48 @@
                 "declKind": "Accessor",
                 "usr": "s:12RecyclerView22SimpleLayoutSupportingP8isStickySbvg",
                 "mangledName": "$s12RecyclerView22SimpleLayoutSupportingP8isStickySbvg",
+                "moduleName": "RecyclerView",
+                "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.SimpleLayoutSupporting>",
+                "sugared_genericSig": "<Self where Self : RecyclerView.SimpleLayoutSupporting>",
+                "protocolReq": true,
+                "reqNewWitnessTableEntry": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "spacing",
+            "printedName": "spacing",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecyclerView22SimpleLayoutSupportingP7spacing14CoreFoundation7CGFloatVvp",
+            "mangledName": "$s12RecyclerView22SimpleLayoutSupportingP7spacing12CoreGraphics7CGFloatVvp",
+            "moduleName": "RecyclerView",
+            "protocolReq": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "CGFloat",
+                    "printedName": "CoreGraphics.CGFloat",
+                    "usr": "s:14CoreFoundation7CGFloatV"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecyclerView22SimpleLayoutSupportingP7spacing14CoreFoundation7CGFloatVvg",
+                "mangledName": "$s12RecyclerView22SimpleLayoutSupportingP7spacing12CoreGraphics7CGFloatVvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.SimpleLayoutSupporting>",
                 "sugared_genericSig": "<Self where Self : RecyclerView.SimpleLayoutSupporting>",
@@ -48625,22 +48660,106 @@
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 905,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 989,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1075,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1163,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
       "kind": "StringLiteral",
-      "offset": 1292,
+      "offset": 1441,
+      "length": 53,
+      "value": "\"Potentially \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "StringLiteral",
+      "offset": 1467,
+      "length": 3,
+      "value": "\" was not reused correctly.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1801,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1885,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1971,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2059,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "StringLiteral",
+      "offset": 2214,
+      "length": 25,
+      "value": "\"Internal inconsistency.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "StringLiteral",
+      "offset": 2442,
       "length": 39,
       "value": "\"init(coder:) has not been implemented\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
+      "kind": "StringLiteral",
+      "offset": 2714,
+      "length": 25,
+      "value": "\"Internal inconsistency.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2067,
+      "offset": 3313,
       "length": 1,
       "value": "2"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerCellView.swift",
       "kind": "IntegerLiteral",
-      "offset": 2116,
+      "offset": 3362,
       "length": 1,
       "value": "2"
     },
@@ -49949,1211 +50068,1232 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 1383,
+      "offset": 699,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 1444,
+      "offset": 1360,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "Array",
+      "offset": 1421,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1671,
+      "offset": 1648,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 1724,
+      "offset": 1701,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 2364,
+      "offset": 2341,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Dictionary",
-      "offset": 2437,
+      "offset": 2414,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 2498,
+      "offset": 2475,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2738,
+      "offset": 2715,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3305,
+      "offset": 3282,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3388,
+      "offset": 3365,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 4283,
+      "offset": 4260,
       "length": 39,
       "value": "\"init(coder:) has not been implemented\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 4551,
+      "offset": 4528,
       "length": 46,
       "value": "\"Frame changed: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 4581,
+      "offset": 4558,
       "length": 2,
       "value": "\" -> \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 4596,
+      "offset": 4573,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5407,
+      "offset": 5384,
       "length": 48,
       "value": "\"Bounds changed: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5439,
+      "offset": 5416,
       "length": 2,
       "value": "\" -> \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5454,
+      "offset": 5431,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 7570,
+      "offset": 7547,
       "length": 26,
       "value": "\"\n\n\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 7589,
+      "offset": 7566,
       "length": 5,
       "value": "\" START\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 8164,
+      "offset": 8086,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 8616,
+      "offset": 8538,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 9058,
+      "offset": 8980,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9103,
+      "offset": 9025,
       "length": 225,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9116,
+      "offset": 9038,
       "length": 1,
       "value": "\"\n    frame:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9136,
+      "offset": 9058,
       "length": 1,
       "value": "\"\n    contentSize: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9169,
+      "offset": 9091,
       "length": 1,
       "value": "\"\n    contentOffset:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9205,
+      "offset": 9127,
       "length": 1,
       "value": "\"\n    contentInset:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9239,
+      "offset": 9161,
       "length": 1,
       "value": "\"\n    adjustedContentInset:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9289,
+      "offset": 9211,
       "length": 1,
       "value": "\"\n    safeAreaInsets:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 9327,
+      "offset": 9249,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 9504,
+      "offset": 9426,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 9547,
+      "offset": 9469,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9945,
+      "offset": 9867,
       "length": 3,
       "value": "-50"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 9954,
+      "offset": 9876,
       "length": 3,
       "value": "-50"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 10190,
+      "offset": 10112,
       "length": 3,
       "value": "-50"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 10199,
+      "offset": 10121,
       "length": 3,
       "value": "-50"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 10656,
+      "offset": 10578,
       "length": 143,
       "value": "\"Modifying view port current: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 10720,
+      "offset": 10642,
       "length": 3,
       "value": "\" new:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 10755,
+      "offset": 10677,
       "length": 8,
       "value": "\" original:\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 10798,
+      "offset": 10720,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 11066,
+      "offset": 10988,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 11271,
+      "offset": 11193,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 11847,
+      "offset": 11769,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 12532,
+      "offset": 12454,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12749,
+      "offset": 12671,
       "length": 63,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12762,
+      "offset": 12684,
       "length": 8,
       "value": "\" ROTATION\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12787,
+      "offset": 12709,
       "length": 1,
       "value": "\"\n->\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12811,
+      "offset": 12733,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12847,
+      "offset": 12769,
       "length": 82,
       "value": "\"Visible before rotation \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12898,
+      "offset": 12820,
       "length": 1,
       "value": "\"|\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12927,
+      "offset": 12849,
       "length": 1,
       "value": "\":\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 12964,
+      "offset": 12886,
       "length": 149,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13039,
+      "offset": 12961,
       "length": 61,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13056,
+      "offset": 12978,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13069,
+      "offset": 12991,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13097,
+      "offset": 13019,
       "length": 1,
       "value": "\"\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13112,
+      "offset": 13034,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 13207,
+      "offset": 13129,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 13298,
+      "offset": 13220,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13336,
+      "offset": 13258,
       "length": 83,
       "value": "\"Applying changes \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13384,
+      "offset": 13306,
       "length": 7,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13390,
+      "offset": 13312,
       "length": 23,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13412,
+      "offset": 13334,
       "length": 4,
       "value": "\", \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13418,
+      "offset": 13340,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13454,
+      "offset": 13376,
       "length": 81,
       "value": "\"Visible before changes \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13504,
+      "offset": 13426,
       "length": 1,
       "value": "\"|\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13533,
+      "offset": 13455,
       "length": 1,
       "value": "\":\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13570,
+      "offset": 13492,
       "length": 149,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13645,
+      "offset": 13567,
       "length": 61,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13662,
+      "offset": 13584,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13675,
+      "offset": 13597,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13703,
+      "offset": 13625,
       "length": 1,
       "value": "\"\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 13718,
+      "offset": 13640,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 13878,
+      "offset": 13800,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 14152,
+      "offset": 14074,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 14435,
+      "offset": 14357,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Dictionary",
-      "offset": 14499,
+      "offset": 14421,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 15159,
+      "offset": 15081,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 15398,
+      "offset": 15320,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 15584,
+      "offset": 15506,
       "length": 65,
       "value": "\"Visible in \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 15616,
+      "offset": 15538,
       "length": 1,
       "value": "\"|\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 15647,
+      "offset": 15569,
       "length": 1,
       "value": "\":\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 15920,
+      "offset": 15842,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 17468,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 17514,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 17569,
-      "length": 80,
-      "value": "\"Current attributes changed: \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 17616,
-      "length": 1,
-      "value": "\" \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 17648,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 19937,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 19983,
-      "length": 5,
-      "value": "false"
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 20038,
-      "length": 85,
-      "value": "\"Appeared Attributes changed: \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 20090,
-      "length": 1,
-      "value": "\" \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 20122,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 20487,
+      "offset": 16311,
       "length": 25,
       "value": "\"Internal inconsistency.\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 21025,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 21142,
+      "offset": 17542,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 21371,
+      "offset": 17588,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 21414,
-      "length": 38,
-      "value": "\"Final commit requested invalidation.\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "BooleanLiteral",
-      "offset": 21902,
-      "length": 4,
-      "value": "true"
+      "offset": 17643,
+      "length": 80,
+      "value": "\"Current attributes changed: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 27444,
-      "length": 46,
-      "value": "\"compensatingOffset: \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 27489,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 28559,
-      "length": 100,
-      "value": "\"Added item \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 28594,
-      "length": 1,
-      "value": "\": I:\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 28627,
-      "length": 1,
-      "value": "\" F: \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 28658,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 29384,
-      "length": 76,
-      "value": "\"A \""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 29422,
+      "offset": 17690,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 29459,
+      "offset": 17722,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 20011,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 20057,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 20112,
+      "length": 85,
+      "value": "\"Appeared Attributes changed: \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 20164,
+      "length": 1,
+      "value": "\" \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 20196,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 29722,
+      "offset": 20561,
+      "length": 25,
+      "value": "\"Internal inconsistency.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 21099,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 21216,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 21445,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 21488,
+      "length": 38,
+      "value": "\"Final commit requested invalidation.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "BooleanLiteral",
+      "offset": 21976,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 27518,
+      "length": 46,
+      "value": "\"compensatingOffset: \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 27563,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 28633,
+      "length": 100,
+      "value": "\"Added item \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 28668,
+      "length": 1,
+      "value": "\": I:\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 28701,
+      "length": 1,
+      "value": "\" F: \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 28732,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 29415,
+      "length": 25,
+      "value": "\"Internal inconsistency.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 29586,
+      "length": 76,
+      "value": "\"A \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 29624,
+      "length": 1,
+      "value": "\" \""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 29661,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 29924,
       "length": 73,
       "value": "\"Updated added item \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 29765,
+      "offset": 29967,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 29794,
+      "offset": 29996,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 29942,
+      "offset": 30144,
       "length": 4,
       "value": "\"\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 30738,
+      "offset": 30940,
       "length": 6,
       "value": "\"Haha\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 30987,
+      "offset": 31189,
       "length": 40,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 31014,
+      "offset": 31216,
       "length": 11,
       "value": "\" disappeared\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 31730,
+      "offset": 31932,
       "length": 29,
       "value": "\"Additional set needs layout\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 32035,
+      "offset": 32237,
       "length": 30,
       "value": "\"Final state:\n\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 32064,
+      "offset": 32266,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 32178,
+      "offset": 32380,
       "length": 33,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 32191,
+      "offset": 32393,
       "length": 6,
       "value": "\" FINISH\n----------\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 34524,
-      "length": 14,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 34537,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 34713,
-      "length": 14,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
       "offset": 34726,
-      "length": 2,
+      "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 34902,
-      "length": 14,
+      "offset": 34739,
+      "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
       "offset": 34915,
-      "length": 2,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
-      "kind": "StringLiteral",
-      "offset": 35099,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35112,
+      "offset": 34928,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35295,
+      "offset": 35104,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35308,
+      "offset": 35117,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35491,
+      "offset": 35301,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35504,
+      "offset": 35314,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35691,
+      "offset": 35497,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35704,
+      "offset": 35510,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35887,
+      "offset": 35693,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 35900,
+      "offset": 35706,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36091,
+      "offset": 35893,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36104,
+      "offset": 35906,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36284,
+      "offset": 36089,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36297,
+      "offset": 36102,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36477,
+      "offset": 36293,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36490,
+      "offset": 36306,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36678,
+      "offset": 36486,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36691,
+      "offset": 36499,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36894,
+      "offset": 36679,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 36907,
+      "offset": 36692,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 37066,
+      "offset": 36880,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 37079,
+      "offset": 36893,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 37096,
+      "length": 14,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 37109,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 37268,
+      "length": 14,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 37281,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 37188,
+      "offset": 37390,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 37288,
+      "offset": 37490,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 37301,
+      "offset": 37503,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38003,
+      "offset": 38205,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38016,
+      "offset": 38218,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38250,
+      "offset": 38452,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38263,
+      "offset": 38465,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38450,
+      "offset": 38652,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38463,
+      "offset": 38665,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38644,
+      "offset": 38846,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38657,
+      "offset": 38859,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38850,
+      "offset": 39052,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 38863,
+      "offset": 39065,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39188,
+      "offset": 39390,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39201,
+      "offset": 39403,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39431,
+      "offset": 39633,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39444,
+      "offset": 39646,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39655,
+      "offset": 39857,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39668,
+      "offset": 39870,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 39746,
+      "offset": 39948,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39859,
+      "offset": 40061,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 39872,
+      "offset": 40074,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 40060,
+      "offset": 40262,
       "length": 14,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 40073,
+      "offset": 40275,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 853,
+      "offset": 830,
       "length": 18,
       "value": "\"RecyclerView.RecyclerScrollView\""
     },
@@ -53946,763 +54086,777 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 246,
+      "offset": 226,
       "length": 2,
       "value": "50"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 1524,
+      "offset": 1537,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 1559,
+      "offset": 1572,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "Array",
-      "offset": 2285,
+      "offset": 2298,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "Dictionary",
-      "offset": 2392,
+      "offset": 2405,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 2773,
+      "offset": 2786,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 4292,
+      "offset": 4305,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 4306,
+      "offset": 4319,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 4379,
+      "offset": 4392,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 5226,
+      "offset": 5239,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 5919,
+      "offset": 5932,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 6846,
+      "offset": 6859,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 6850,
+      "offset": 6863,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 6913,
+      "offset": 6926,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 8536,
+      "offset": 8549,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 9503,
+      "offset": 9516,
       "length": 3,
       "value": "200"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 9530,
+      "offset": 9543,
       "length": 3,
       "value": "400"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 11153,
+      "offset": 11166,
       "length": 24,
       "value": "\"Internal inconsistency\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
+      "kind": "StringLiteral",
+      "offset": 11624,
+      "length": 25,
+      "value": "\"Internal inconsistency.\""
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 11554,
+      "offset": 11696,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 11602,
+      "offset": 11744,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 11968,
+      "offset": 12133,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 12902,
+      "offset": 13103,
       "length": 25,
       "value": "\"Internal inconsistency.\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 13143,
+      "offset": 13344,
       "length": 54,
       "value": "\"Height change for \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 13175,
+      "offset": 13376,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 13196,
+      "offset": 13397,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14008,
+      "offset": 14209,
       "length": 68,
       "value": "\"Compensating for \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14039,
+      "offset": 14240,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14060,
+      "offset": 14261,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14075,
+      "offset": 14276,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 14301,
+      "offset": 14502,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14408,
+      "offset": 14609,
       "length": 68,
       "value": "\"Compensating for \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14439,
+      "offset": 14640,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14460,
+      "offset": 14661,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 14475,
+      "offset": 14676,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 14830,
+      "offset": 15031,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 15232,
+      "offset": 15433,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 17505,
+      "offset": 17706,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 17726,
+      "offset": 17927,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 17735,
+      "offset": 17936,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 17898,
+      "offset": 18099,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 17904,
+      "offset": 18105,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 18451,
+      "offset": 18652,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 18686,
+      "offset": 18887,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 18951,
+      "offset": 19152,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 19363,
+      "offset": 19564,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 19820,
+      "offset": 20021,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 20881,
+      "offset": 21082,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 21116,
+      "offset": 21317,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 22608,
+      "offset": 22809,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 22873,
+      "offset": 23074,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 23922,
+      "offset": 24123,
       "length": 2,
       "value": "10"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 23931,
+      "offset": 24132,
       "length": 4,
       "value": "1000"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 24522,
+      "offset": 24723,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 24757,
+      "offset": 24958,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25211,
+      "offset": 25412,
       "length": 103,
       "value": "\"Compensating for \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25250,
+      "offset": 25451,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25271,
+      "offset": 25472,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25313,
+      "offset": 25514,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 25539,
+      "offset": 25740,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25646,
+      "offset": 25847,
       "length": 103,
       "value": "\"Compensating for \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25685,
+      "offset": 25886,
       "length": 1,
       "value": "\": \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25706,
+      "offset": 25907,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 25748,
+      "offset": 25949,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 26130,
+      "offset": 26331,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 26136,
+      "offset": 26337,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 26443,
+      "offset": 26644,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 28957,
+      "offset": 29158,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 29276,
+      "offset": 29477,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 29786,
+      "offset": 29987,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 30660,
+      "offset": 30861,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "FloatLiteral",
-      "offset": 30733,
+      "offset": 30934,
       "length": 3,
       "value": "0.1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "FloatLiteral",
-      "offset": 30741,
+      "offset": 30942,
       "length": 3,
       "value": "0.1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 31060,
+      "offset": 31261,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 31345,
+      "offset": 31546,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 31647,
+      "offset": 31848,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 31712,
+      "offset": 31913,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 31971,
+      "offset": 32172,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 33080,
+      "offset": 33281,
       "length": 25,
       "value": "\"Internal inconsistency.\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 35151,
+      "offset": 35352,
       "length": 25,
       "value": "\"Internal inconsistency.\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 35853,
+      "offset": 36054,
       "length": 24,
       "value": "\"Internal inconsistency\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 37148,
+      "offset": 37349,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 37434,
+      "offset": 37635,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "FloatLiteral",
-      "offset": 37477,
+      "offset": 37678,
       "length": 4,
       "value": "1.01"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "FloatLiteral",
-      "offset": 37486,
+      "offset": 37687,
       "length": 4,
       "value": "1.01"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "FloatLiteral",
-      "offset": 37513,
+      "offset": 37714,
       "length": 3,
       "value": "0.9"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 38952,
+      "offset": 39153,
       "length": 81,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 38965,
+      "offset": 39166,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 39011,
+      "offset": 39212,
       "length": 2,
       "value": "\" -> \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 39032,
+      "offset": 39233,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 39664,
+      "offset": 39865,
       "length": 81,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 39677,
+      "offset": 39878,
       "length": 1,
       "value": "\" \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 39723,
+      "offset": 39924,
       "length": 2,
       "value": "\" -> \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "StringLiteral",
-      "offset": 39744,
+      "offset": 39945,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 40045,
+      "offset": 40246,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 40645,
+      "offset": 40873,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 40806,
+      "offset": 41034,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 40954,
+      "offset": 41182,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 40965,
+      "offset": 41193,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 41035,
+      "offset": 41263,
       "length": 2,
       "value": "-1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 41091,
+      "offset": 41319,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "IntegerLiteral",
-      "offset": 41512,
+      "offset": 41767,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
+      "kind": "IntegerLiteral",
+      "offset": 41856,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 42573,
+      "offset": 43119,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 43082,
+      "offset": 43628,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 43306,
+      "offset": 43852,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 43393,
+      "offset": 43939,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 43748,
+      "offset": 44294,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 43841,
+      "offset": 44387,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 44347,
+      "offset": 44893,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/SimpleLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 44448,
+      "offset": 44994,
       "length": 5,
       "value": "false"
     },

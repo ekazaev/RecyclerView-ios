@@ -3885,6 +3885,7 @@ extension CoreFoundation.CGPoint {
 }
 public protocol SimpleLayoutSupporting {
   var isSticky: Swift.Bool { get }
+  var spacing: CoreFoundation.CGFloat { get }
 }
 #if compiler(>=5.3) && $PrimaryAssociatedTypes2
 public protocol SimpleLayoutEngineDelegate<Identifier> : AnyObject {
