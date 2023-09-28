@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "RecyclerView"
-    s.version      = "0.1.4"
+    s.version      = "0.1.5"
     s.summary      = "A brief description of RecyclerView project."
     s.description  = <<-DESC
     An extended description of RecyclerView project.
@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
     s.source_files = "RecyclerView.xcframework/**/RecyclerView.framework/Headers/*.h"    
     s.vendored_frameworks = "RecyclerView.xcframework"
     s.platform = :ios
-    s.swift_version = "5.8"
+    s.swift_version = "5.9"
     s.ios.deployment_target  = '15.0'
 end
