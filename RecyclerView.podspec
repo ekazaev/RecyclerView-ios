@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "RecyclerView"
-    s.version      = "0.1.5"
+    s.version      = "0.1.6"
     s.summary      = "A brief description of RecyclerView project."
     s.description  = <<-DESC
     An extended description of RecyclerView project.
@@ -15,4 +15,5 @@ Pod::Spec.new do |s|
     s.platform = :ios
     s.swift_version = "5.9"
     s.ios.deployment_target  = '15.0'
+    s.cocoapods_version = '>= 1.13.0'
 end
