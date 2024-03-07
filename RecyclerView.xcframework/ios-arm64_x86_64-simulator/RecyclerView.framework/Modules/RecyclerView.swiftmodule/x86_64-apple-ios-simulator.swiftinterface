@@ -1,6 +1,7 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
 // swift-module-flags: -target x86_64-apple-ios15.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RecyclerView
+import CoreFoundation
 import Foundation
 import Swift
 import SwiftUI
@@ -10,107 +11,45 @@ import UniformTypeIdentifiers
 import _Concurrency
 import _StringProcessing
 import _SwiftConcurrencyShims
-@frozen public enum ModelState : Swift.Hashable, Swift.CaseIterable {
-  case initial
-  case modified
-  public static func == (a: RecyclerView.ModelState, b: RecyclerView.ModelState) -> Swift.Bool
-  public func hash(into hasher: inout Swift.Hasher)
-  public typealias AllCases = [RecyclerView.ModelState]
-  public static var allCases: [RecyclerView.ModelState] {
-    get
-  }
-  public var hashValue: Swift.Int {
-    get
-  }
+public struct ContextMenuConfiguration {
+  public init(previewProvider: UIKit.UIContextMenuContentPreviewProvider? = nil, actionProvider: UIKit.UIContextMenuActionProvider?)
 }
-public protocol ContentEquatable {
-  func isContentEqual(to source: Self) -> Swift.Bool
+@_Concurrency.MainActor public protocol ContextMenuInteractionDelegate : AnyObject {
+  func contextMenuConfigurationForCellsAt(_ indexes: Swift.Set<Swift.Int>, atLocation location: CoreFoundation.CGPoint) -> RecyclerView.ContextMenuConfiguration?
+  func contextMenuHighlightPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
+  func contextMenuDismissalPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
+  func contextMenuWillPerformPreviewAction(_ configuration: RecyclerView.ContextMenuConfiguration, animator: any UIKit.UIContextMenuInteractionCommitAnimating)
+  func contextMenuWillDisplay(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
+  func contextMenuWillEnd(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
 }
-extension RecyclerView.ContentEquatable where Self : Swift.Equatable {
-  @inlinable public func isContentEqual(to source: Self) -> Swift.Bool {
-        return self == source
-    }
+extension RecyclerView.ContextMenuInteractionDelegate {
+  @_Concurrency.MainActor public func contextMenuHighlightPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
+  @_Concurrency.MainActor public func contextMenuDismissalPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
+  @_Concurrency.MainActor public func contextMenuWillPerformPreviewAction(_ configuration: RecyclerView.ContextMenuConfiguration, animator: any UIKit.UIContextMenuInteractionCommitAnimating)
+  @_Concurrency.MainActor public func contextMenuWillDisplay(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
+  @_Concurrency.MainActor public func contextMenuWillEnd(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
 }
-extension Swift.Optional : RecyclerView.ContentEquatable where Wrapped : RecyclerView.ContentEquatable {
-  @inlinable public func isContentEqual(to source: Wrapped?) -> Swift.Bool {
-        switch (self, source) {
-        case let (lhs?, rhs?):
-            return lhs.isContentEqual(to: rhs)
-
-        case (.none, .none):
-            return true
-
-        case (.none, .some),
-             (.some, .none):
-            return false
-        }
-    }
-}
-extension Swift.Array : RecyclerView.ContentEquatable where Element : RecyclerView.ContentEquatable {
-  @inlinable public func isContentEqual(to source: [Element]) -> Swift.Bool {
-        return count == source.count
-            && zip(self, source).allSatisfy { $0.isContentEqual(to: $1) }
-    }
-}
-public struct ScrollViewParameters : Swift.Equatable {
-  public var contentSize: CoreFoundation.CGSize?
-  public var contentOffset: CoreFoundation.CGPoint?
-  @inline(__always) public init(contentSize: CoreFoundation.CGSize? = nil, contentOffset: CoreFoundation.CGPoint? = nil)
-  public static func == (a: RecyclerView.ScrollViewParameters, b: RecyclerView.ScrollViewParameters) -> Swift.Bool
-}
-public struct Segment : Swift.Hashable {
-  @inline(__always) public var origin: CoreFoundation.CGFloat
-  @inline(__always) public var length: CoreFoundation.CGFloat {
+@_Concurrency.MainActor final public class ContextMenuInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction where Engine : RecyclerView.RecyclerViewEngine {
+  @_Concurrency.MainActor weak final public var delegate: (any RecyclerView.ContextMenuInteractionDelegate)? {
     get
     set
   }
-  @inline(__always) @_effects(releasenone) public init(origin: CoreFoundation.CGFloat, length: CoreFoundation.CGFloat)
-  @inline(__always) public init(origin: Swift.Int, length: Swift.Int)
-  @inline(__always) public init(origin: CoreFoundation.CGFloat, length: Swift.Int)
-  @inline(__always) public init(origin: Swift.Int, length: CoreFoundation.CGFloat)
-  @inlinable @inline(__always) public func contains(_ point: CoreFoundation.CGFloat) -> Swift.Bool {
-        return point >= self.min && point < self.max
-    }
-  @inlinable @inline(__always) public func containsWithin(_ point: CoreFoundation.CGFloat) -> Swift.Bool {
-        return point > self.min && point < self.max
-    }
-  @inlinable @inline(__always) public func intersects(_ segment: RecyclerView.Segment) -> Swift.Bool {
-        return segment == self ||
-            segment.min > self.min && segment.min < self.max ||
-            segment.max > self.min && segment.max < self.max ||
-            self.min > segment.min && self.min < segment.max ||
-            self.max > segment.min && self.max < segment.max
-    }
-  @inlinable @inline(__always) public var isEmpty: Swift.Bool {
-    get {
-        length <= 0
-    }
-  }
-  @inlinable @inline(__always) public var min: CoreFoundation.CGFloat {
-    get {
-        return origin
-    }
-  }
-  @inlinable @inline(__always) public var mid: CoreFoundation.CGFloat {
-    get {
-        max - min / 2
-    }
-  }
-  @inlinable @inline(__always) public var max: CoreFoundation.CGFloat {
-    get {
-        return origin + length
-    }
-  }
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: RecyclerView.Segment, b: RecyclerView.Segment) -> Swift.Bool
-  public var hashValue: Swift.Int {
+  @_Concurrency.MainActor(unsafe) @objc final public var view: UIKit.UIView? {
     get
   }
-}
-extension RecyclerView.Segment : Swift.CustomDebugStringConvertible {
-  public var debugDescription: Swift.String {
+  @_Concurrency.MainActor public init(engine: Engine, delegate: any RecyclerView.ContextMenuInteractionDelegate)
+  @_Concurrency.MainActor(unsafe) @objc final public func willMove(to view: UIKit.UIView?)
+  @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
+  @_Concurrency.MainActor final public func locationIn(_ view: UIKit.UIView?) -> CoreFoundation.CGPoint
+  @_Concurrency.MainActor final public var menuAppearance: UIKit.UIContextMenuInteraction.appearance {
     get
   }
+  @_Concurrency.MainActor final public func updateVisibleMenu(_ block: (UIKit.UIMenu) -> UIKit.UIMenu)
+  @_Concurrency.MainActor final public func dismissMenu()
+  @_Concurrency.MainActor final public var isMenuPresent: Swift.Bool {
+    get
+  }
+  @objc deinit
 }
 #if compiler(>=5.3) && $PrimaryAssociatedTypes2
 @_Concurrency.MainActor public protocol RecyclerViewDataSource<Payload> : AnyObject {
@@ -132,296 +71,342 @@ extension RecyclerView.Segment : Swift.CustomDebugStringConvertible {
 extension RecyclerView.RecyclerViewDataSource {
   @_Concurrency.MainActor public func reconfigureView(_ view: UIKit.UIView, with payload: Self.Payload, forCellAtIndex index: Swift.Int)
 }
-extension CoreFoundation.CGSize {
-  @inlinable @inline(__always) internal func insetBy(_ coefficient: CoreFoundation.CGFloat) -> CoreFoundation.CGSize {
-        return CGSize(width: width * coefficient, height: height * coefficient)
-    }
+extension UIKit.NSLayoutAnchor {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(equalTo anchor: UIKit.NSLayoutAnchor<AnchorType>, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(greaterThanOrEqualTo anchor: UIKit.NSLayoutAnchor<AnchorType>, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(lessThanOrEqualTo anchor: UIKit.NSLayoutAnchor<AnchorType>, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
 }
-#if compiler(>=5.3) && $MoveOnly
-@frozen @_moveOnly public struct ModelStateStorage<Model> {
-  @_hasStorage public var initial: Model {
-    get
-  }
-  public var modified: Model {
-    mutating get
-  }
-  private var _modified: Model?
-  private let copyBlock: (Model) -> Model
-  public var isAfterUpdateSetup: Swift.Bool {
-    get
-  }
-  @inline(__always) public init(beforeUpdate: Model, afterUpdate: Model? = nil, copyUsing copyBlock: @escaping (Model) -> Model = { return $0 })
-  @inline(__always) public mutating func dropAfterUpdate()
-  @inline(__always) public mutating func moveModifiedToInitial()
-  @inline(__always) public mutating func storageAt(_ state: RecyclerView.ModelState) -> Model
-  @inline(__always) public mutating func setStorage(_ storage: Model, at state: RecyclerView.ModelState)
-  @inline(__always) public mutating func updateStorageAt(_ state: RecyclerView.ModelState, _ mutator: (inout Model) -> Swift.Void)
+extension UIKit.NSLayoutDimension {
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(equalTo anchor: UIKit.NSLayoutDimension, multiplier m: CoreFoundation.CGFloat = 1, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(greaterThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier m: CoreFoundation.CGFloat = 1, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(lessThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier m: CoreFoundation.CGFloat = 1, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(equalToConstant c: CoreFoundation.CGFloat, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(greaterThanOrEqualToConstant c: CoreFoundation.CGFloat, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(lessThanOrEqualToConstant c: CoreFoundation.CGFloat, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
+}
+extension UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public func shrinkToMinimumHeight(_ height: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority = .lowerThanFittingSizeLevel)
+  @_Concurrency.MainActor(unsafe) public func shrinkToMinimumWidth(_ width: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority = .lowerThanFittingSizeLevel)
+  @_Concurrency.MainActor(unsafe) public func shrinkToMinimumSize(_ size: CoreFoundation.CGSize = .zero, priority: UIKit.UILayoutPriority = .lowerThanFittingSizeLevel)
+}
+#if compiler(>=5.3) && $PrimaryAssociatedTypes2
+@_Concurrency.MainActor public protocol RecyclerViewDelegate<Payload> : AnyObject {
+  associatedtype Payload : Swift.Equatable
+  @_Concurrency.MainActor func willLayoutSubviews()
+  @_Concurrency.MainActor func didLayoutSubviews()
+}
+#else
+@_Concurrency.MainActor public protocol RecyclerViewDelegate : AnyObject {
+  associatedtype Payload : Swift.Equatable
+  @_Concurrency.MainActor func willLayoutSubviews()
+  @_Concurrency.MainActor func didLayoutSubviews()
 }
 #endif
-extension Swift.Array {
-  @inlinable @inline(__always) internal init(minimumCapacity: Swift.Int) {
-        self = .init()
-        reserveCapacity(minimumCapacity)
-    }
+extension RecyclerView.RecyclerViewDelegate {
+  @_Concurrency.MainActor public func willLayoutSubviews()
+  @_Concurrency.MainActor public func didLayoutSubviews()
 }
-@inlinable @inline(__always) internal func fitToScale(_ value: CoreFoundation.CGFloat, scale: CoreFoundation.CGFloat = 1) -> CoreFoundation.CGFloat {
-    let roundedValue = ceil(value * scale) / scale
-    return roundedValue
+#if compiler(>=5.3) && $PrimaryAssociatedTypes2
+@_Concurrency.MainActor public protocol RecyclerViewEngine<Payload> {
+  associatedtype Payload : Swift.Equatable
+  typealias Configuration = RecyclerView.CellConfiguration<Self.Payload>
+  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
+  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize { get }
+  @_Concurrency.MainActor func initialSetup(_ context: any RecyclerView.LayoutContext<Self.Payload>)
+  @_Concurrency.MainActor func reloadData()
+  @_Concurrency.MainActor func targetContentOffset(forProposedContentOffset proposedContentOffset: CoreFoundation.CGPoint, withScrollingVelocity velocity: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload?
+  @_Concurrency.MainActor func prepareLayoutSubviews()
+  @_Concurrency.MainActor func applyModifications(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor func beginLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor func preferredConfigurationForIndex(_ index: Swift.Int, with cellContext: any RecyclerView.CellContext, invalidationContext: any RecyclerView.InvalidationContext) -> Self.Configuration
+  @_Concurrency.MainActor func finaliseLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor func commitLayoutSubviews()
+  @_Concurrency.MainActor func indexesVisibleIn(_ rect: CoreFoundation.CGRect) -> [Swift.Int]
+  @_Concurrency.MainActor func configurationForIndex(_ index: Swift.Int) -> Self.Configuration
+  @_Concurrency.MainActor func initialConfigurationForAppearingIndex(_ index: Swift.Int) -> Self.Configuration?
+  @_Concurrency.MainActor func finalConfigurationDisappearingIndex(_ index: Swift.Int) -> Self.Configuration?
 }
-@_hasMissingDesignatedInitializers final public class ContinuousLayoutModel {
-  public typealias Element = RecyclerView.ContinuousElement
-  @inlinable @inline(__always) @_effects(readnone) internal static func fitToScale(_ value: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat {
-        let scale: CGFloat = 100 // Must stay 10 or bigger as it is important for text fitting.
-        let roundedValue = ceil(value * scale) / scale
-        return roundedValue
-    }
-  final public var contentHeight: CoreFoundation.CGFloat {
-    get
-  }
-  final public var exactSegment: RecyclerView.Segment {
-    get
-    set
-  }
-  public init()
-  @inline(__always) final public var count: Swift.Int {
-    get
-  }
-  @inline(__always) final public var isEmpty: Swift.Bool {
-    get
-  }
-  @inline(__always) final public var lastIndex: Swift.Int? {
-    get
-  }
-  @inline(__always) final public var firstIndex: Swift.Int? {
-    get
-  }
-  @inline(__always) final public var allIndexes: Swift.Range<Swift.Int> {
-    get
-  }
-  @inline(__always) final public var exactIndexes: Swift.Range<Swift.Int> {
-    get
-  }
-  final public func getExactElements() -> [RecyclerView.ContinuousLayoutModel.Element]
-  final public func getAllElements() -> [RecyclerView.ContinuousLayoutModel.Element]
-  final public subscript(index: Swift.Int) -> RecyclerView.ContinuousLayoutModel.Element {
-    get
-  }
-  final public func elementWithIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutModel.Element?
-  final public func lengthAtIndex(_ index: Swift.Int) -> CoreFoundation.CGFloat
-  final public func insert(_ length: CoreFoundation.CGFloat, at index: Swift.Int)
-  final public func remove(at index: Swift.Int)
-  final public func update(_ newLength: CoreFoundation.CGFloat, at index: Swift.Int)
-  final public func move(from fromIndex: Swift.Int, to index: Swift.Int)
-  final public func normaliseIfNeeded()
-  final public func removeAll()
-  final public func copy() -> RecyclerView.ContinuousLayoutModel
-  @objc deinit
+#else
+@_Concurrency.MainActor public protocol RecyclerViewEngine {
+  associatedtype Payload : Swift.Equatable
+  typealias Configuration = RecyclerView.CellConfiguration<Self.Payload>
+  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
+  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize { get }
+  @_Concurrency.MainActor func initialSetup(_ context: any RecyclerView.LayoutContext<Self.Payload>)
+  @_Concurrency.MainActor func reloadData()
+  @_Concurrency.MainActor func targetContentOffset(forProposedContentOffset proposedContentOffset: CoreFoundation.CGPoint, withScrollingVelocity velocity: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload?
+  @_Concurrency.MainActor func prepareLayoutSubviews()
+  @_Concurrency.MainActor func applyModifications(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor func beginLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor func preferredConfigurationForIndex(_ index: Swift.Int, with cellContext: any RecyclerView.CellContext, invalidationContext: any RecyclerView.InvalidationContext) -> Self.Configuration
+  @_Concurrency.MainActor func finaliseLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor func commitLayoutSubviews()
+  @_Concurrency.MainActor func indexesVisibleIn(_ rect: CoreFoundation.CGRect) -> [Swift.Int]
+  @_Concurrency.MainActor func configurationForIndex(_ index: Swift.Int) -> Self.Configuration
+  @_Concurrency.MainActor func initialConfigurationForAppearingIndex(_ index: Swift.Int) -> Self.Configuration?
+  @_Concurrency.MainActor func finalConfigurationDisappearingIndex(_ index: Swift.Int) -> Self.Configuration?
 }
-public struct EmptyPayload : Swift.Equatable {
-  public init()
-  public static func == (a: RecyclerView.EmptyPayload, b: RecyclerView.EmptyPayload) -> Swift.Bool
+#endif
+@frozen public enum ModelState : Swift.Hashable, Swift.CaseIterable {
+  case initial
+  case modified
+  public static func == (a: RecyclerView.ModelState, b: RecyclerView.ModelState) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public typealias AllCases = [RecyclerView.ModelState]
+  public static var allCases: [RecyclerView.ModelState] {
+    get
+  }
+  public var hashValue: Swift.Int {
+    get
+  }
 }
-public struct LayoutAttributes : Swift.Equatable {
+public struct ScrollViewParameters : Swift.Equatable {
+  public var contentSize: CoreFoundation.CGSize?
+  public var contentOffset: CoreFoundation.CGPoint?
+  @inline(__always) public init(contentSize: CoreFoundation.CGSize? = nil, contentOffset: CoreFoundation.CGPoint? = nil)
+  public static func == (a: RecyclerView.ScrollViewParameters, b: RecyclerView.ScrollViewParameters) -> Swift.Bool
+}
+public struct CellConfiguration<Payload> : Swift.Equatable where Payload : Swift.Equatable {
   public var frame: CoreFoundation.CGRect
   public var alpha: CoreFoundation.CGFloat
   public var zIndex: Swift.Int
   public var transform: CoreFoundation.CGAffineTransform
   public var isHidden: Swift.Bool
-  public static func == (a: RecyclerView.LayoutAttributes, b: RecyclerView.LayoutAttributes) -> Swift.Bool
+  public var payload: Payload
+  @inline(__always) public init(frame: CoreFoundation.CGRect, alpha: CoreFoundation.CGFloat = 1, zIndex: Swift.Int = 0, transform: CoreFoundation.CGAffineTransform = .identity, isHidden: Swift.Bool = false, payload: Payload)
+  public static func == (a: RecyclerView.CellConfiguration<Payload>, b: RecyclerView.CellConfiguration<Payload>) -> Swift.Bool
 }
-public struct CustomContextMenuConfiguration {
-  public enum AccessoryPosition {
-    case auto
-    case below
-    case above
-    public static func == (a: RecyclerView.CustomContextMenuConfiguration.AccessoryPosition, b: RecyclerView.CustomContextMenuConfiguration.AccessoryPosition) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  public init(previewProvider: UIKit.UIContextMenuContentPreviewProvider? = nil, actionProvider: UIKit.UIContextMenuActionProvider?, accessoryPosition: RecyclerView.CustomContextMenuConfiguration.AccessoryPosition = .auto, accessoryViewProvider: (() -> UIKit.UIView?)? = nil)
-}
-@_hasMissingDesignatedInitializers final public class CustomContextMenuInteractionTransitionCoordinator {
-  final public func animateAlongsideTransition(_ animation: (() -> Swift.Void)?, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @objc deinit
-}
-@_hasMissingDesignatedInitializers final public class CustomContextMenuInteractionCommitAnimatingCoordinator {
-  public enum CommitStyle {
-    case dismiss
-    case customPresentation
-    public static func == (a: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle, b: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  final public var preferredCommitStyle: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle
-  final public func animateAlongsideTransition(_ animation: (() -> Swift.Void)?, completion: ((Swift.Bool) -> Swift.Void)? = nil)
-  @objc deinit
-}
-@_Concurrency.MainActor public protocol CustomContextMenuInteractionSupportingView : UIKit.UIView {
-}
-@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class CustomContextMenuPointerSession {
-  public enum State : Swift.Hashable {
-    case possible
-    case began
-    case changed
-    case ended
-    case cancelled
-    case failed
-    public static func == (a: RecyclerView.CustomContextMenuPointerSession.State, b: RecyclerView.CustomContextMenuPointerSession.State) -> Swift.Bool
-    public func hash(into hasher: inout Swift.Hasher)
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  @_Concurrency.MainActor final public var state: RecyclerView.CustomContextMenuPointerSession.State {
+extension UIKit.UIEdgeInsets {
+  public var totalHorizontalInset: CoreFoundation.CGFloat {
     get
   }
-  @_Concurrency.MainActor final public func location(in view: UIKit.UIView?) -> CoreFoundation.CGPoint
-  @_Concurrency.MainActor final public func finalise()
+  public var totalVerticalInset: CoreFoundation.CGFloat {
+    get
+  }
+}
+@_Concurrency.MainActor public protocol ScrollViewSnapshot {
+  @_Concurrency.MainActor var size: CoreFoundation.CGSize { get }
+  @_Concurrency.MainActor var contentOffset: CoreFoundation.CGPoint { get }
+  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize { get }
+  @_Concurrency.MainActor var visibleRect: CoreFoundation.CGRect { get }
+  @_Concurrency.MainActor var renderingRect: CoreFoundation.CGRect { get }
+  @_Concurrency.MainActor var contentInset: UIKit.UIEdgeInsets { get }
+  @_Concurrency.MainActor var adjustedContentInset: UIKit.UIEdgeInsets { get }
+  @_Concurrency.MainActor var isScrollingToTop: Swift.Bool { get }
+  @_Concurrency.MainActor var isDragging: Swift.Bool { get }
+  @_Concurrency.MainActor var isDecelerating: Swift.Bool { get }
+}
+@_Concurrency.MainActor extension RecyclerView.ScrollViewSnapshot {
+  @inlinable @inline(__always) @_Concurrency.MainActor public var minContentOffset: CoreFoundation.CGPoint {
+    get {
+        let adjustedContentInset = adjustedContentInset
+        return CGPoint(x: 0 - adjustedContentInset.left,
+                       y: 0 - adjustedContentInset.top)
+    }
+  }
+  @inlinable @inline(__always) @_Concurrency.MainActor public var maxContentOffset: CoreFoundation.CGPoint {
+    get {
+        let minContentOffset = minContentOffset
+        let contentSize = contentSize
+        let size = size
+        let adjustedContentInset = adjustedContentInset
+        return CGPoint(x: max(minContentOffset.x, contentSize.height - size.height + adjustedContentInset.right),
+                       y: max(minContentOffset.y, contentSize.height - size.height + adjustedContentInset.bottom))
+    }
+  }
+  @inlinable @inline(__always) @_Concurrency.MainActor public var bounds: CoreFoundation.CGRect {
+    get {
+        CGRect(origin: contentOffset, size: size)
+    }
+  }
+}
+public struct RecyclerViewDragContext {
+  public let index: Swift.Int
+  public init(originalIndex: Swift.Int)
+}
+public struct RecyclerViewDropProposal {
+  public enum Intent : Swift.Hashable {
+    case unspecified
+    case insertAtDestination
+    case insertIntoDestination
+    public static func == (a: RecyclerView.RecyclerViewDropProposal.Intent, b: RecyclerView.RecyclerViewDropProposal.Intent) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var operation: UIKit.UIDropOperation
+  public var intent: RecyclerView.RecyclerViewDropProposal.Intent
+  public var proposedSize: CoreFoundation.CGSize?
+  public init(operation: UIKit.UIDropOperation, intent: RecyclerView.RecyclerViewDropProposal.Intent, proposedSize: CoreFoundation.CGSize?)
+}
+public struct DropInteractionItem {
+}
+final public class DropInteractionCoordinator {
+  final public let items: [RecyclerView.DropInteractionItem]
+  final public let destinationIndex: Swift.Int?
+  final public let session: any UIKit.UIDropSession
+  final public let dropProposal: RecyclerView.RecyclerViewDropProposal
+  public init(items: [RecyclerView.DropInteractionItem], destinationIndex: Swift.Int?, session: any UIKit.UIDropSession, dropProposal: RecyclerView.RecyclerViewDropProposal)
+  final public func drop(_ item: UIKit.UIDragItem, toItemAt: Swift.Int, rect: CoreFoundation.CGRect)
   @objc deinit
 }
-@_Concurrency.MainActor public protocol CustomContextMenuAccessoryView {
-  func handleCustomContextMenuPointerSession(_ session: RecyclerView.CustomContextMenuPointerSession)
+@_Concurrency.MainActor public protocol DropInteractionSupportingEngine : RecyclerView.RecyclerViewEngine {
+  @_Concurrency.MainActor func startDropSession(_ session: any UIKit.UIDropSession, dragContext: RecyclerView.RecyclerViewDragContext?)
+  @_Concurrency.MainActor func indexForDropAtLocation(_ dropSession: any UIKit.UIDropSession, at locationInView: CoreFoundation.CGPoint) -> Swift.Int?
+  @_Concurrency.MainActor func updateDropSession(_ session: any UIKit.UIDropSession, locationInView: CoreFoundation.CGPoint, proposal: RecyclerView.RecyclerViewDropProposal)
+  @_Concurrency.MainActor func performDrop(_ session: any UIKit.UIDropSession)
+  @_Concurrency.MainActor func finishDropSession(_ session: any UIKit.UIDropSession)
 }
-extension RecyclerView.CustomContextMenuAccessoryView {
-  @_Concurrency.MainActor public func handleCustomContextMenuPointerSession(_ session: RecyclerView.CustomContextMenuPointerSession)
+@_Concurrency.MainActor public protocol DropInteractionDelegate : AnyObject {
+  func dropSession(_ dropSession: any UIKit.UIDropSession, withDestinationIndex index: Swift.Int) -> RecyclerView.RecyclerViewDropProposal
+  func performDrop(_ coordinator: RecyclerView.DropInteractionCoordinator)
 }
-@_Concurrency.MainActor public protocol CustomContextMenuInteractionDelegate : AnyObject {
-  func configurationForCustomMenuAtIndex(_ index: Swift.Int) -> RecyclerView.CustomContextMenuConfiguration?
-  func interactionWillDisplayCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
-  func customContextMenuWillPerformPreviewActionWith(_ viewController: UIKit.UIViewController, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator?)
-  func interactionWillDismissCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
-  func customContextMenuHighlightPreviewForItemAt(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration) -> UIKit.UITargetedPreview?
-  func customContextMenuFinishedAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
-  func customContextMenuCancelledAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
-}
-extension RecyclerView.CustomContextMenuInteractionDelegate {
-  @_Concurrency.MainActor public func interactionWillDisplayCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
-  @_Concurrency.MainActor public func customContextMenuWillPerformPreviewActionWith(_ viewController: UIKit.UIViewController, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator?)
-  @_Concurrency.MainActor public func interactionWillDismissCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
-  @_Concurrency.MainActor public func customContextMenuHighlightPreviewForItemAt(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration) -> UIKit.UITargetedPreview?
-  @_Concurrency.MainActor public func customContextMenuFinishedAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
-  @_Concurrency.MainActor public func customContextMenuCancelledAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
-}
-@_Concurrency.MainActor final public class CustomContextMenuInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction where Engine : RecyclerView.RecyclerViewEngine {
-  @_Concurrency.MainActor weak final public var delegate: (any RecyclerView.CustomContextMenuInteractionDelegate)? {
-    get
-    set
-  }
-  @_Concurrency.MainActor final public let gestureRecogniser: RecyclerView.CustomMenuLongPressGestureRecogniser<Engine>
+@_Concurrency.MainActor(unsafe) final public class DropInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction, UIKit.UIDropInteractionDelegate where Engine : RecyclerView.DropInteractionSupportingEngine {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: (any RecyclerView.DropInteractionDelegate)?
   @_Concurrency.MainActor(unsafe) @objc final public var view: UIKit.UIView? {
     @objc get
   }
-  @_Concurrency.MainActor public init(engine: Engine, delegate: any RecyclerView.CustomContextMenuInteractionDelegate)
+  @_Concurrency.MainActor(unsafe) public init(engine: Engine, delegate: (any RecyclerView.DropInteractionDelegate)? = nil)
+  @_Concurrency.MainActor(unsafe) @objc final public func willMove(to view: UIKit.UIView?)
+  @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, canHandle session: any UIKit.UIDropSession) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidEnter session: any UIKit.UIDropSession)
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidUpdate session: any UIKit.UIDropSession) -> UIKit.UIDropProposal
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidExit session: any UIKit.UIDropSession)
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, performDrop session: any UIKit.UIDropSession)
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, item: UIKit.UIDragItem, willAnimateDropWith animator: any UIKit.UIDragAnimating)
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, concludeDrop session: any UIKit.UIDropSession)
+  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidEnd session: any UIKit.UIDropSession)
+  @objc deinit
+}
+public struct EmptyPayload : Swift.Equatable, Swift.Sendable {
+  public init()
+  public static func == (a: RecyclerView.EmptyPayload, b: RecyclerView.EmptyPayload) -> Swift.Bool
+}
+@_Concurrency.MainActor public protocol InteractiveMoveInteractionDelegate : AnyObject {
+  func interactiveMovementWillBeginAtIndex(_ index: Swift.Int)
+  func interactiveMovementUpdateMoveIndex(_ index: Swift.Int, to newIndex: Swift.Int)
+  func interactiveMovementCompleted()
+  func interactiveMovementCancelled()
+}
+extension RecyclerView.InteractiveMoveInteractionDelegate {
+  @_Concurrency.MainActor public func interactiveMovementWillBeginAtIndex(_ index: Swift.Int)
+  @_Concurrency.MainActor public func interactiveMovementCompleted()
+  @_Concurrency.MainActor public func interactiveMovementCancelled()
+}
+@_Concurrency.MainActor(unsafe) final public class InteractiveMoveInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction where Engine : RecyclerView.InteractiveReorderingSupportingEngine {
+  @_Concurrency.MainActor(unsafe) weak final public var delegate: (any RecyclerView.InteractiveMoveInteractionDelegate)? {
+    get
+    set
+  }
+  @_Concurrency.MainActor(unsafe) final public let longPressGestureRecogniser: RecyclerView.LongPressInteractiveMoveGestureRecogniser<Engine>
+  @_Concurrency.MainActor(unsafe) @objc final public var view: UIKit.UIView? {
+    @objc get
+  }
+  @_Concurrency.MainActor(unsafe) public init(engine: Engine, delegate: (any RecyclerView.InteractiveMoveInteractionDelegate)? = nil)
   @_Concurrency.MainActor(unsafe) @objc final public func willMove(to view: UIKit.UIView?)
   @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
   @objc deinit
 }
-extension Swift.BidirectionalCollection where Self.Element : Swift.Hashable {
-  @inlinable public func toModificationActions<C>(from other: C) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element {
-        let difference = difference(from: other).inferringMoves()
-        var actions = [ModificationActions]()
-        for update in difference {
-            switch update {
-            case let .remove(offset, _, move):
-                if let m = move {
-                    actions.append(.move(offset, to: m))
-                } else {
-                    actions.append(.delete(offset))
-                }
-            case let .insert(offset, _, move):
-                // If there's no move, it's a true insertion and not the result of a move.
-                if move == nil {
-                    actions.append(.insert(offset))
-                }
-            }
-        }
-        return actions
+public protocol ContentEquatable {
+  func isContentEqual(to source: Self) -> Swift.Bool
+}
+extension RecyclerView.ContentEquatable where Self : Swift.Equatable {
+  @inlinable public func isContentEqual(to source: Self) -> Swift.Bool {
+        self == source
     }
 }
-extension Swift.BidirectionalCollection where Self.Element : RecyclerView.ContentEquatable, Self.Element : RecyclerView.ContentIdentifiable {
-  @inlinable public func toModificationActions<C>(from other: C, forceReloads: Swift.Bool = false) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element {
-        let otherIdentifiers = other.map({
-            return $0.contentIdentifier
-        })
-        let currentIdentifiers: [Element.ID] = map({
-            return $0.contentIdentifier
-        })
-        let otherElementDict = other.enumerated().reduce(into: [Element.ID: (element: Element, index: Int)](minimumCapacity: other.count), { result, element in
-            return result[element.element.contentIdentifier] = (element: element.element, index: element.offset)
-        })
-
-        let moveActions = currentIdentifiers.toModificationActions(from: otherIdentifiers)
-
-        var changeActions: [ModificationActions] = []
-        for element in self {
-            guard let otherElement = otherElementDict[element.contentIdentifier],
-                  !element.isContentEqual(to: otherElement.element) else {
-                continue
-            }
-            if forceReloads {
-                changeActions.append(.reload(otherElement.index))
-            } else {
-                if element.contentIdentifier == otherElement.element.contentIdentifier {
-                    changeActions.append(.reconfigure(otherElement.index))
-                } else {
-                    changeActions.append(.reload(otherElement.index))
-                }
-            }
+extension Swift.Optional : RecyclerView.ContentEquatable where Wrapped : RecyclerView.ContentEquatable {
+  @inlinable public func isContentEqual(to source: Wrapped?) -> Swift.Bool {
+        switch (self, source) {
+        case let (lhs?, rhs?):
+            lhs.isContentEqual(to: rhs)
+        case (.none, .none):
+            true
+        case (.none, .some),
+             (.some, .none):
+            false
         }
-
-        return Array([changeActions, moveActions].joined())
     }
 }
-extension Swift.BidirectionalCollection where Self.Element : Swift.Hashable, Self.Element : Swift.Identifiable {
-  @inlinable public func toModificationActions<C>(from other: C, forceReloads: Swift.Bool = false) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element {
-        let otherIdentifiers = other.map({
-            return $0.id
-        })
-        let currentIdentifiers: [Element.ID] = map({
-            return $0.id
-        })
-        let otherElementDict = other.enumerated().reduce(into: [Element.ID: (element: Element, index: Int)](minimumCapacity: other.count), { result, element in
-            return result[element.element.id] = (element: element.element, index: element.offset)
-        })
-
-        let moveActions = currentIdentifiers.toModificationActions(from: otherIdentifiers)
-
-        var changeActions: [ModificationActions] = []
-        for element in self {
-            guard let otherElement = otherElementDict[element.id],
-                  element.hashValue != otherElement.element.hashValue else {
-                continue
-            }
-            if forceReloads {
-                changeActions.append(.reload(otherElement.index))
-            } else {
-                if element.id == otherElement.element.id {
-                    changeActions.append(.reconfigure(otherElement.index))
-                } else {
-                    changeActions.append(.reload(otherElement.index))
-                }
-            }
-        }
-
-        return Array([changeActions, moveActions].joined())
+extension Swift.Array : RecyclerView.ContentEquatable where Element : RecyclerView.ContentEquatable {
+  @inlinable public func isContentEqual(to source: [Element]) -> Swift.Bool {
+        count == source.count && zip(self, source).allSatisfy { $0.isContentEqual(to: $1) }
     }
 }
-extension Swift.BidirectionalCollection where Self.Element : Swift.Identifiable {
-  @inlinable public func toModificationActions<C>(from other: C, forceReloads: Swift.Bool = false) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element {
-        let otherIdentifiers = other.map({
-            return $0.id
-        })
-        let currentIdentifiers = map({
-            return $0.id
-        })
-
-        let moveActions = currentIdentifiers.toModificationActions(from: otherIdentifiers)
-        return Array([moveActions].joined())
+@_inheritsConvenienceInitializers @_Concurrency.MainActor open class RecyclerViewCell<Payload> : UIKit.UIView, RecyclerView.RecyclerViewCellEvenHandler where Payload : Swift.Equatable {
+  public struct ConfigurationState : UIKit.UIConfigurationState, Swift.Equatable {
+    public var traitCollection: UIKit.UITraitCollection
+    public var index: Swift.Int?
+    public var payload: Payload?
+    public init(traitCollection: UIKit.UITraitCollection)
+    public subscript(key: UIKit.UIConfigurationStateCustomKey) -> Swift.AnyHashable? {
+      get
+      set
     }
+    public static func == (a: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState, b: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState) -> Swift.Bool
+  }
+  @_Concurrency.MainActor public var contentView: UIKit.UIView {
+    get
+  }
+  @_Concurrency.MainActor public var configurationState: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState {
+    get
+  }
+  @_Concurrency.MainActor public var contentConfiguration: (any UIKit.UIContentConfiguration)? {
+    get
+    set
+  }
+  @_Concurrency.MainActor @objc override required dynamic public init(frame: CoreFoundation.CGRect)
+  @available(*, unavailable)
+  @_Concurrency.MainActor @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor @objc override dynamic open class var requiresConstraintBasedLayout: Swift.Bool {
+    @objc get
+  }
+  @_Concurrency.MainActor @objc override dynamic open func sizeThatFits(_ size: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor @objc override dynamic open var intrinsicContentSize: CoreFoundation.CGSize {
+    @objc get
+  }
+  @_Concurrency.MainActor @objc override dynamic open func systemLayoutSizeFitting(_ targetSize: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor @objc override dynamic open func systemLayoutSizeFitting(_ targetSize: CoreFoundation.CGSize, withHorizontalFittingPriority horizontalFittingPriority: UIKit.UILayoutPriority, verticalFittingPriority: UIKit.UILayoutPriority) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor @objc override dynamic open func layoutSubviews()
+  @_Concurrency.MainActor open func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
+  @_Concurrency.MainActor public func prepareForReuseAtIndex(_ index: Swift.Int)
+  @_Concurrency.MainActor public func prepareForDequeue()
+  @_Concurrency.MainActor public func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
+  @objc deinit
+}
+extension RecyclerView.RecyclerViewCell.ConfigurationState : Swift.Hashable where Payload : Swift.Hashable {
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension RecyclerView.RecyclerViewCell.ConfigurationState : @unchecked Swift.Sendable where Payload : Swift.Sendable {
+}
+extension RecyclerView.ContinuousLayoutEngine {
+  public struct PositionSnapshot : Swift.Hashable {
+    public enum Edge : Swift.Hashable {
+      case top
+      case bottom
+      public static func == (a: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge, b: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge) -> Swift.Bool
+      public func hash(into hasher: inout Swift.Hasher)
+      public var hashValue: Swift.Int {
+        get
+      }
+    }
+    public var index: Swift.Int
+    public var edge: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge
+    public var offset: CoreFoundation.CGFloat
+    @inline(__always) public init(index: Swift.Int, edge: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge, offset: CoreFoundation.CGFloat = 0)
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, b: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
 }
 public protocol RecyclerViewPayload {
   init()
@@ -482,15 +467,134 @@ extension SwiftUI.View {
   
   #endif
 }
-public struct ItemPositionConfiguration<Identifier> : Swift.Hashable where Identifier : Swift.Hashable {
-  public var identifier: Identifier
-  public var offset: CoreFoundation.CGFloat
-  public init(identifier: Identifier, offset: CoreFoundation.CGFloat)
+#if compiler(>=5.3) && $PrimaryAssociatedTypes2
+@_Concurrency.MainActor public protocol LayoutContext<Payload> {
+  associatedtype Payload : Swift.Equatable
+  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
+  @_Concurrency.MainActor var modificationContext: RecyclerView.ModificationContext { get }
+  @_Concurrency.MainActor var previousSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor var originalSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor var currentSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload
+  @_Concurrency.MainActor func setNeedsLayout()
+}
+#else
+@_Concurrency.MainActor public protocol LayoutContext {
+  associatedtype Payload : Swift.Equatable
+  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
+  @_Concurrency.MainActor var modificationContext: RecyclerView.ModificationContext { get }
+  @_Concurrency.MainActor var previousSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor var originalSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor var currentSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload
+  @_Concurrency.MainActor func setNeedsLayout()
+}
+#endif
+public struct ModificationContext : Swift.Sendable {
+  public struct MovingIndexPositions : Swift.Hashable, Swift.Sendable {
+    public var from: Swift.Int
+    public var to: Swift.Int
+    public func hash(into hasher: inout Swift.Hasher)
+    public static func == (a: RecyclerView.ModificationContext.MovingIndexPositions, b: RecyclerView.ModificationContext.MovingIndexPositions) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public let actions: [RecyclerView.ModificationActions]
+  public let insertedIndexes: Swift.Set<Swift.Int>
+  public let deletedIndexes: Swift.Set<Swift.Int>
+  public let reloadedIndexes: Swift.Set<Swift.Int>
+  public let reconfiguredIndexes: Swift.Set<Swift.Int>
+  public let movedIndexes: Swift.Set<RecyclerView.ModificationContext.MovingIndexPositions>
+  public let movedFromIndexes: Swift.Set<Swift.Int>
+  public let movedToIndexes: Swift.Set<Swift.Int>
+  public let numberOfCells: (previous: Swift.Int, current: Swift.Int)
+  @inline(__always) public func indexAfterUpdate(_ indexBeforeUpdate: Swift.Int) -> Swift.Int?
+  @inline(__always) public func indexBeforeUpdate(_ indexAfterUpdate: Swift.Int) -> Swift.Int?
+  @inline(__always) public var isEmpty: Swift.Bool {
+    get
+  }
+  @inline(__always) public static var empty: RecyclerView.ModificationContext {
+    get
+  }
+}
+@_Concurrency.MainActor public protocol InvalidationContext {
+  @_Concurrency.MainActor var originalSnapshot: any RecyclerView.ScrollViewSnapshot { get }
+  @_Concurrency.MainActor var processedIndexes: Swift.Set<Swift.Int> { get }
+  @_Concurrency.MainActor var existingIndexes: Swift.Set<Swift.Int> { get }
+  @_Concurrency.MainActor var affectedExistingIndexes: Swift.Set<Swift.Int> { get }
+  @_Concurrency.MainActor var modificationContext: RecyclerView.ModificationContext { get }
+  @_Concurrency.MainActor func updateScrollViewParameters(_ parameters: RecyclerView.ScrollViewParameters)
+  @_Concurrency.MainActor func setNeedsReprocessIndexes(_ indexes: Swift.Set<Swift.Int>)
+  @_Concurrency.MainActor func setNeedsRestartLayout()
+}
+public struct Segment : Swift.Hashable {
+  @inline(__always) public var origin: CoreFoundation.CGFloat
+  @inline(__always) public var length: CoreFoundation.CGFloat {
+    get
+    set
+  }
+  @inline(__always) @_effects(releasenone) public init(origin: CoreFoundation.CGFloat, length: CoreFoundation.CGFloat)
+  @inline(__always) public init(origin: Swift.Int, length: Swift.Int)
+  @inline(__always) public init(origin: CoreFoundation.CGFloat, length: Swift.Int)
+  @inline(__always) public init(origin: Swift.Int, length: CoreFoundation.CGFloat)
+  @inline(__always) public func contains(_ point: CoreFoundation.CGFloat) -> Swift.Bool
+  @inline(__always) public func containsWithin(_ point: CoreFoundation.CGFloat) -> Swift.Bool
+  @inline(__always) public func intersects(_ segment: RecyclerView.Segment) -> Swift.Bool
+  @inline(__always) public var isEmpty: Swift.Bool {
+    get
+  }
+  @inline(__always) public var min: CoreFoundation.CGFloat {
+    get
+  }
+  @inline(__always) public var mid: CoreFoundation.CGFloat {
+    get
+  }
+  @inline(__always) public var max: CoreFoundation.CGFloat {
+    get
+  }
   public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: RecyclerView.ItemPositionConfiguration<Identifier>, b: RecyclerView.ItemPositionConfiguration<Identifier>) -> Swift.Bool
+  public static func == (a: RecyclerView.Segment, b: RecyclerView.Segment) -> Swift.Bool
   public var hashValue: Swift.Int {
     get
   }
+}
+extension RecyclerView.Segment : Swift.CustomDebugStringConvertible {
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+public protocol TapSelectionStateSupporting : Swift.Sendable {
+  var selectionState: RecyclerView.TapSelectionState { get set }
+}
+public struct TapSelectionState : Swift.Hashable, Swift.Sendable {
+  public var isHighlighted: Swift.Bool
+  public var isSelected: Swift.Bool
+  public init(isHighlighted: Swift.Bool, isSelected: Swift.Bool)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RecyclerView.TapSelectionState, b: RecyclerView.TapSelectionState) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_Concurrency.MainActor public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewEngine where Self.Payload : RecyclerView.TapSelectionStateSupporting {
+  @_Concurrency.MainActor var highlightedIndexes: Swift.Set<Swift.Int> { get }
+  @_Concurrency.MainActor var selectedIndexes: Swift.Set<Swift.Int> { get }
+  @_Concurrency.MainActor func setSelectionState(_ selectionState: RecyclerView.TapSelectionState, to index: Swift.Int)
+}
+@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TapSelectionGestureRecogniser<Engine> : UIKit.UILongPressGestureRecognizer where Engine : RecyclerView.TapSelectionGestureSupportingEngine {
+  @_Concurrency.MainActor(unsafe) @objc override final public func ignore(_ touch: UIKit.UITouch, for event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func canPrevent(_ preventedGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func canBePrevented(by preventingGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldRequireFailure(of otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldBeRequiredToFail(by otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldReceive(_ event: UIKit.UIEvent) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func reset()
+  @objc deinit
 }
 @_Concurrency.MainActor public protocol SelectionInteractionDelegate : AnyObject {
   func shouldHighlightCellAtIndex(_ index: Swift.Int) -> Swift.Bool
@@ -528,646 +632,18 @@ extension RecyclerView.SelectionInteractionDelegate {
   @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
   @objc deinit
 }
-public protocol TapSelectionStateSupporting : Swift.Sendable {
-  var selectionState: RecyclerView.TapSelectionState { get set }
-}
-public struct TapSelectionState : Swift.Hashable, Swift.Sendable {
-  public var isHighlighted: Swift.Bool
-  public var isSelected: Swift.Bool
-  public init(isHighlighted: Swift.Bool, isSelected: Swift.Bool)
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: RecyclerView.TapSelectionState, b: RecyclerView.TapSelectionState) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-@_Concurrency.MainActor public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewEngine where Self.Payload : RecyclerView.TapSelectionStateSupporting {
-  @_Concurrency.MainActor var highlightedIndexes: Swift.Set<Swift.Int> { get }
-  @_Concurrency.MainActor var selectedIndexes: Swift.Set<Swift.Int> { get }
-  @_Concurrency.MainActor func setSelectionState(_ selectionState: RecyclerView.TapSelectionState, to index: Swift.Int)
-}
-@_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) final public class TapSelectionGestureRecogniser<Engine> : UIKit.UILongPressGestureRecognizer where Engine : RecyclerView.TapSelectionGestureSupportingEngine {
-  @_Concurrency.MainActor(unsafe) @objc override final public func ignore(_ touch: UIKit.UITouch, for event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func canPrevent(_ preventedGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func canBePrevented(by preventingGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldRequireFailure(of otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldBeRequiredToFail(by otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldReceive(_ event: UIKit.UIEvent) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func reset()
-  @objc deinit
-}
-extension CoreFoundation.CGRect {
-  @inlinable @inline(__always) internal init(center: CoreFoundation.CGPoint, size: CoreFoundation.CGSize) {
-        self = .init(origin: CGPoint(x: center.x - size.width / 2, y: center.y - size.height / 2), size: size)
-    }
-  @inlinable @inline(__always) internal var higherPoint: CoreFoundation.CGPoint {
-    get {
-        origin
-    }
-  }
-  @inlinable @inline(__always) internal var lowerPoint: CoreFoundation.CGPoint {
-    get {
-        CGPoint(x: origin.x + size.width, y: origin.y + size.height)
-    }
-  }
-  @inlinable @inline(__always) internal var center: CoreFoundation.CGPoint {
-    get {
-            CGPoint(x: origin.x + size.width / 2, y: origin.y + size.height / 2)
-        }
-    set {
-            self = CGRect(center: newValue, size: size)
-        }
-  }
-  @inlinable @inline(__always) internal mutating func offsettingBy(dx: CoreFoundation.CGFloat, dy: CoreFoundation.CGFloat) {
-        origin.x += dx
-        origin.y += dy
-    }
-  @inlinable @inline(__always) internal mutating func insettingBy(dx: CoreFoundation.CGFloat, dy: CoreFoundation.CGFloat) {
-        if dx != 0 {
-            origin.x += dx
-            size.width -= dx * 2
-        }
-        if dy != 0 {
-            origin.y += dy
-            size.height -= dy * 2
-        }
-    }
-}
-@_Concurrency.MainActor public protocol InvalidationContext {
-  @_Concurrency.MainActor var originalSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor var processedIndexes: Swift.Set<Swift.Int> { get }
-  @_Concurrency.MainActor var existingIndexes: Swift.Set<Swift.Int> { get }
-  @_Concurrency.MainActor var affectedExistingIndexes: Swift.Set<Swift.Int> { get }
-  @_Concurrency.MainActor var modificationContext: RecyclerView.ModificationContext { get }
-  @_Concurrency.MainActor func updateScrollViewParameters(_ parameters: RecyclerView.ScrollViewParameters)
-  @_Concurrency.MainActor func setNeedsReprocessIndexes(_ indexes: Swift.Set<Swift.Int>)
-  @_Concurrency.MainActor func setNeedsRestartLayout()
-}
-public typealias ContentDifferentiable = RecyclerView.ContentEquatable & RecyclerView.ContentIdentifiable
-#if compiler(>=5.3) && $PrimaryAssociatedTypes2
-@_Concurrency.MainActor public protocol RecyclerViewDelegate<Payload> : AnyObject {
-  associatedtype Payload : Swift.Equatable
-  @_Concurrency.MainActor func willLayoutSubviews()
-  @_Concurrency.MainActor func didLayoutSubviews()
-}
-#else
-@_Concurrency.MainActor public protocol RecyclerViewDelegate : AnyObject {
-  associatedtype Payload : Swift.Equatable
-  @_Concurrency.MainActor func willLayoutSubviews()
-  @_Concurrency.MainActor func didLayoutSubviews()
-}
-#endif
-extension RecyclerView.RecyclerViewDelegate {
-  @_Concurrency.MainActor public func willLayoutSubviews()
-  @_Concurrency.MainActor public func didLayoutSubviews()
-}
-extension UIKit.NSLayoutAnchor {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(equalTo anchor: UIKit.NSLayoutAnchor<AnchorType>, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(greaterThanOrEqualTo anchor: UIKit.NSLayoutAnchor<AnchorType>, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(lessThanOrEqualTo anchor: UIKit.NSLayoutAnchor<AnchorType>, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-}
-extension UIKit.NSLayoutDimension {
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(equalTo anchor: UIKit.NSLayoutDimension, multiplier m: CoreFoundation.CGFloat = 1, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(greaterThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier m: CoreFoundation.CGFloat = 1, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(lessThanOrEqualTo anchor: UIKit.NSLayoutDimension, multiplier m: CoreFoundation.CGFloat = 1, constant c: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(equalToConstant c: CoreFoundation.CGFloat, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(greaterThanOrEqualToConstant c: CoreFoundation.CGFloat, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-  @objc @_Concurrency.MainActor(unsafe) dynamic public func constraint(lessThanOrEqualToConstant c: CoreFoundation.CGFloat, priority: UIKit.UILayoutPriority) -> UIKit.NSLayoutConstraint
-}
-extension UIKit.UIView {
-  @_Concurrency.MainActor(unsafe) public func shrinkToMinimumHeight(_ height: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority = .lowerThanFittingSizeLevel)
-  @_Concurrency.MainActor(unsafe) public func shrinkToMinimumWidth(_ width: CoreFoundation.CGFloat = 0, priority: UIKit.UILayoutPriority = .lowerThanFittingSizeLevel)
-  @_Concurrency.MainActor(unsafe) public func shrinkToMinimumSize(_ size: CoreFoundation.CGSize = .zero, priority: UIKit.UILayoutPriority = .lowerThanFittingSizeLevel)
-}
-public enum ModificationActions : Swift.Hashable, Swift.Sendable {
-  case insert(Swift.Int)
-  case reload(Swift.Int)
-  case reconfigure(Swift.Int)
-  case delete(Swift.Int)
-  case move(Swift.Int, to: Swift.Int)
-  public var isInsert: Swift.Bool {
-    get
-  }
-  public var isDelete: Swift.Bool {
-    get
-  }
-  public var isReconfigure: Swift.Bool {
-    get
-  }
-  public var isReload: Swift.Bool {
-    get
-  }
-  public var isMove: Swift.Bool {
-    get
-  }
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: RecyclerView.ModificationActions, b: RecyclerView.ModificationActions) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public struct CellConfiguration<Payload> : Swift.Equatable where Payload : Swift.Equatable {
-  public var frame: CoreFoundation.CGRect
-  public var alpha: CoreFoundation.CGFloat
-  public var zIndex: Swift.Int
-  public var transform: CoreFoundation.CGAffineTransform
-  public var isHidden: Swift.Bool
-  public var payload: Payload
-  @inline(__always) public init(frame: CoreFoundation.CGRect, alpha: CoreFoundation.CGFloat = 1, zIndex: Swift.Int = 0, transform: CoreFoundation.CGAffineTransform = .identity, isHidden: Swift.Bool = false, payload: Payload)
-  public static func == (a: RecyclerView.CellConfiguration<Payload>, b: RecyclerView.CellConfiguration<Payload>) -> Swift.Bool
-}
-extension UIKit.UIEdgeInsets {
-  public var totalHorizontalInset: CoreFoundation.CGFloat {
-    get
-  }
-  public var totalVerticalInset: CoreFoundation.CGFloat {
-    get
-  }
-}
-extension Swift.RandomAccessCollection where Self.Index == Swift.Int {
-  @inlinable @inline(__always) internal func binarySearch(predicate: (Self.Element) -> Foundation.ComparisonResult) -> Self.Index? {
-        var lowerBound = startIndex
-        var upperBound = endIndex
-
-        while lowerBound < upperBound {
-            let midIndex = lowerBound &+ (upperBound &- lowerBound) / 2
-            let result = predicate(self[midIndex])
-            if result == .orderedSame {
-                return midIndex
-            } else if result == .orderedAscending {
-                lowerBound = midIndex &+ 1
-            } else {
-                upperBound = midIndex
-            }
-        }
-        return nil
-    }
-  @inlinable @inline(__always) internal func binarySearchRange(predicate: (Self.Element) -> Foundation.ComparisonResult) -> [Self.Element] {
-        @inline(__always)
-        func leftMostSearch(lowerBound: Index, upperBound: Index) -> Index? {
-            var lowerBound = lowerBound
-            var upperBound = upperBound
-
-            while lowerBound < upperBound {
-                let midIndex = (lowerBound &+ upperBound) / 2
-                if predicate(self[midIndex]) == .orderedAscending {
-                    lowerBound = midIndex &+ 1
-                } else {
-                    upperBound = midIndex
-                }
-            }
-            if predicate(self[lowerBound]) == .orderedSame {
-                return lowerBound
-            } else {
-                return nil
-            }
-        }
-
-        @inline(__always)
-        func rightMostSearch(lowerBound: Index, upperBound: Index) -> Index? {
-            var lowerBound = lowerBound
-            var upperBound = upperBound
-
-            while lowerBound < upperBound {
-                let midIndex = (lowerBound &+ upperBound &+ 1) / 2
-                if predicate(self[midIndex]) == .orderedDescending {
-                    upperBound = midIndex &- 1
-                } else {
-                    lowerBound = midIndex
-                }
-            }
-            if predicate(self[lowerBound]) == .orderedSame {
-                return lowerBound
-            } else {
-                return nil
-            }
-        }
-
-        guard !isEmpty,
-              let lowerBound = leftMostSearch(lowerBound: startIndex, upperBound: endIndex - 1),
-              let upperBound = rightMostSearch(lowerBound: startIndex, upperBound: endIndex - 1) else {
-            return []
-        }
-
-        return Array(self[lowerBound...upperBound])
-    }
-  @inlinable @inline(__always) internal func binarySearchGreater(predicate: (Self.Element) -> Foundation.ComparisonResult) -> Self.Index? {
-        var lowerBound = startIndex
-        var upperBound = endIndex
-
-        var resultIndex: Index?
-
-        while lowerBound <= upperBound {
-            let midIndex = (upperBound &+ lowerBound) / 2
-            guard midIndex < count else {
-                break
-            }
-            let result = predicate(self[midIndex])
-            if result == .orderedSame || result == .orderedAscending {
-                lowerBound = midIndex &+ 1
-            } else {
-                resultIndex = midIndex
-                upperBound = midIndex &- 1
-            }
-        }
-        return resultIndex
-    }
-  @inlinable @inline(__always) internal func binarySearchSmaller(predicate: (Self.Element) -> Foundation.ComparisonResult) -> Self.Index? {
-        var lowerBound = startIndex
-        var upperBound = endIndex
-
-        var resultIndex: Index?
-
-        while lowerBound <= upperBound {
-            let midIndex = (upperBound &+ lowerBound) / 2
-            guard midIndex < count else {
-                break
-            }
-            let result = predicate(self[midIndex])
-            if result == .orderedSame || result == .orderedDescending {
-                upperBound = midIndex &- 1
-            } else {
-                resultIndex = midIndex
-                lowerBound = midIndex &+ 1
-            }
-        }
-        return resultIndex
-    }
-}
-extension Swift.RandomAccessCollection where Self.Element : Swift.Comparable, Self.Index == Swift.Int {
-  @inlinable @inline(__always) internal func binarySearchSmaller(target: Self.Element) -> Self.Index? {
-        let predicate: (Element) -> ComparisonResult = { element in
-            if element < target {
-                return .orderedAscending
-            } else if element > target {
-                return .orderedDescending
-            } else {
-                return .orderedSame
-            }
-        }
-
-        return binarySearchSmaller(predicate: predicate)
-    }
-  @inlinable @inline(__always) internal func binarySearchGreater(target: Self.Element) -> Self.Index? {
-        let predicate: (Element) -> ComparisonResult = { element in
-            if element < target {
-                return .orderedAscending
-            } else if element > target {
-                return .orderedDescending
-            } else {
-                return .orderedSame
-            }
-        }
-
-        return binarySearchGreater(predicate: predicate)
-    }
-}
-@_Concurrency.MainActor public protocol ScrollViewSnapshot {
-  @_Concurrency.MainActor var size: CoreFoundation.CGSize { get }
-  @_Concurrency.MainActor var contentOffset: CoreFoundation.CGPoint { get }
-  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize { get }
-  @_Concurrency.MainActor var visibleRect: CoreFoundation.CGRect { get }
-  @_Concurrency.MainActor var renderingRect: CoreFoundation.CGRect { get }
-  @_Concurrency.MainActor var contentInset: UIKit.UIEdgeInsets { get }
-  @_Concurrency.MainActor var adjustedContentInset: UIKit.UIEdgeInsets { get }
-  @_Concurrency.MainActor var isScrollingToTop: Swift.Bool { get }
-  @_Concurrency.MainActor var isDragging: Swift.Bool { get }
-  @_Concurrency.MainActor var isDecelerating: Swift.Bool { get }
-}
-@_Concurrency.MainActor extension RecyclerView.ScrollViewSnapshot {
-  @inlinable @inline(__always) @_Concurrency.MainActor public var minContentOffset: CoreFoundation.CGPoint {
-    get {
-        let adjustedContentInset = adjustedContentInset
-        return CGPoint(x: 0 - adjustedContentInset.left,
-                       y: 0 - adjustedContentInset.top)
-    }
-  }
-  @inlinable @inline(__always) @_Concurrency.MainActor public var maxContentOffset: CoreFoundation.CGPoint {
-    get {
-        let minContentOffset = minContentOffset
-        let contentSize = contentSize
-        let size = size
-        let adjustedContentInset = adjustedContentInset
-        return CGPoint(x: max(minContentOffset.x, contentSize.height - size.height + adjustedContentInset.right),
-                       y: max(minContentOffset.y, contentSize.height - size.height + adjustedContentInset.bottom))
-    }
-  }
-  @inlinable @inline(__always) @_Concurrency.MainActor public var bounds: CoreFoundation.CGRect {
-    get {
-        return CGRect(origin: contentOffset, size: size)
-    }
-  }
-}
-public protocol InteractivelyMovingItemSupporting {
-  var isInteractiveMovingPossible: Swift.Bool { get set }
-  var isInteractiveMovingEnabled: Swift.Bool { get set }
-}
-final public class InteractivelyMovingItemSession {
-  final public var index: Swift.Int
-  final public var originalIndex: Swift.Int
-  final public var inItemOffset: CoreFoundation.CGPoint
-  unowned final public var gestureRecogniser: UIKit.UIGestureRecognizer {
-    get
-  }
-  public init(index: Swift.Int, inItemOffset: CoreFoundation.CGPoint, originalIndex: Swift.Int, gestureRecogniser: UIKit.UIGestureRecognizer)
-  @objc deinit
-}
-@_Concurrency.MainActor public protocol InteractiveReorderingSupportingEngine : RecyclerView.RecyclerViewEngine {
-  @_Concurrency.MainActor func isInteractiveReorderingSessionPossible() -> Swift.Bool
-  @_Concurrency.MainActor func startInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
-  @_Concurrency.MainActor func finalizeInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
-  @_Concurrency.MainActor func cancelInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
-}
-@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class LongPressInteractiveMoveGestureRecogniser<Engine> : UIKit.UILongPressGestureRecognizer where Engine : RecyclerView.InteractiveReorderingSupportingEngine {
-  @_Concurrency.MainActor(unsafe) public init(engine: Engine)
-  @available(*, unavailable)
-  @_Concurrency.MainActor(unsafe) @objc override required dynamic public init(target: Any?, action: ObjectiveC.Selector?)
-  @_Concurrency.MainActor(unsafe) @objc override final public func ignore(_ touch: UIKit.UITouch, for event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func canPrevent(_ preventedGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func canBePrevented(by preventingGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldRequireFailure(of otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldBeRequiredToFail(by otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldReceive(_ event: UIKit.UIEvent) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEstimatedPropertiesUpdated(_ touches: Swift.Set<UIKit.UITouch>)
-  @_Concurrency.MainActor(unsafe) @objc override final public func reset()
-  @objc deinit
-}
-#if compiler(>=5.3) && $PrimaryAssociatedTypes2
-public protocol RecyclerViewContent<Cell, Element, Data> {
-  associatedtype Cell : SwiftUI.View
-  associatedtype Element : Swift.Identifiable where Self.Element == Self.Data.Element
-  associatedtype Data : Swift.RandomAccessCollection
-  var data: Self.Data { get }
-  func cellAtIndex(_ index: Swift.Int) -> Self.Cell
-}
-#else
-public protocol RecyclerViewContent {
-  associatedtype Cell : SwiftUI.View
-  associatedtype Element : Swift.Identifiable where Self.Element == Self.Data.Element
-  associatedtype Data : Swift.RandomAccessCollection
-  var data: Self.Data { get }
-  func cellAtIndex(_ index: Swift.Int) -> Self.Cell
-}
-#endif
-extension SwiftUI.View {
-  @inlinable internal func then(_ body: (inout Self) -> Swift.Void) -> Self {
-        var result = self
-
-        body(&result)
-
-        return result
-    }
-}
-extension CoreFoundation.CGPoint {
-  @inlinable @inline(__always) internal mutating func offsettingBy(dx: CoreFoundation.CGFloat, dy: CoreFoundation.CGFloat) {
-        self = offsetBy(dx: dx, dy: dy)
-    }
-  @inlinable @inline(__always) internal func offsetBy(dx: CoreFoundation.CGFloat, dy: CoreFoundation.CGFloat) -> CoreFoundation.CGPoint {
-        return CGPoint(x: x + dx, y: y + dy)
-    }
-  @inlinable @inline(__always) internal func offsetBy(_ point: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint {
-        return offsetBy(dx: point.x, dy: point.y)
-    }
-  @inlinable @inline(__always) internal func distanceSquared(to point: CoreFoundation.CGPoint) -> CoreFoundation.CGFloat {
-        return (x - point.x) * (x - point.x) + (y - point.y) * (y - point.y)
-    }
-  @inlinable @inline(__always) internal func distance(to point: CoreFoundation.CGPoint) -> CoreFoundation.CGFloat {
-        return sqrt(distanceSquared(to: point))
-    }
-}
-@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class CustomMenuLongPressGestureRecogniser<Engine> : UIKit.UILongPressGestureRecognizer where Engine : RecyclerView.RecyclerViewEngine {
-  @_Concurrency.MainActor(unsafe) public init(engine: Engine)
-  @available(*, unavailable)
-  @_Concurrency.MainActor(unsafe) @objc override required dynamic public init(target: Any?, action: ObjectiveC.Selector?)
-  @_Concurrency.MainActor(unsafe) @objc override final public func ignore(_ touch: UIKit.UITouch, for event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func canPrevent(_ preventedGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func canBePrevented(by preventingGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldRequireFailure(of otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldBeRequiredToFail(by otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func shouldReceive(_ event: UIKit.UIEvent) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
-  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEstimatedPropertiesUpdated(_ touches: Swift.Set<UIKit.UITouch>)
-  @_Concurrency.MainActor(unsafe) @objc override final public func reset()
-  @objc deinit
-}
-#if compiler(>=5.3) && $PrimaryAssociatedTypes2
-@_Concurrency.MainActor public protocol LayoutContext<Payload> {
-  associatedtype Payload : Swift.Equatable
-  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
-  @_Concurrency.MainActor var modificationContext: RecyclerView.ModificationContext { get }
-  @_Concurrency.MainActor var previousSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor var originalSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor var currentSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload
-  @_Concurrency.MainActor func setNeedsLayout()
-}
-#else
-@_Concurrency.MainActor public protocol LayoutContext {
-  associatedtype Payload : Swift.Equatable
-  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
-  @_Concurrency.MainActor var modificationContext: RecyclerView.ModificationContext { get }
-  @_Concurrency.MainActor var previousSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor var originalSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor var currentSnapshot: any RecyclerView.ScrollViewSnapshot { get }
-  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload
-  @_Concurrency.MainActor func setNeedsLayout()
-}
-#endif
-extension RecyclerView.ContinuousLayoutEngine {
-  public struct PositionSnapshot : Swift.Hashable {
-    public enum Edge : Swift.Hashable {
-      case top
-      case bottom
-      public static func == (a: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge, b: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge) -> Swift.Bool
-      public func hash(into hasher: inout Swift.Hasher)
-      public var hashValue: Swift.Int {
-        get
-      }
-    }
-    public var index: Swift.Int
-    public var edge: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge
-    public var offset: CoreFoundation.CGFloat
-    @inline(__always) public init(index: Swift.Int, edge: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge, offset: CoreFoundation.CGFloat = 0)
-    public func hash(into hasher: inout Swift.Hasher)
-    public static func == (a: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, b: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot) -> Swift.Bool
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-}
-public struct ContinuousLayoutEngineSpacing : Swift.Hashable, Swift.Sendable {
-  public var leading: CoreFoundation.CGFloat
-  public var trailing: CoreFoundation.CGFloat
-  public var total: CoreFoundation.CGFloat {
-    get
-  }
-  public init(leading: CoreFoundation.CGFloat = 0, trailing: CoreFoundation.CGFloat = 0)
-  public static let zero: RecyclerView.ContinuousLayoutEngineSpacing
-  public func hash(into hasher: inout Swift.Hasher)
-  public static func == (a: RecyclerView.ContinuousLayoutEngineSpacing, b: RecyclerView.ContinuousLayoutEngineSpacing) -> Swift.Bool
-  public var hashValue: Swift.Int {
-    get
-  }
-}
-public protocol ContinuousLayoutEngineSupporting {
-  var isPinned: Swift.Bool { get }
-  var spacing: RecyclerView.ContinuousLayoutEngineSpacing { get }
-}
-@_Concurrency.MainActor public protocol ContinuousLayoutEngineDelegate : AnyObject {
-  @_Concurrency.MainActor func heightForView(_ view: UIKit.UIView, with index: Swift.Int, width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat?
-  @_Concurrency.MainActor func estimatedHeightForIndex(_ index: Swift.Int) -> CoreFoundation.CGFloat?
-}
-extension RecyclerView.ContinuousLayoutEngineDelegate {
-  @_Concurrency.MainActor public func heightForView(_ view: UIKit.UIView, with index: Swift.Int, width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat?
-  @_Concurrency.MainActor public func estimatedHeightForIndex(_ index: Swift.Int) -> CoreFoundation.CGFloat?
-}
-public struct ContinuousLayoutEngineSettings : Swift.Equatable {
-  public var additionalInsets: UIKit.UIEdgeInsets
-  public var estimatedRowHeight: CoreFoundation.CGFloat
-  public static func == (a: RecyclerView.ContinuousLayoutEngineSettings, b: RecyclerView.ContinuousLayoutEngineSettings) -> Swift.Bool
-}
-extension RecyclerView.EmptyPayload : RecyclerView.ContinuousLayoutEngineSupporting {
-  public var isPinned: Swift.Bool {
-    get
-  }
-  public var spacing: RecyclerView.ContinuousLayoutEngineSpacing {
-    get
-  }
-}
-extension RecyclerView.ContinuousLayoutEngine where Payload == RecyclerView.EmptyPayload {
-  @_Concurrency.MainActor convenience public init()
-}
-@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class ContinuousLayoutEngine<Payload> : RecyclerView.RecyclerViewEngine where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable {
-  public typealias Payload = Payload
-  @_Concurrency.MainActor weak final public var delegate: (any RecyclerView.ContinuousLayoutEngineDelegate)?
-  @_Concurrency.MainActor final public var contentSize: CoreFoundation.CGSize {
-    get
-  }
-  @_Concurrency.MainActor final public var settings: RecyclerView.ContinuousLayoutEngineSettings {
-    get
-    set
-  }
-  @_Concurrency.MainActor final public var enableOppositeAnchor: Swift.Bool
-  @_Concurrency.MainActor final public var numberOfCells: Swift.Int {
-    get
-  }
-  @_Concurrency.MainActor public init()
-  @_Concurrency.MainActor final public func initialSetup(_ context: any RecyclerView.LayoutContext<Payload>)
-  @_Concurrency.MainActor final public func targetContentOffset(forProposedContentOffset proposedContentOffset: CoreFoundation.CGPoint, withScrollingVelocity velocity: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
-  @_Concurrency.MainActor final public func payloadForIndex(_ index: Swift.Int) -> Payload?
-  @_Concurrency.MainActor final public func reloadData()
-  @_Concurrency.MainActor final public func prepareLayoutSubviews()
-  @_Concurrency.MainActor final public func commitLayoutSubviews()
-  @_Concurrency.MainActor final public func beginLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor final public func finaliseLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor final public func indexesVisibleIn(_ rect: CoreFoundation.CGRect) -> [Swift.Int]
-  @_Concurrency.MainActor final public func configurationForIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration
-  @_Concurrency.MainActor final public func preferredConfigurationForIndex(_ index: Swift.Int, with cellContext: any RecyclerView.CellContext, invalidationContext: any RecyclerView.InvalidationContext) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration
-  @_Concurrency.MainActor final public func applyModifications(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor final public func initialConfigurationForAppearingIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration?
-  @_Concurrency.MainActor final public func finalConfigurationDisappearingIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration?
-  @objc deinit
-}
-@_Concurrency.MainActor extension RecyclerView.ContinuousLayoutEngine : RecyclerView.TapSelectionGestureSupportingEngine where Payload : RecyclerView.TapSelectionStateSupporting {
-  @_Concurrency.MainActor final public var highlightedIndexes: Swift.Set<Swift.Int> {
-    get
-  }
-  @_Concurrency.MainActor final public var selectedIndexes: Swift.Set<Swift.Int> {
-    get
-  }
-  @_Concurrency.MainActor final public func setSelectionState(_ selectionState: RecyclerView.TapSelectionState, to index: Swift.Int)
-}
-extension RecyclerView.ContinuousLayoutEngine : RecyclerView.InteractiveReorderingSupportingEngine where Payload : RecyclerView.InteractivelyMovingItemSupporting {
-  @_Concurrency.MainActor final public func isInteractiveReorderingSessionPossible() -> Swift.Bool
-  @_Concurrency.MainActor final public func startInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
-  @_Concurrency.MainActor final public func finalizeInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
-  @_Concurrency.MainActor final public func cancelInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
-}
-extension RecyclerView.ContinuousLayoutEngine : RecyclerView.DropInteractionSupportingEngine {
-  @_Concurrency.MainActor final public func indexForDropAtLocation(_ dropSession: any UIKit.UIDropSession, at locationInView: CoreFoundation.CGPoint) -> Swift.Int?
-  @_Concurrency.MainActor final public func startDropSession(_ session: any UIKit.UIDropSession, dragContext: RecyclerView.RecyclerViewDragContext?)
-  @_Concurrency.MainActor final public func updateDropSession(_ session: any UIKit.UIDropSession, locationInView: CoreFoundation.CGPoint, proposal: RecyclerView.RecyclerViewDropProposal)
-  @_Concurrency.MainActor final public func performDrop(_ session: any UIKit.UIDropSession)
-  @_Concurrency.MainActor final public func finishDropSession(_ session: any UIKit.UIDropSession)
-}
-extension RecyclerView.ContinuousLayoutEngine : RecyclerView.PositionSnapshotSupportingEngine {
-  @_Concurrency.MainActor final public func getPositionSnapshot(from edge: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot) -> RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot?
-  @_Concurrency.MainActor final public func getOffsetForPositionSnapshot(_ positionSnapshot: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot) -> CoreFoundation.CGPoint
-  @_Concurrency.MainActor final public func prepareLayoutWithPositionSnapshot(positionSnapshot: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
-  @_Concurrency.MainActor final public func commitLayoutSubviewsWithPositionSnapshot(positionSnapshot: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
-  public typealias Edge = RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge
-}
-#if compiler(>=5.3) && $PrimaryAssociatedTypes2
-@_Concurrency.MainActor public protocol RecyclerViewEngine<Payload> {
-  associatedtype Payload : Swift.Equatable
-  typealias Configuration = RecyclerView.CellConfiguration<Self.Payload>
-  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
-  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize { get }
-  @_Concurrency.MainActor func initialSetup(_ context: any RecyclerView.LayoutContext<Self.Payload>)
-  @_Concurrency.MainActor func reloadData()
-  @_Concurrency.MainActor func targetContentOffset(forProposedContentOffset proposedContentOffset: CoreFoundation.CGPoint, withScrollingVelocity velocity: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
-  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload?
-  @_Concurrency.MainActor func prepareLayoutSubviews()
-  @_Concurrency.MainActor func applyModifications(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor func beginLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor func preferredConfigurationForIndex(_ index: Swift.Int, with cellContext: any RecyclerView.CellContext, invalidationContext: any RecyclerView.InvalidationContext) -> Self.Configuration
-  @_Concurrency.MainActor func finaliseLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor func commitLayoutSubviews()
-  @_Concurrency.MainActor func indexesVisibleIn(_ rect: CoreFoundation.CGRect) -> [Swift.Int]
-  @_Concurrency.MainActor func configurationForIndex(_ index: Swift.Int) -> Self.Configuration
-  @_Concurrency.MainActor func initialConfigurationForAppearingIndex(_ index: Swift.Int) -> Self.Configuration?
-  @_Concurrency.MainActor func finalConfigurationDisappearingIndex(_ index: Swift.Int) -> Self.Configuration?
-}
-#else
-@_Concurrency.MainActor public protocol RecyclerViewEngine {
-  associatedtype Payload : Swift.Equatable
-  typealias Configuration = RecyclerView.CellConfiguration<Self.Payload>
-  @_Concurrency.MainActor var numberOfCells: Swift.Int { get }
-  @_Concurrency.MainActor var contentSize: CoreFoundation.CGSize { get }
-  @_Concurrency.MainActor func initialSetup(_ context: any RecyclerView.LayoutContext<Self.Payload>)
-  @_Concurrency.MainActor func reloadData()
-  @_Concurrency.MainActor func targetContentOffset(forProposedContentOffset proposedContentOffset: CoreFoundation.CGPoint, withScrollingVelocity velocity: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
-  @_Concurrency.MainActor func payloadForIndex(_ index: Swift.Int) -> Self.Payload?
-  @_Concurrency.MainActor func prepareLayoutSubviews()
-  @_Concurrency.MainActor func applyModifications(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor func beginLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor func preferredConfigurationForIndex(_ index: Swift.Int, with cellContext: any RecyclerView.CellContext, invalidationContext: any RecyclerView.InvalidationContext) -> Self.Configuration
-  @_Concurrency.MainActor func finaliseLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
-  @_Concurrency.MainActor func commitLayoutSubviews()
-  @_Concurrency.MainActor func indexesVisibleIn(_ rect: CoreFoundation.CGRect) -> [Swift.Int]
-  @_Concurrency.MainActor func configurationForIndex(_ index: Swift.Int) -> Self.Configuration
-  @_Concurrency.MainActor func initialConfigurationForAppearingIndex(_ index: Swift.Int) -> Self.Configuration?
-  @_Concurrency.MainActor func finalConfigurationDisappearingIndex(_ index: Swift.Int) -> Self.Configuration?
-}
-#endif
-@_Concurrency.MainActor public protocol RecyclerViewCellEvenHandler : UIKit.UIView {
-  @_Concurrency.MainActor func prepareForReuseAtIndex(_ index: Swift.Int)
-  @_Concurrency.MainActor func prepareForDequeue()
-  @_Concurrency.MainActor func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
-  @_Concurrency.MainActor func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
-}
-extension RecyclerView.RecyclerViewCellEvenHandler {
-  @_Concurrency.MainActor public func prepareForReuseAtIndex(_ index: Swift.Int)
-  @_Concurrency.MainActor public func prepareForDequeue()
-  @_Concurrency.MainActor public func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
-  @_Concurrency.MainActor public func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
-}
 public enum RecyclerViewContainerState {
   case processing(RecyclerView.RecyclerCellState, container: any RecyclerView.ScrollViewSnapshot)
   case final(RecyclerView.RecyclerCellState, container: any RecyclerView.ScrollViewSnapshot)
-  public var isFinal: Swift.Bool {
-    get
+  @inlinable public var isFinal: Swift.Bool {
+    get {
+        switch self {
+        case .processing:
+            false
+        case .final:
+            true
+        }
+    }
   }
 }
 public enum RecyclerCellState : Swift.Hashable {
@@ -1187,92 +663,6 @@ public enum RecyclerCellState : Swift.Hashable {
   @_Concurrency.MainActor func getOffsetForPositionSnapshot(_ positionSnapshot: Self.PositionSnapshot, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot) -> CoreFoundation.CGPoint
   @_Concurrency.MainActor func prepareLayoutWithPositionSnapshot(positionSnapshot: Self.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
   @_Concurrency.MainActor func commitLayoutSubviewsWithPositionSnapshot(positionSnapshot: Self.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
-}
-public struct ContextMenuConfiguration {
-  public init(previewProvider: UIKit.UIContextMenuContentPreviewProvider? = nil, actionProvider: UIKit.UIContextMenuActionProvider?)
-}
-@_Concurrency.MainActor public protocol ContextMenuInteractionDelegate : AnyObject {
-  func contextMenuConfigurationForCellsAt(_ indexes: Swift.Set<Swift.Int>, atLocation location: CoreFoundation.CGPoint) -> RecyclerView.ContextMenuConfiguration?
-  func contextMenuHighlightPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
-  func contextMenuDismissalPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
-  func contextMenuWillPerformPreviewAction(_ configuration: RecyclerView.ContextMenuConfiguration, animator: any UIKit.UIContextMenuInteractionCommitAnimating)
-  func contextMenuWillDisplay(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
-  func contextMenuWillEnd(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
-}
-extension RecyclerView.ContextMenuInteractionDelegate {
-  @_Concurrency.MainActor public func contextMenuHighlightPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
-  @_Concurrency.MainActor public func contextMenuDismissalPreview(_ configuration: RecyclerView.ContextMenuConfiguration, for index: Swift.Int) -> UIKit.UITargetedPreview?
-  @_Concurrency.MainActor public func contextMenuWillPerformPreviewAction(_ configuration: RecyclerView.ContextMenuConfiguration, animator: any UIKit.UIContextMenuInteractionCommitAnimating)
-  @_Concurrency.MainActor public func contextMenuWillDisplay(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
-  @_Concurrency.MainActor public func contextMenuWillEnd(_ configuration: RecyclerView.ContextMenuConfiguration, animator: (any UIKit.UIContextMenuInteractionAnimating)?)
-}
-@_Concurrency.MainActor final public class ContextMenuInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction where Engine : RecyclerView.RecyclerViewEngine {
-  @_Concurrency.MainActor weak final public var delegate: (any RecyclerView.ContextMenuInteractionDelegate)? {
-    get
-    set
-  }
-  @_Concurrency.MainActor(unsafe) @objc final public var view: UIKit.UIView? {
-    get
-  }
-  @_Concurrency.MainActor public init(engine: Engine, delegate: any RecyclerView.ContextMenuInteractionDelegate)
-  @_Concurrency.MainActor(unsafe) @objc final public func willMove(to view: UIKit.UIView?)
-  @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
-  @_Concurrency.MainActor final public func locationIn(_ view: UIKit.UIView?) -> CoreFoundation.CGPoint
-  @_Concurrency.MainActor final public var menuAppearance: UIKit.UIContextMenuInteraction.appearance {
-    get
-  }
-  @_Concurrency.MainActor final public func updateVisibleMenu(_ block: (UIKit.UIMenu) -> UIKit.UIMenu)
-  @_Concurrency.MainActor final public func dismissMenu()
-  @_Concurrency.MainActor final public var isMenuPresent: Swift.Bool {
-    get
-  }
-  @objc deinit
-}
-extension UIKit.UILayoutPriority {
-  public static let almostRequired: UIKit.UILayoutPriority
-  public static let lowerThanDefaultHigh: UIKit.UILayoutPriority
-  public static let higherThanDefaultHigh: UIKit.UILayoutPriority
-  public static let lowerThanDefaultLow: UIKit.UILayoutPriority
-  public static let higherThanDefaultLow: UIKit.UILayoutPriority
-  public static let lowerThanFittingSizeLevel: UIKit.UILayoutPriority
-  public static let higherThanFittingSizeLevel: UIKit.UILayoutPriority
-  public static let lowerThanSceneSizeStayPut: UIKit.UILayoutPriority
-  public static let higherThanSceneSizeStayPut: UIKit.UILayoutPriority
-  public static func defaultHigh(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
-  public static func defaultLow(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
-  public static func defaultFittingSizeLevel(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
-  public static func defaultSceneSizeStayPut(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
-}
-public struct ModificationContext : Swift.Sendable {
-  public struct MovingIndexPositions : Swift.Hashable, Swift.Sendable {
-    public var from: Swift.Int
-    public var to: Swift.Int
-    public func hash(into hasher: inout Swift.Hasher)
-    public static func == (a: RecyclerView.ModificationContext.MovingIndexPositions, b: RecyclerView.ModificationContext.MovingIndexPositions) -> Swift.Bool
-    public var hashValue: Swift.Int {
-      get
-    }
-  }
-  public let actions: [RecyclerView.ModificationActions]
-  public let insertedIndexes: Swift.Set<Swift.Int>
-  public let deletedIndexes: Swift.Set<Swift.Int>
-  public let reloadedIndexes: Swift.Set<Swift.Int>
-  public let reconfiguredIndexes: Swift.Set<Swift.Int>
-  public let movedIndexes: Swift.Set<RecyclerView.ModificationContext.MovingIndexPositions>
-  public let movedFromIndexes: Swift.Set<Swift.Int>
-  public let movedToIndexes: Swift.Set<Swift.Int>
-  public let numberOfCells: (previous: Swift.Int, current: Swift.Int)
-  @inline(__always) public func indexAfterUpdate(_ indexBeforeUpdate: Swift.Int) -> Swift.Int?
-  @inline(__always) public func indexBeforeUpdate(_ indexAfterUpdate: Swift.Int) -> Swift.Int?
-  @inline(__always) public var isEmpty: Swift.Bool {
-    get
-  }
-  @inline(__always) public static var empty: RecyclerView.ModificationContext {
-    get
-  }
-}
-@_Concurrency.MainActor public protocol CellContext {
-  @_Concurrency.MainActor func borrowCellView<C>(_ block: (UIKit.UIView) -> C) -> C
 }
 public enum LogType : Swift.Equatable, Swift.CaseIterable {
   case layoutSubviews
@@ -1399,52 +789,371 @@ extension RecyclerView.RecyclerView where Engine : RecyclerView.PositionSnapshot
   #endif
 }
 extension RecyclerView.RecyclerView {
-  public struct CellConfigurationState : UIKit.UIConfigurationState, Swift.Equatable {
-    public var traitCollection: UIKit.UITraitCollection
-    public var index: Swift.Int?
-    public var payload: Engine.Payload?
-    public init(traitCollection: UIKit.UITraitCollection)
-    public subscript(key: UIKit.UIConfigurationStateCustomKey) -> Swift.AnyHashable? {
-      get
-      set
-    }
-    public static func == (a: RecyclerView.RecyclerView<Engine>.CellConfigurationState, b: RecyclerView.RecyclerView<Engine>.CellConfigurationState) -> Swift.Bool
-  }
-  public struct CellRegistration<Cell, Item> where Cell : UIKit.UIView {
-    public typealias Handler = (_ cell: Cell, _ index: Swift.Int, _ itemIdentifier: Item, _ payload: Engine.Payload) -> Swift.Void
-    public init(handler: @escaping RecyclerView.RecyclerView<Engine>.CellRegistration<Cell, Item>.Handler)
-  }
-  @_Concurrency.MainActor final public func dequeueConfiguredReusableView<Cell, Item>(using registration: RecyclerView.RecyclerView<Engine>.CellRegistration<Cell, Item>, for index: Swift.Int, item: Item) -> Cell where Cell : UIKit.UIView
+  @_Concurrency.MainActor final public func dequeueConfiguredReusableView<Cell, Item>(using registration: RecyclerView.CellRegistration<Cell, Item, Engine.Payload>, for index: Swift.Int, item: Item) -> Cell where Cell : RecyclerView.RecyclerViewCell<Engine.Payload>
 }
-@_inheritsConvenienceInitializers @_Concurrency.MainActor open class RecyclerViewCell<Engine> : UIKit.UIView, RecyclerView.RecyclerViewCellEvenHandler where Engine : RecyclerView.RecyclerViewEngine {
-  @_Concurrency.MainActor public var contentView: (any UIKit.UIView & UIKit.UIContentView)! {
+public enum ModificationActions : Swift.Hashable, Swift.Sendable {
+  case insert(Swift.Int)
+  case reload(Swift.Int)
+  case reconfigure(Swift.Int)
+  case delete(Swift.Int)
+  case move(Swift.Int, to: Swift.Int)
+  @inlinable public var isInsert: Swift.Bool {
+    get {
+        guard case .insert = self else {
+            return false
+        }
+        return true
+    }
+  }
+  @inlinable public var isDelete: Swift.Bool {
+    get {
+        guard case .delete = self else {
+            return false
+        }
+        return true
+    }
+  }
+  @inlinable public var isReconfigure: Swift.Bool {
+    get {
+        guard case .reconfigure = self else {
+            return false
+        }
+        return true
+    }
+  }
+  @inlinable public var isReload: Swift.Bool {
+    get {
+        guard case .reload = self else {
+            return false
+        }
+        return true
+    }
+  }
+  @inlinable public var isMove: Swift.Bool {
+    get {
+        guard case .move = self else {
+            return false
+        }
+        return true
+    }
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RecyclerView.ModificationActions, b: RecyclerView.ModificationActions) -> Swift.Bool
+  public var hashValue: Swift.Int {
     get
   }
-  @_Concurrency.MainActor public var contentConfiguration: any UIKit.UIContentConfiguration {
+}
+#if compiler(>=5.3) && $MoveOnly
+@frozen @_moveOnly public struct ModelStateStorage<Model> {
+  @_hasStorage public var initial: Model {
+    get
+  }
+  public var modified: Model {
+    mutating get
+  }
+  private var _modified: Model?
+  private let copyBlock: (Model) -> Model
+  public var isAfterUpdateSetup: Swift.Bool {
+    get
+  }
+  @inline(__always) public init(beforeUpdate: Model, afterUpdate: Model? = nil, copyUsing copyBlock: @escaping (Model) -> Model = { $0 })
+  @inline(__always) public mutating func dropAfterUpdate()
+  @inline(__always) public mutating func moveModifiedToInitial()
+  @inline(__always) public mutating func storageAt(_ state: RecyclerView.ModelState) -> Model
+  @inline(__always) public mutating func setStorage(_ storage: Model, at state: RecyclerView.ModelState)
+  @inline(__always) public mutating func updateStorageAt(_ state: RecyclerView.ModelState, _ mutator: (inout Model) -> Swift.Void)
+}
+#endif
+#if compiler(>=5.3) && $PrimaryAssociatedTypes2
+public protocol RecyclerViewContent<Cell, Element, Data> {
+  associatedtype Cell : SwiftUI.View
+  associatedtype Element : Swift.Identifiable where Self.Element == Self.Data.Element
+  associatedtype Data : Swift.RandomAccessCollection
+  var data: Self.Data { get }
+  func cellAtIndex(_ index: Swift.Int) -> Self.Cell
+}
+#else
+public protocol RecyclerViewContent {
+  associatedtype Cell : SwiftUI.View
+  associatedtype Element : Swift.Identifiable where Self.Element == Self.Data.Element
+  associatedtype Data : Swift.RandomAccessCollection
+  var data: Self.Data { get }
+  func cellAtIndex(_ index: Swift.Int) -> Self.Cell
+}
+#endif
+@_hasMissingDesignatedInitializers final public class ContinuousLayoutModel {
+  public typealias Element = RecyclerView.ContinuousElement
+  @inlinable @inline(__always) @_effects(readnone) public static func fitToScale(_ value: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat {
+        let scale: CGFloat = 100 // Must stay 10 or bigger as it is important for text fitting.
+        let roundedValue = ceil(value * scale) / scale
+        return roundedValue
+    }
+  final public var contentHeight: CoreFoundation.CGFloat {
+    get
+  }
+  final public var exactSegment: RecyclerView.Segment {
     get
     set
   }
-  @_Concurrency.MainActor @objc override dynamic open class var requiresConstraintBasedLayout: Swift.Bool {
-    @objc get
+  public init()
+  convenience public init(_ layoutModel: RecyclerView.ContinuousLayoutModel)
+  @inline(__always) final public var count: Swift.Int {
+    get
   }
-  @_Concurrency.MainActor @objc override dynamic open func sizeThatFits(_ size: CoreFoundation.CGSize) -> CoreFoundation.CGSize
-  @_Concurrency.MainActor @objc override dynamic open var intrinsicContentSize: CoreFoundation.CGSize {
-    @objc get
+  @inline(__always) final public var isEmpty: Swift.Bool {
+    get
   }
-  @_Concurrency.MainActor @objc override dynamic open func systemLayoutSizeFitting(_ targetSize: CoreFoundation.CGSize) -> CoreFoundation.CGSize
-  @_Concurrency.MainActor @objc override dynamic open func systemLayoutSizeFitting(_ targetSize: CoreFoundation.CGSize, withHorizontalFittingPriority horizontalFittingPriority: UIKit.UILayoutPriority, verticalFittingPriority: UIKit.UILayoutPriority) -> CoreFoundation.CGSize
-  @_Concurrency.MainActor @objc override dynamic open func layoutSubviews()
-  @_Concurrency.MainActor open func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
+  @inline(__always) final public var lastIndex: Swift.Int? {
+    get
+  }
+  @inline(__always) final public var firstIndex: Swift.Int? {
+    get
+  }
+  @inline(__always) final public var allIndexes: Swift.Range<Swift.Int> {
+    get
+  }
+  @inline(__always) final public var exactIndexes: Swift.Range<Swift.Int> {
+    get
+  }
+  final public func getExactElements() -> [RecyclerView.ContinuousLayoutModel.Element]
+  final public func getAllElements() -> [RecyclerView.ContinuousLayoutModel.Element]
+  final public subscript(index: Swift.Int) -> RecyclerView.ContinuousLayoutModel.Element {
+    get
+  }
+  final public func elementWithIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutModel.Element?
+  final public func lengthAtIndex(_ index: Swift.Int) -> CoreFoundation.CGFloat
+  final public func insert(_ length: CoreFoundation.CGFloat, at index: Swift.Int)
+  final public func remove(at index: Swift.Int)
+  final public func update(_ newLength: CoreFoundation.CGFloat, at index: Swift.Int)
+  final public func move(from fromIndex: Swift.Int, to index: Swift.Int)
+  final public func normaliseIfNeeded()
+  final public func removeAll()
+  final public func copy() -> RecyclerView.ContinuousLayoutModel
+  @objc deinit
+}
+@_Concurrency.MainActor public protocol RecyclerViewCellEvenHandler : UIKit.UIView {
+  @_Concurrency.MainActor func prepareForReuseAtIndex(_ index: Swift.Int)
+  @_Concurrency.MainActor func prepareForDequeue()
+  @_Concurrency.MainActor func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
+  @_Concurrency.MainActor func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
+}
+extension RecyclerView.RecyclerViewCellEvenHandler {
   @_Concurrency.MainActor public func prepareForReuseAtIndex(_ index: Swift.Int)
   @_Concurrency.MainActor public func prepareForDequeue()
   @_Concurrency.MainActor public func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
-  @_Concurrency.MainActor @objc override dynamic public init(frame: CoreFoundation.CGRect)
-  @_Concurrency.MainActor @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor public func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
+}
+@_Concurrency.MainActor public protocol CellContext {
+  @_Concurrency.MainActor func borrowCellView<C>(_ block: (UIKit.UIView) -> C) -> C
+}
+public struct ItemPositionConfiguration<Identifier> : Swift.Hashable where Identifier : Swift.Hashable {
+  public var identifier: Identifier
+  public var offset: CoreFoundation.CGFloat
+  public init(identifier: Identifier, offset: CoreFoundation.CGFloat)
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RecyclerView.ItemPositionConfiguration<Identifier>, b: RecyclerView.ItemPositionConfiguration<Identifier>) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class CustomMenuLongPressGestureRecogniser<Engine> : UIKit.UILongPressGestureRecognizer where Engine : RecyclerView.RecyclerViewEngine {
+  @_Concurrency.MainActor(unsafe) public init(engine: Engine)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc override required dynamic public init(target: Any?, action: ObjectiveC.Selector?)
+  @_Concurrency.MainActor(unsafe) @objc override final public func ignore(_ touch: UIKit.UITouch, for event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func canPrevent(_ preventedGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func canBePrevented(by preventingGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldRequireFailure(of otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldBeRequiredToFail(by otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldReceive(_ event: UIKit.UIEvent) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEstimatedPropertiesUpdated(_ touches: Swift.Set<UIKit.UITouch>)
+  @_Concurrency.MainActor(unsafe) @objc override final public func reset()
   @objc deinit
 }
-extension RecyclerView.RecyclerView.CellConfigurationState : Swift.Hashable where Engine.Payload : Swift.Hashable {
+public struct ContinuousLayoutEngineSpacing : Swift.Hashable, Swift.Sendable {
+  public var leading: CoreFoundation.CGFloat
+  public var trailing: CoreFoundation.CGFloat
+  @inlinable public var total: CoreFoundation.CGFloat {
+    get {
+        leading + trailing
+    }
+  }
+  public init(leading: CoreFoundation.CGFloat = 0, trailing: CoreFoundation.CGFloat = 0)
+  public static let zero: RecyclerView.ContinuousLayoutEngineSpacing
   public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: RecyclerView.ContinuousLayoutEngineSpacing, b: RecyclerView.ContinuousLayoutEngineSpacing) -> Swift.Bool
   public var hashValue: Swift.Int {
+    get
+  }
+}
+public protocol ContinuousLayoutEngineSupporting {
+  var isPinned: Swift.Bool { get }
+  var spacing: RecyclerView.ContinuousLayoutEngineSpacing { get }
+}
+@_Concurrency.MainActor public protocol ContinuousLayoutEngineDelegate : AnyObject {
+  @_Concurrency.MainActor func heightForView(_ view: UIKit.UIView, with index: Swift.Int, width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat?
+  @_Concurrency.MainActor func estimatedHeightForIndex(_ index: Swift.Int) -> CoreFoundation.CGFloat?
+}
+extension RecyclerView.ContinuousLayoutEngineDelegate {
+  @_Concurrency.MainActor public func heightForView(_ view: UIKit.UIView, with index: Swift.Int, width: CoreFoundation.CGFloat) -> CoreFoundation.CGFloat?
+  @_Concurrency.MainActor public func estimatedHeightForIndex(_ index: Swift.Int) -> CoreFoundation.CGFloat?
+}
+public struct ContinuousLayoutEngineSettings : Swift.Equatable {
+  public var additionalInsets: UIKit.UIEdgeInsets
+  public var estimatedRowHeight: CoreFoundation.CGFloat
+  public static func == (a: RecyclerView.ContinuousLayoutEngineSettings, b: RecyclerView.ContinuousLayoutEngineSettings) -> Swift.Bool
+}
+extension RecyclerView.EmptyPayload : RecyclerView.ContinuousLayoutEngineSupporting {
+  public var isPinned: Swift.Bool {
+    get
+  }
+  public var spacing: RecyclerView.ContinuousLayoutEngineSpacing {
+    get
+  }
+}
+extension RecyclerView.ContinuousLayoutEngine where Payload == RecyclerView.EmptyPayload {
+  @_Concurrency.MainActor convenience public init()
+}
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class ContinuousLayoutEngine<Payload> : RecyclerView.RecyclerViewEngine where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable {
+  public typealias Payload = Payload
+  @_Concurrency.MainActor weak final public var delegate: (any RecyclerView.ContinuousLayoutEngineDelegate)?
+  @_Concurrency.MainActor final public var contentSize: CoreFoundation.CGSize {
+    get
+  }
+  @_Concurrency.MainActor final public var settings: RecyclerView.ContinuousLayoutEngineSettings {
+    get
+    set
+  }
+  @_Concurrency.MainActor final public var enableOppositeAnchor: Swift.Bool
+  @_Concurrency.MainActor final public var numberOfCells: Swift.Int {
+    get
+  }
+  @_Concurrency.MainActor public init()
+  @_Concurrency.MainActor final public func initialSetup(_ context: any RecyclerView.LayoutContext<Payload>)
+  @_Concurrency.MainActor final public func targetContentOffset(forProposedContentOffset proposedContentOffset: CoreFoundation.CGPoint, withScrollingVelocity velocity: CoreFoundation.CGPoint) -> CoreFoundation.CGPoint
+  @_Concurrency.MainActor final public func payloadForIndex(_ index: Swift.Int) -> Payload?
+  @_Concurrency.MainActor final public func reloadData()
+  @_Concurrency.MainActor final public func prepareLayoutSubviews()
+  @_Concurrency.MainActor final public func commitLayoutSubviews()
+  @_Concurrency.MainActor final public func beginLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor final public func finaliseLayoutIteration(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor final public func indexesVisibleIn(_ rect: CoreFoundation.CGRect) -> [Swift.Int]
+  @_Concurrency.MainActor final public func configurationForIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration
+  @_Concurrency.MainActor final public func preferredConfigurationForIndex(_ index: Swift.Int, with cellContext: any RecyclerView.CellContext, invalidationContext: any RecyclerView.InvalidationContext) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration
+  @_Concurrency.MainActor final public func applyModifications(_ invalidationContext: any RecyclerView.InvalidationContext)
+  @_Concurrency.MainActor final public func initialConfigurationForAppearingIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration?
+  @_Concurrency.MainActor final public func finalConfigurationDisappearingIndex(_ index: Swift.Int) -> RecyclerView.ContinuousLayoutEngine<Payload>.Configuration?
+  @objc deinit
+}
+@_Concurrency.MainActor extension RecyclerView.ContinuousLayoutEngine : RecyclerView.TapSelectionGestureSupportingEngine where Payload : RecyclerView.TapSelectionStateSupporting {
+  @_Concurrency.MainActor final public var highlightedIndexes: Swift.Set<Swift.Int> {
+    get
+  }
+  @_Concurrency.MainActor final public var selectedIndexes: Swift.Set<Swift.Int> {
+    get
+  }
+  @_Concurrency.MainActor final public func setSelectionState(_ selectionState: RecyclerView.TapSelectionState, to index: Swift.Int)
+}
+extension RecyclerView.ContinuousLayoutEngine : RecyclerView.InteractiveReorderingSupportingEngine where Payload : RecyclerView.InteractivelyMovingItemSupporting {
+  @_Concurrency.MainActor final public func isInteractiveReorderingSessionPossible() -> Swift.Bool
+  @_Concurrency.MainActor final public func startInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
+  @_Concurrency.MainActor final public func finalizeInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
+  @_Concurrency.MainActor final public func cancelInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
+}
+extension RecyclerView.ContinuousLayoutEngine : RecyclerView.DropInteractionSupportingEngine {
+  @_Concurrency.MainActor final public func indexForDropAtLocation(_ dropSession: any UIKit.UIDropSession, at locationInView: CoreFoundation.CGPoint) -> Swift.Int?
+  @_Concurrency.MainActor final public func startDropSession(_ session: any UIKit.UIDropSession, dragContext: RecyclerView.RecyclerViewDragContext?)
+  @_Concurrency.MainActor final public func updateDropSession(_ session: any UIKit.UIDropSession, locationInView: CoreFoundation.CGPoint, proposal: RecyclerView.RecyclerViewDropProposal)
+  @_Concurrency.MainActor final public func performDrop(_ session: any UIKit.UIDropSession)
+  @_Concurrency.MainActor final public func finishDropSession(_ session: any UIKit.UIDropSession)
+}
+extension RecyclerView.ContinuousLayoutEngine : RecyclerView.PositionSnapshotSupportingEngine {
+  @_Concurrency.MainActor final public func getPositionSnapshot(from edge: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot) -> RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot?
+  @_Concurrency.MainActor final public func getOffsetForPositionSnapshot(_ positionSnapshot: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot) -> CoreFoundation.CGPoint
+  @_Concurrency.MainActor final public func prepareLayoutWithPositionSnapshot(positionSnapshot: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
+  @_Concurrency.MainActor final public func commitLayoutSubviewsWithPositionSnapshot(positionSnapshot: RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
+  public typealias Edge = RecyclerView.ContinuousLayoutEngine<Payload>.PositionSnapshot.Edge
+}
+#if compiler(>=5.3) && $PrimaryAssociatedTypes2
+public protocol ContentIdentifiable<ContentID> {
+  associatedtype ContentID : Swift.Hashable
+  var contentIdentifier: Self.ContentID { get }
+}
+#else
+public protocol ContentIdentifiable {
+  associatedtype ContentID : Swift.Hashable
+  var contentIdentifier: Self.ContentID { get }
+}
+#endif
+extension RecyclerView.ContentIdentifiable where Self : AnyObject {
+  public var contentIdentifier: Swift.ObjectIdentifier {
+    get
+  }
+}
+extension RecyclerView.ContentIdentifiable where Self : Swift.Identifiable, Self.ContentID == Self.ID {
+  public var contentIdentifier: Self.ContentID {
+    get
+  }
+}
+public struct LayoutAttributes : Swift.Equatable {
+  public var frame: CoreFoundation.CGRect
+  public var alpha: CoreFoundation.CGFloat
+  public var zIndex: Swift.Int
+  public var transform: CoreFoundation.CGAffineTransform
+  public var isHidden: Swift.Bool
+  public static func == (a: RecyclerView.LayoutAttributes, b: RecyclerView.LayoutAttributes) -> Swift.Bool
+}
+public protocol InteractivelyMovingItemSupporting {
+  var isInteractiveMovingPossible: Swift.Bool { get set }
+  var isInteractiveMovingEnabled: Swift.Bool { get set }
+}
+final public class InteractivelyMovingItemSession {
+  final public var index: Swift.Int
+  final public var originalIndex: Swift.Int
+  final public var inItemOffset: CoreFoundation.CGPoint
+  unowned final public var gestureRecogniser: UIKit.UIGestureRecognizer {
+    get
+  }
+  public init(index: Swift.Int, inItemOffset: CoreFoundation.CGPoint, originalIndex: Swift.Int, gestureRecogniser: UIKit.UIGestureRecognizer)
+  @objc deinit
+}
+@_Concurrency.MainActor public protocol InteractiveReorderingSupportingEngine : RecyclerView.RecyclerViewEngine {
+  @_Concurrency.MainActor func isInteractiveReorderingSessionPossible() -> Swift.Bool
+  @_Concurrency.MainActor func startInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
+  @_Concurrency.MainActor func finalizeInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
+  @_Concurrency.MainActor func cancelInteractiveReorderingSession(_ session: RecyclerView.InteractivelyMovingItemSession)
+}
+@_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) final public class LongPressInteractiveMoveGestureRecogniser<Engine> : UIKit.UILongPressGestureRecognizer where Engine : RecyclerView.InteractiveReorderingSupportingEngine {
+  @_Concurrency.MainActor(unsafe) public init(engine: Engine)
+  @available(*, unavailable)
+  @_Concurrency.MainActor(unsafe) @objc override required dynamic public init(target: Any?, action: ObjectiveC.Selector?)
+  @_Concurrency.MainActor(unsafe) @objc override final public func ignore(_ touch: UIKit.UITouch, for event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func canPrevent(_ preventedGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func canBePrevented(by preventingGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldRequireFailure(of otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldBeRequiredToFail(by otherGestureRecognizer: UIKit.UIGestureRecognizer) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func shouldReceive(_ event: UIKit.UIEvent) -> Swift.Bool
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesBegan(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesMoved(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEnded(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesCancelled(_ touches: Swift.Set<UIKit.UITouch>, with event: UIKit.UIEvent)
+  @_Concurrency.MainActor(unsafe) @objc override final public func touchesEstimatedPropertiesUpdated(_ touches: Swift.Set<UIKit.UITouch>)
+  @_Concurrency.MainActor(unsafe) @objc override final public func reset()
+  @objc deinit
+}
+public typealias ContentDifferentiable = RecyclerView.ContentEquatable & RecyclerView.ContentIdentifiable
+extension UIKit.UIScrollView {
+  @_Concurrency.MainActor(unsafe) public var minContentOffset: CoreFoundation.CGPoint {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var maxContentOffset: CoreFoundation.CGPoint {
+    get
+  }
+  @_Concurrency.MainActor(unsafe) public var visibleRect: CoreFoundation.CGRect {
     get
   }
 }
@@ -1462,136 +1171,141 @@ public struct ContinuousElement : Swift.Hashable {
 extension RecyclerView.ContinuousElement {
   @inlinable @inline(__always) public var segment: RecyclerView.Segment {
     get {
-        return Segment(origin: origin,
-                       length: length)
+        Segment(origin: origin,
+                length: length)
     }
   }
 }
-public struct RecyclerViewDragContext {
-  public let index: Swift.Int
-  public init(originalIndex: Swift.Int)
-}
-public struct RecyclerViewDropProposal {
-  public enum Intent : Swift.Hashable {
-    case unspecified
-    case insertAtDestination
-    case insertIntoDestination
-    public static func == (a: RecyclerView.RecyclerViewDropProposal.Intent, b: RecyclerView.RecyclerViewDropProposal.Intent) -> Swift.Bool
+public struct CustomContextMenuConfiguration {
+  public enum AccessoryPosition {
+    case auto
+    case below
+    case above
+    public static func == (a: RecyclerView.CustomContextMenuConfiguration.AccessoryPosition, b: RecyclerView.CustomContextMenuConfiguration.AccessoryPosition) -> Swift.Bool
     public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
   }
-  public var operation: UIKit.UIDropOperation
-  public var intent: RecyclerView.RecyclerViewDropProposal.Intent
-  public var proposedSize: CoreFoundation.CGSize?
-  public init(operation: UIKit.UIDropOperation, intent: RecyclerView.RecyclerViewDropProposal.Intent, proposedSize: CoreFoundation.CGSize?)
+  public init(previewProvider: UIKit.UIContextMenuContentPreviewProvider? = nil, actionProvider: UIKit.UIContextMenuActionProvider?, accessoryPosition: RecyclerView.CustomContextMenuConfiguration.AccessoryPosition = .auto, accessoryViewProvider: (() -> UIKit.UIView?)? = nil)
 }
-public struct DropInteractionItem {
-}
-final public class DropInteractionCoordinator {
-  final public let items: [RecyclerView.DropInteractionItem]
-  final public let destinationIndex: Swift.Int?
-  final public let session: any UIKit.UIDropSession
-  final public let dropProposal: RecyclerView.RecyclerViewDropProposal
-  public init(items: [RecyclerView.DropInteractionItem], destinationIndex: Swift.Int?, session: any UIKit.UIDropSession, dropProposal: RecyclerView.RecyclerViewDropProposal)
-  final public func drop(_ item: UIKit.UIDragItem, toItemAt: Swift.Int, rect: CoreFoundation.CGRect)
+@_hasMissingDesignatedInitializers final public class CustomContextMenuInteractionTransitionCoordinator {
+  final public func animateAlongsideTransition(_ animation: (() -> Swift.Void)?, completion: ((Swift.Bool) -> Swift.Void)? = nil)
   @objc deinit
 }
-@_Concurrency.MainActor public protocol DropInteractionSupportingEngine : RecyclerView.RecyclerViewEngine {
-  @_Concurrency.MainActor func startDropSession(_ session: any UIKit.UIDropSession, dragContext: RecyclerView.RecyclerViewDragContext?)
-  @_Concurrency.MainActor func indexForDropAtLocation(_ dropSession: any UIKit.UIDropSession, at locationInView: CoreFoundation.CGPoint) -> Swift.Int?
-  @_Concurrency.MainActor func updateDropSession(_ session: any UIKit.UIDropSession, locationInView: CoreFoundation.CGPoint, proposal: RecyclerView.RecyclerViewDropProposal)
-  @_Concurrency.MainActor func performDrop(_ session: any UIKit.UIDropSession)
-  @_Concurrency.MainActor func finishDropSession(_ session: any UIKit.UIDropSession)
-}
-@_Concurrency.MainActor public protocol DropInteractionDelegate : AnyObject {
-  func dropSession(_ dropSession: any UIKit.UIDropSession, withDestinationIndex index: Swift.Int) -> RecyclerView.RecyclerViewDropProposal
-  func performDrop(_ coordinator: RecyclerView.DropInteractionCoordinator)
-}
-@_Concurrency.MainActor(unsafe) final public class DropInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction, UIKit.UIDropInteractionDelegate where Engine : RecyclerView.DropInteractionSupportingEngine {
-  @_Concurrency.MainActor(unsafe) weak final public var delegate: (any RecyclerView.DropInteractionDelegate)?
-  @_Concurrency.MainActor(unsafe) @objc final public var view: UIKit.UIView? {
-    @objc get
+@_hasMissingDesignatedInitializers final public class CustomContextMenuInteractionCommitAnimatingCoordinator {
+  public enum CommitStyle {
+    case dismiss
+    case customPresentation
+    public static func == (a: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle, b: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
   }
-  @_Concurrency.MainActor(unsafe) public init(engine: Engine, delegate: (any RecyclerView.DropInteractionDelegate)? = nil)
-  @_Concurrency.MainActor(unsafe) @objc final public func willMove(to view: UIKit.UIView?)
-  @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, canHandle session: any UIKit.UIDropSession) -> Swift.Bool
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidEnter session: any UIKit.UIDropSession)
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidUpdate session: any UIKit.UIDropSession) -> UIKit.UIDropProposal
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidExit session: any UIKit.UIDropSession)
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, performDrop session: any UIKit.UIDropSession)
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, item: UIKit.UIDragItem, willAnimateDropWith animator: any UIKit.UIDragAnimating)
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, concludeDrop session: any UIKit.UIDropSession)
-  @_Concurrency.MainActor(unsafe) @objc final public func dropInteraction(_ interaction: UIKit.UIDropInteraction, sessionDidEnd session: any UIKit.UIDropSession)
+  final public var preferredCommitStyle: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle
+  final public func animateAlongsideTransition(_ animation: (() -> Swift.Void)?, completion: ((Swift.Bool) -> Swift.Void)? = nil)
   @objc deinit
 }
-extension UIKit.UIScrollView {
-  @_Concurrency.MainActor(unsafe) public var minContentOffset: CoreFoundation.CGPoint {
+@_Concurrency.MainActor public protocol CustomContextMenuInteractionSupportingView : UIKit.UIView {
+}
+@_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class CustomContextMenuPointerSession {
+  public enum State : Swift.Hashable {
+    case possible
+    case began
+    case changed
+    case ended
+    case cancelled
+    case failed
+    public static func == (a: RecyclerView.CustomContextMenuPointerSession.State, b: RecyclerView.CustomContextMenuPointerSession.State) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  @_Concurrency.MainActor final public var state: RecyclerView.CustomContextMenuPointerSession.State {
     get
   }
-  @_Concurrency.MainActor(unsafe) public var maxContentOffset: CoreFoundation.CGPoint {
-    get
-  }
-  @_Concurrency.MainActor(unsafe) public var visibleRect: CoreFoundation.CGRect {
-    get
-  }
+  @_Concurrency.MainActor final public func location(in view: UIKit.UIView?) -> CoreFoundation.CGPoint
+  @_Concurrency.MainActor final public func finalise()
+  @objc deinit
 }
-@_Concurrency.MainActor public protocol InteractiveMoveInteractionDelegate : AnyObject {
-  func interactiveMovementWillBeginAtIndex(_ index: Swift.Int)
-  func interactiveMovementUpdateMoveIndex(_ index: Swift.Int, to newIndex: Swift.Int)
-  func interactiveMovementCompleted()
-  func interactiveMovementCancelled()
+@_Concurrency.MainActor public protocol CustomContextMenuAccessoryView {
+  func handleCustomContextMenuPointerSession(_ session: RecyclerView.CustomContextMenuPointerSession)
 }
-extension RecyclerView.InteractiveMoveInteractionDelegate {
-  @_Concurrency.MainActor public func interactiveMovementWillBeginAtIndex(_ index: Swift.Int)
-  @_Concurrency.MainActor public func interactiveMovementCompleted()
-  @_Concurrency.MainActor public func interactiveMovementCancelled()
+extension RecyclerView.CustomContextMenuAccessoryView {
+  @_Concurrency.MainActor public func handleCustomContextMenuPointerSession(_ session: RecyclerView.CustomContextMenuPointerSession)
 }
-@_Concurrency.MainActor(unsafe) final public class InteractiveMoveInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction where Engine : RecyclerView.InteractiveReorderingSupportingEngine {
-  @_Concurrency.MainActor(unsafe) weak final public var delegate: (any RecyclerView.InteractiveMoveInteractionDelegate)? {
+@_Concurrency.MainActor public protocol CustomContextMenuInteractionDelegate : AnyObject {
+  func configurationForCustomMenuAtIndex(_ index: Swift.Int) -> RecyclerView.CustomContextMenuConfiguration?
+  func interactionWillDisplayCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
+  func customContextMenuWillPerformPreviewActionWith(_ viewController: UIKit.UIViewController, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator?)
+  func interactionWillDismissCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
+  func customContextMenuHighlightPreviewForItemAt(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration) -> UIKit.UITargetedPreview?
+  func customContextMenuFinishedAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
+  func customContextMenuCancelledAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
+}
+extension RecyclerView.CustomContextMenuInteractionDelegate {
+  @_Concurrency.MainActor public func interactionWillDisplayCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
+  @_Concurrency.MainActor public func customContextMenuWillPerformPreviewActionWith(_ viewController: UIKit.UIViewController, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator?)
+  @_Concurrency.MainActor public func interactionWillDismissCustomContextMenuAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration, animator: RecyclerView.CustomContextMenuInteractionTransitionCoordinator?)
+  @_Concurrency.MainActor public func customContextMenuHighlightPreviewForItemAt(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration) -> UIKit.UITargetedPreview?
+  @_Concurrency.MainActor public func customContextMenuFinishedAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
+  @_Concurrency.MainActor public func customContextMenuCancelledAtIndex(_ index: Swift.Int, configuration: RecyclerView.CustomContextMenuConfiguration)
+}
+@_Concurrency.MainActor final public class CustomContextMenuInteraction<Engine> : ObjectiveC.NSObject, UIKit.UIInteraction where Engine : RecyclerView.RecyclerViewEngine {
+  @_Concurrency.MainActor weak final public var delegate: (any RecyclerView.CustomContextMenuInteractionDelegate)? {
     get
     set
   }
-  @_Concurrency.MainActor(unsafe) final public let longPressGestureRecogniser: RecyclerView.LongPressInteractiveMoveGestureRecogniser<Engine>
+  @_Concurrency.MainActor final public let gestureRecogniser: RecyclerView.CustomMenuLongPressGestureRecogniser<Engine>
   @_Concurrency.MainActor(unsafe) @objc final public var view: UIKit.UIView? {
     @objc get
   }
-  @_Concurrency.MainActor(unsafe) public init(engine: Engine, delegate: (any RecyclerView.InteractiveMoveInteractionDelegate)? = nil)
+  @_Concurrency.MainActor public init(engine: Engine, delegate: any RecyclerView.CustomContextMenuInteractionDelegate)
   @_Concurrency.MainActor(unsafe) @objc final public func willMove(to view: UIKit.UIView?)
   @_Concurrency.MainActor(unsafe) @objc final public func didMove(to view: UIKit.UIView?)
   @objc deinit
 }
-#if compiler(>=5.3) && $PrimaryAssociatedTypes2
-public protocol ContentIdentifiable<ID> {
-  associatedtype ID : Swift.Hashable
-  var contentIdentifier: Self.ID { get }
+public struct CellRegistration<Cell, Item, Payload> where Cell : RecyclerView.RecyclerViewCell<Payload>, Payload : Swift.Equatable {
+  public typealias Handler = @_Concurrency.MainActor (_ cell: Cell, _ index: Swift.Int, _ itemIdentifier: Item, _ payload: Payload) -> Swift.Void
+  public init(handler: @escaping RecyclerView.CellRegistration<Cell, Item, Payload>.Handler)
 }
-#else
-public protocol ContentIdentifiable {
-  associatedtype ID : Swift.Hashable
-  var contentIdentifier: Self.ID { get }
+extension Swift.BidirectionalCollection where Self.Element : Swift.Hashable {
+  public func toModificationActions<C>(from other: C) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element
 }
-#endif
-extension RecyclerView.ContentIdentifiable where Self : AnyObject {
-  public var contentIdentifier: Swift.ObjectIdentifier {
-    get
-  }
+extension Swift.BidirectionalCollection where Self.Element : RecyclerView.ContentEquatable, Self.Element : RecyclerView.ContentIdentifiable {
+  public func toModificationActions<C>(from other: C, forceReloads: Swift.Bool = false) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element
 }
-extension RecyclerView.ContentIdentifiable where Self : Swift.Identifiable {
-  public var contentIdentifier: Self.ID {
-    get
-  }
+extension Swift.BidirectionalCollection where Self.Element : Swift.Hashable, Self.Element : Swift.Identifiable {
+  public func toModificationActions<C>(from other: C, forceReloads: Swift.Bool = false) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element
 }
+extension Swift.BidirectionalCollection where Self.Element : Swift.Identifiable {
+  public func toModificationActions<C>(from other: C, forceReloads: Swift.Bool = false) -> [RecyclerView.ModificationActions] where C : Swift.BidirectionalCollection, Self.Element == C.Element
+}
+extension UIKit.UILayoutPriority {
+  public static let almostRequired: UIKit.UILayoutPriority
+  public static let lowerThanDefaultHigh: UIKit.UILayoutPriority
+  public static let higherThanDefaultHigh: UIKit.UILayoutPriority
+  public static let lowerThanDefaultLow: UIKit.UILayoutPriority
+  public static let higherThanDefaultLow: UIKit.UILayoutPriority
+  public static let lowerThanFittingSizeLevel: UIKit.UILayoutPriority
+  public static let higherThanFittingSizeLevel: UIKit.UILayoutPriority
+  public static let lowerThanSceneSizeStayPut: UIKit.UILayoutPriority
+  public static let higherThanSceneSizeStayPut: UIKit.UILayoutPriority
+  public static func defaultHigh(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
+  public static func defaultLow(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
+  public static func defaultFittingSizeLevel(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
+  public static func defaultSceneSizeStayPut(_ coefficient: Swift.Float) -> UIKit.UILayoutPriority
+}
+extension RecyclerView.ContextMenuInteraction : Swift.Sendable {}
 extension RecyclerView.ModelState : Swift.Sendable {}
+extension RecyclerView.ContinuousLayoutEngine : Swift.Sendable {}
+extension RecyclerView.LogType : Swift.Hashable {}
+extension RecyclerView.DataModificationContext : Swift.Sendable {}
 extension RecyclerView.CustomContextMenuConfiguration.AccessoryPosition : Swift.Equatable {}
 extension RecyclerView.CustomContextMenuConfiguration.AccessoryPosition : Swift.Hashable {}
 extension RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle : Swift.Equatable {}
 extension RecyclerView.CustomContextMenuInteractionCommitAnimatingCoordinator.CommitStyle : Swift.Hashable {}
 extension RecyclerView.CustomContextMenuPointerSession : Swift.Sendable {}
 extension RecyclerView.CustomContextMenuInteraction : Swift.Sendable {}
-extension RecyclerView.ContinuousLayoutEngine : Swift.Sendable {}
-extension RecyclerView.ContextMenuInteraction : Swift.Sendable {}
-extension RecyclerView.LogType : Swift.Hashable {}
-extension RecyclerView.DataModificationContext : Swift.Sendable {}
