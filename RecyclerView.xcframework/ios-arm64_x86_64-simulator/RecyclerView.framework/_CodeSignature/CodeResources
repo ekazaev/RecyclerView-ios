@@ -14,43 +14,43 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		eGAYeWBXIoe74M/V6R1DaaDUZkI=
+		HF2J/kuARk/FHglZSvjtvdqOnj8=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		QVDBYsu31Uts++IxlGPA0Lg/yec=
+		3kINxrYdmSSk1TGlcAJmKwc/LSE=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		LRlQyPGgMZllzpf64rheNcKSvOk=
+		0pdkLJYnBig/zTHTJSJDtW29mwU=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		QVDBYsu31Uts++IxlGPA0Lg/yec=
+		3kINxrYdmSSk1TGlcAJmKwc/LSE=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		NKwu5QpIu0ePYHUO8jPJ3AWW8Fc=
+		Fx7OaptEKQk7/MwXa4ivBQtvxnE=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		eGAYeWBXIoe74M/V6R1DaaDUZkI=
+		HF2J/kuARk/FHglZSvjtvdqOnj8=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		HGPBZopjOc7UjnJCy20TUxY+ZG8=
+		WJsLcXjRZHd9FDJcXXNROYp/FD0=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		IO9LzfgNq3yI1x3lEqwdkbTC2c0=
+		DM74awMNNUVUcN/ksUy4yt6oGzA=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		HGPBZopjOc7UjnJCy20TUxY+ZG8=
+		WJsLcXjRZHd9FDJcXXNROYp/FD0=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		e2Gcx8AsRacZHmIMqvwbjNw/hMY=
+		BmZU2lg0f7navHyZSSKaEcbKJgM=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -70,70 +70,70 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WkyBIYiiJ1g4lGMicjNsLkdtBNLGmlrgTu7nwOonmnI=
+			Jvaj9BpXP9mE9Hm1tTJBYlGtL21BADLJl/fMQi3/UfQ=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UnPfx/pEW0gcPWbKrC1ZAEmnRxqoLPManLVBdtzPqUY=
+			5WGRl6avSPCuich3XlZ7dJIvG+qd4NRi4bX/2sblPG8=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			PWXQFjEaaveFrORgNybe8H1SSc9LIbefFbiuC7eNzyU=
+			cnFolXjU0M7zDNY2Xf1wNwmlNG9XUA+0ct4wMkvmogY=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			UnPfx/pEW0gcPWbKrC1ZAEmnRxqoLPManLVBdtzPqUY=
+			5WGRl6avSPCuich3XlZ7dJIvG+qd4NRi4bX/2sblPG8=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			tRev0ofeJ9ovaZbEcFFtdeBDy2ZmhCP3fnUnxHI1q/g=
+			zmGcHihKiYTqfW/8cBM6uZXjhZWqAdCQ5v/2jgZdnZs=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WkyBIYiiJ1g4lGMicjNsLkdtBNLGmlrgTu7nwOonmnI=
+			Jvaj9BpXP9mE9Hm1tTJBYlGtL21BADLJl/fMQi3/UfQ=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eKd1c/PBhadt7URXuLcImXzwctUgAKIprgIUfdk95zM=
+			AdlLA23IouOtymxtXIKj0rNKpi8qjyGLsYiQHw7I1iA=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			AL+u9q0+71/mpZYweODnaUpuTcRzrWsQ1cUi2KmkOMc=
+			ppJrfUtM7p7+2VEbR464ddZr52DK8dIL+/qg87XvSRc=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			eKd1c/PBhadt7URXuLcImXzwctUgAKIprgIUfdk95zM=
+			AdlLA23IouOtymxtXIKj0rNKpi8qjyGLsYiQHw7I1iA=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/PyqDgbAHutJswdON3BSPRkLh9hpJBoqHO3dQm/wlIY=
+			nGV5rLPLGDiHkkvbnNaVyOI69f6CskYQP6Z5xtFAio4=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
