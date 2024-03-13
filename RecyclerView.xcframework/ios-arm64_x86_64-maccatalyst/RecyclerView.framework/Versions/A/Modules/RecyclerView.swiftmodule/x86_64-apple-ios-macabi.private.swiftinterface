@@ -90,9 +90,6 @@ extension RecyclerView.RecyclerViewDataSource {
   @_Concurrency.MainActor public func reconfigureView(_ view: UIKit.UIView, with payload: Self.Payload, forCellAtIndex index: Swift.Int)
 }
 @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class CellLayoutContext {
-  @_Concurrency.MainActor final public var isAvailable: Swift.Bool {
-    get
-  }
   @_Concurrency.MainActor final public func invalidateLayout(_ type: RecyclerView.BatchUpdateAnimationType = .default, completion: ((Swift.Bool) -> Swift.Void)? = nil)
   @objc deinit
 }
@@ -124,7 +121,11 @@ public struct ModificationContext : Swift.Sendable {
     get
   }
 }
+public protocol RecyclerViewCellSupporting : AnyObject {
+  func updateConfigurationUsingState(_ state: any UIKit.UIConfigurationState)
+}
 @_inheritsConvenienceInitializers @_Concurrency.MainActor open class RecyclerViewCell<Payload> : UIKit.UIView, RecyclerView.RecyclerViewCellEvenHandler where Payload : Swift.Equatable {
+  public typealias RecyclerViewCellConfigurationUpdateHandler = (_ cell: RecyclerView.RecyclerViewCell<Payload>, _ state: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState) -> Swift.Void
   public struct ConfigurationState : UIKit.UIConfigurationState, Swift.Equatable {
     public var traitCollection: UIKit.UITraitCollection
     public var index: Swift.Int?
@@ -136,36 +137,44 @@ public struct ModificationContext : Swift.Sendable {
     }
     public static func == (a: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState, b: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState) -> Swift.Bool
   }
-  @_Concurrency.MainActor public var contentView: UIKit.UIView {
+  @_Concurrency.MainActor open var contentView: UIKit.UIView {
     get
   }
-  @_Concurrency.MainActor public var configurationState: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState {
+  @_Concurrency.MainActor open var configurationState: RecyclerView.RecyclerViewCell<Payload>.ConfigurationState {
     get
   }
-  @_Concurrency.MainActor public var contentConfiguration: (any UIKit.UIContentConfiguration)? {
+  @_Concurrency.MainActor open var contentConfiguration: (any UIKit.UIContentConfiguration)? {
+    get
+    set
+  }
+  @_Concurrency.MainActor open var configurationUpdateHandler: RecyclerView.RecyclerViewCell<Payload>.RecyclerViewCellConfigurationUpdateHandler? {
     get
     set
   }
   @_Concurrency.MainActor @objc override required dynamic public init(frame: CoreFoundation.CGRect)
   @available(*, unavailable)
   @_Concurrency.MainActor @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @_Concurrency.MainActor open var reuseIdentifier: Swift.String? {
+    get
+  }
+  @_Concurrency.MainActor open func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
+  @_Concurrency.MainActor open func prepareForReuseAtIndex(_ index: Swift.Int, with context: RecyclerView.CellLayoutContext)
+  @_Concurrency.MainActor open func prepareForDequeue()
+  @_Concurrency.MainActor open func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
+  @_Concurrency.MainActor open func setNeedsUpdateConfiguration()
+  @_Concurrency.MainActor open func updateLayoutConfigurationIfNeeded()
+  @_Concurrency.MainActor open func updateConfigurationUsingState(_ state: any UIKit.UIConfigurationState)
   @_Concurrency.MainActor @objc override dynamic open class var requiresConstraintBasedLayout: Swift.Bool {
     @objc get
   }
   @_Concurrency.MainActor @objc override dynamic open func sizeThatFits(_ size: CoreFoundation.CGSize) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor @objc override dynamic open func invalidateIntrinsicContentSize()
   @_Concurrency.MainActor @objc override dynamic open var intrinsicContentSize: CoreFoundation.CGSize {
     @objc get
   }
   @_Concurrency.MainActor @objc override dynamic open func systemLayoutSizeFitting(_ targetSize: CoreFoundation.CGSize) -> CoreFoundation.CGSize
   @_Concurrency.MainActor @objc override dynamic open func systemLayoutSizeFitting(_ targetSize: CoreFoundation.CGSize, withHorizontalFittingPriority horizontalFittingPriority: UIKit.UILayoutPriority, verticalFittingPriority: UIKit.UILayoutPriority) -> CoreFoundation.CGSize
   @_Concurrency.MainActor @objc override dynamic open func layoutSubviews()
-  @_Concurrency.MainActor final public var reuseIdentifier: Swift.String? {
-    get
-  }
-  @_Concurrency.MainActor open func updateRecyclerItemPayload(_ payload: Any, index: Swift.Int)
-  @_Concurrency.MainActor open func prepareForReuseAtIndex(_ index: Swift.Int, with invalidator: RecyclerView.CellLayoutContext)
-  @_Concurrency.MainActor open func prepareForDequeue()
-  @_Concurrency.MainActor open func applyLayoutAttributes(_ attributes: RecyclerView.LayoutAttributes, at state: RecyclerView.RecyclerViewContainerState, index: Swift.Int)
   @objc deinit
 }
 extension RecyclerView.RecyclerViewCell.ConfigurationState : Swift.Hashable where Payload : Swift.Hashable {
@@ -744,9 +753,9 @@ public struct ItemPositionConfiguration<Identifier> : Swift.Hashable where Ident
   }
 }
 @_Concurrency.MainActor open class RecyclerViewDiffableDataSource<Engine, ItemIdentifierType> : RecyclerView.RecyclerViewDataSource where Engine : RecyclerView.RecyclerViewEngine, ItemIdentifierType : Swift.Hashable {
-  public typealias CellProvider = (_ recyclerView: RecyclerView.RecyclerScrollView<Engine>, _ index: Swift.Int, _ itemIdentifier: ItemIdentifierType) -> UIKit.UIView
-  public typealias PayloadProvider = (_ recyclerView: RecyclerView.RecyclerScrollView<Engine>, _ index: Swift.Int, _ itemIdentifier: ItemIdentifierType) -> Engine.Payload
-  public typealias CellConfigurator = (_ recyclerView: RecyclerView.RecyclerScrollView<Engine>, _ view: UIKit.UIView, _ index: Swift.Int, _ itemIdentifier: ItemIdentifierType, _ payload: Engine.Payload) -> Swift.Void
+  public typealias CellProvider = @_Concurrency.MainActor (_ recyclerView: RecyclerView.RecyclerScrollView<Engine>, _ index: Swift.Int, _ itemIdentifier: ItemIdentifierType) -> UIKit.UIView
+  public typealias PayloadProvider = @_Concurrency.MainActor (_ recyclerView: RecyclerView.RecyclerScrollView<Engine>, _ index: Swift.Int, _ itemIdentifier: ItemIdentifierType) -> Engine.Payload
+  public typealias CellConfigurator = @_Concurrency.MainActor (_ recyclerView: RecyclerView.RecyclerScrollView<Engine>, _ view: UIKit.UIView, _ index: Swift.Int, _ itemIdentifier: ItemIdentifierType, _ payload: Engine.Payload) -> Swift.Void
   @_Concurrency.MainActor public var snapshot: RecyclerView.DiffableDataSourceSnapshot<ItemIdentifierType> {
     get
   }
@@ -759,6 +768,7 @@ public struct ItemPositionConfiguration<Identifier> : Swift.Hashable where Ident
   #if compiler(>=5.3) && $AsyncAwait
   @_Concurrency.MainActor open func applySnapshot(_ snapshot: RecyclerView.DiffableDataSourceSnapshot<ItemIdentifierType>, with animationType: RecyclerView.BatchUpdateAnimationType = .default) async
   #endif
+  @_Concurrency.MainActor open func applySnapshotUsingReloadData(_ snapshot: RecyclerView.DiffableDataSourceSnapshot<ItemIdentifierType>)
   public typealias Payload = Engine.Payload
   @objc deinit
 }
@@ -959,7 +969,7 @@ extension UIKit.UIScrollView {
   @_Concurrency.MainActor func commitLayoutSubviewsWithPositionSnapshot(positionSnapshot: Self.PositionSnapshot, animated: Swift.Bool, in scrollViewSnapshot: any RecyclerView.ScrollViewSnapshot)
 }
 public struct DiffableDataSourceSnapshot<ItemIdentifierType> where ItemIdentifierType : Swift.Hashable {
-  public var cellIdentifiers: [ItemIdentifierType] {
+  public var itemIdentifiers: [ItemIdentifierType] {
     get
   }
   public var reloadItems: [ItemIdentifierType] {
@@ -974,16 +984,19 @@ public struct DiffableDataSourceSnapshot<ItemIdentifierType> where ItemIdentifie
   public func numberOfCells() -> Swift.Int
   public func indexOfItem(_ identifier: ItemIdentifierType) -> Swift.Int?
   public mutating func appendItems(_ items: [ItemIdentifierType])
-  public mutating func insertItems(_ identifiers: [ItemIdentifierType], at index: Swift.Int)
+  public mutating func insertItems(_ identifiers: [ItemIdentifierType], before identifier: ItemIdentifierType)
+  public mutating func insertItems(_ identifiers: [ItemIdentifierType], after identifier: ItemIdentifierType)
   public mutating func deleteItems(_ identifiers: [ItemIdentifierType])
   public mutating func deleteAllItems()
-  public mutating func moveItemAt(_ index: Swift.Int, to newIndex: Swift.Int)
+  public mutating func moveItem(_ identifier: ItemIdentifierType, beforeItem toIdentifier: ItemIdentifierType)
+  public mutating func moveItem(_ identifier: ItemIdentifierType, afterItem toIdentifier: ItemIdentifierType)
   public mutating func reloadItems(_ identifiers: [ItemIdentifierType])
   public mutating func reconfigureItems(_ identifiers: [ItemIdentifierType])
 }
 public struct CellRegistration<Cell, Item, Payload> where Cell : RecyclerView.RecyclerViewCell<Payload>, Payload : Swift.Equatable {
   public typealias Handler = @_Concurrency.MainActor (_ cell: Cell, _ index: Swift.Int, _ itemIdentifier: Item, _ payload: Payload) -> Swift.Void
   public let handler: RecyclerView.CellRegistration<Cell, Item, Payload>.Handler
+  public let reuseIdentifier: Swift.String
   public init(handler: @escaping RecyclerView.CellRegistration<Cell, Item, Payload>.Handler)
 }
 public struct CustomContextMenuConfiguration {

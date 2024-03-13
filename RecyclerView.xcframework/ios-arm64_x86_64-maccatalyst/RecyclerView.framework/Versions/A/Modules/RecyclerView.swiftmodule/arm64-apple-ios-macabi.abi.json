@@ -1519,52 +1519,6 @@
         "printedName": "CellLayoutContext",
         "children": [
           {
-            "kind": "Var",
-            "name": "isAvailable",
-            "printedName": "isAvailable",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Bool",
-                "printedName": "Swift.Bool",
-                "usr": "s:Sb"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12RecyclerView17CellLayoutContextC11isAvailableSbvp",
-            "mangledName": "$s12RecyclerView17CellLayoutContextC11isAvailableSbvp",
-            "moduleName": "RecyclerView",
-            "declAttributes": [
-              "Final",
-              "Custom",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Bool",
-                    "printedName": "Swift.Bool",
-                    "usr": "s:Sb"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12RecyclerView17CellLayoutContextC11isAvailableSbvg",
-                "mangledName": "$s12RecyclerView17CellLayoutContextC11isAvailableSbvg",
-                "moduleName": "RecyclerView",
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
             "kind": "Function",
             "name": "invalidateLayout",
             "printedName": "invalidateLayout(_:completion:)",
@@ -2686,6 +2640,49 @@
       },
       {
         "kind": "TypeDecl",
+        "name": "RecyclerViewCellSupporting",
+        "printedName": "RecyclerViewCellSupporting",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "updateConfigurationUsingState",
+            "printedName": "updateConfigurationUsingState(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIConfigurationState",
+                "printedName": "any UIKit.UIConfigurationState",
+                "usr": "s:5UIKit20UIConfigurationStateP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB14CellSupportingP29updateConfigurationUsingStateyy5UIKit015UIConfigurationH0_pF",
+            "mangledName": "$s12RecyclerView0aB14CellSupportingP29updateConfigurationUsingStateyy5UIKit015UIConfigurationH0_pF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.RecyclerViewCellSupporting>",
+            "sugared_genericSig": "<Self where Self : RecyclerView.RecyclerViewCellSupporting>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:12RecyclerView0aB14CellSupportingP",
+        "mangledName": "$s12RecyclerView0aB14CellSupportingP",
+        "moduleName": "RecyclerView",
+        "genericSig": "<τ_0_0 : AnyObject>",
+        "sugared_genericSig": "<Self : AnyObject>",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
         "name": "RecyclerViewCell",
         "printedName": "RecyclerViewCell",
         "children": [
@@ -2812,7 +2809,8 @@
                 "declAttributes": [
                   "HasInitialValue",
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -2927,7 +2925,8 @@
                 "declAttributes": [
                   "HasInitialValue",
                   "HasStorage",
-                  "AccessControl"
+                  "AccessControl",
+                  "RawDocComment"
                 ],
                 "hasStorage": true,
                 "accessors": [
@@ -3342,9 +3341,9 @@
             "usr": "s:12RecyclerView0aB4CellC07contentB0So6UIViewCvp",
             "mangledName": "$s12RecyclerView0aB4CellC07contentB0So6UIViewCvp",
             "moduleName": "RecyclerView",
+            "isOpen": true,
             "declAttributes": [
               "Custom",
-              "SetterAccess",
               "AccessControl"
             ],
             "accessors": [
@@ -3366,6 +3365,7 @@
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "isOpen": true,
                 "accessorKind": "get"
               }
             ]
@@ -3386,11 +3386,13 @@
             "usr": "s:12RecyclerView0aB4CellC18configurationStateAC013ConfigurationE0Vyx_Gvp",
             "mangledName": "$s12RecyclerView0aB4CellC18configurationStateAC013ConfigurationE0Vyx_Gvp",
             "moduleName": "RecyclerView",
+            "isOpen": true,
             "declAttributes": [
               "Custom",
               "Lazy",
               "SetterAccess",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -3412,6 +3414,7 @@
                 "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
                 "implicit": true,
+                "isOpen": true,
                 "accessorKind": "get"
               }
             ]
@@ -3440,10 +3443,15 @@
             "usr": "s:12RecyclerView0aB4CellC20contentConfiguration5UIKit09UIContentE0_pSgvp",
             "mangledName": "$s12RecyclerView0aB4CellC20contentConfiguration5UIKit09UIContentE0_pSgvp",
             "moduleName": "RecyclerView",
+            "isOpen": true,
             "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
               "Custom",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
+            "hasStorage": true,
             "accessors": [
               {
                 "kind": "Accessor",
@@ -3471,6 +3479,8 @@
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "implicit": true,
+                "isOpen": true,
                 "accessorKind": "get"
               },
               {
@@ -3504,6 +3514,8 @@
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "implicit": true,
+                "isOpen": true,
                 "accessorKind": "set"
               },
               {
@@ -3524,6 +3536,225 @@
                 "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
                 "implicit": true,
+                "isOpen": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "configurationUpdateHandler",
+            "printedName": "configurationUpdateHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "RecyclerViewCell",
+                            "printedName": "RecyclerView.RecyclerViewCell<τ_0_0>",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "GenericTypeParam",
+                                "printedName": "τ_0_0"
+                              }
+                            ],
+                            "usr": "s:12RecyclerView0aB4CellC"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ConfigurationState",
+                            "printedName": "RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState",
+                            "usr": "s:12RecyclerView0aB4CellC18ConfigurationStateV"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvp",
+            "mangledName": "$s12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvp",
+            "moduleName": "RecyclerView",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "RecyclerViewCell",
+                                "printedName": "RecyclerView.RecyclerViewCell<τ_0_0>",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "GenericTypeParam",
+                                    "printedName": "τ_0_0"
+                                  }
+                                ],
+                                "usr": "s:12RecyclerView0aB4CellC"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ConfigurationState",
+                                "printedName": "RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState",
+                                "usr": "s:12RecyclerView0aB4CellC18ConfigurationStateV"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvg",
+                "mangledName": "$s12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvg",
+                "moduleName": "RecyclerView",
+                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+                "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RecyclerView.RecyclerViewCell<τ_0_0>, RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "RecyclerViewCell",
+                                "printedName": "RecyclerView.RecyclerViewCell<τ_0_0>",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "GenericTypeParam",
+                                    "printedName": "τ_0_0"
+                                  }
+                                ],
+                                "usr": "s:12RecyclerView0aB4CellC"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ConfigurationState",
+                                "printedName": "RecyclerView.RecyclerViewCell<τ_0_0>.ConfigurationState",
+                                "usr": "s:12RecyclerView0aB4CellC18ConfigurationStateV"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvs",
+                "mangledName": "$s12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvs",
+                "moduleName": "RecyclerView",
+                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+                "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvM",
+                "mangledName": "$s12RecyclerView0aB4CellC26configurationUpdateHandleryACyxG_AC18ConfigurationStateVyx_GtcSgvM",
+                "moduleName": "RecyclerView",
+                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+                "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "implicit": true,
+                "isOpen": true,
                 "accessorKind": "_modify"
               }
             ]
@@ -3573,6 +3804,286 @@
           },
           {
             "kind": "Var",
+            "name": "reuseIdentifier",
+            "printedName": "reuseIdentifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecyclerView0aB4CellC15reuseIdentifierSSSgvp",
+            "mangledName": "$s12RecyclerView0aB4CellC15reuseIdentifierSSSgvp",
+            "moduleName": "RecyclerView",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecyclerView0aB4CellC15reuseIdentifierSSSgvg",
+                "mangledName": "$s12RecyclerView0aB4CellC15reuseIdentifierSSSgvg",
+                "moduleName": "RecyclerView",
+                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+                "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+                "isOpen": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "updateRecyclerItemPayload",
+            "printedName": "updateRecyclerItemPayload(_:index:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "ProtocolComposition",
+                "printedName": "Any"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC06updateA11ItemPayload_5indexyyp_SitF",
+            "mangledName": "$s12RecyclerView0aB4CellC06updateA11ItemPayload_5indexyyp_SitF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "prepareForReuseAtIndex",
+            "printedName": "prepareForReuseAtIndex(_:with:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CellLayoutContext",
+                "printedName": "RecyclerView.CellLayoutContext",
+                "usr": "s:12RecyclerView17CellLayoutContextC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC22prepareForReuseAtIndex_4withySi_AA0C13LayoutContextCtF",
+            "mangledName": "$s12RecyclerView0aB4CellC22prepareForReuseAtIndex_4withySi_AA0C13LayoutContextCtF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "prepareForDequeue",
+            "printedName": "prepareForDequeue()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC17prepareForDequeueyyF",
+            "mangledName": "$s12RecyclerView0aB4CellC17prepareForDequeueyyF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "applyLayoutAttributes",
+            "printedName": "applyLayoutAttributes(_:at:index:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "LayoutAttributes",
+                "printedName": "RecyclerView.LayoutAttributes",
+                "usr": "s:12RecyclerView16LayoutAttributesV"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RecyclerViewContainerState",
+                "printedName": "RecyclerView.RecyclerViewContainerState",
+                "usr": "s:12RecyclerView0aB14ContainerStateO"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC21applyLayoutAttributes_2at5indexyAA0eF0V_AA0aB14ContainerStateOSitF",
+            "mangledName": "$s12RecyclerView0aB4CellC21applyLayoutAttributes_2at5indexyAA0eF0V_AA0aB14ContainerStateOSitF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setNeedsUpdateConfiguration",
+            "printedName": "setNeedsUpdateConfiguration()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC27setNeedsUpdateConfigurationyyF",
+            "mangledName": "$s12RecyclerView0aB4CellC27setNeedsUpdateConfigurationyyF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateLayoutConfigurationIfNeeded",
+            "printedName": "updateLayoutConfigurationIfNeeded()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC33updateLayoutConfigurationIfNeededyyF",
+            "mangledName": "$s12RecyclerView0aB4CellC33updateLayoutConfigurationIfNeededyyF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "updateConfigurationUsingState",
+            "printedName": "updateConfigurationUsingState(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIConfigurationState",
+                "printedName": "any UIKit.UIConfigurationState",
+                "usr": "s:5UIKit20UIConfigurationStateP"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC29updateConfigurationUsingStateyy5UIKit015UIConfigurationG0_pF",
+            "mangledName": "$s12RecyclerView0aB4CellC29updateConfigurationUsingStateyy5UIKit015UIConfigurationG0_pF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
             "name": "requiresConstraintBasedLayout",
             "printedName": "requiresConstraintBasedLayout",
             "children": [
@@ -3596,7 +4107,8 @@
               "ObjC",
               "Custom",
               "Override",
-              "AccessControl"
+              "AccessControl",
+              "RawDocComment"
             ],
             "accessors": [
               {
@@ -3656,6 +4168,35 @@
             "overriding": true,
             "isOpen": true,
             "objc_name": "sizeThatFits:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Custom",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "invalidateIntrinsicContentSize",
+            "printedName": "invalidateIntrinsicContentSize()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB4CellC30invalidateIntrinsicContentSizeyyF",
+            "mangledName": "$s12RecyclerView0aB4CellC30invalidateIntrinsicContentSizeyyF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
+            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
+            "overriding": true,
+            "isOpen": true,
+            "objc_name": "invalidateIntrinsicContentSize",
             "declAttributes": [
               "Dynamic",
               "ObjC",
@@ -3830,207 +4371,6 @@
               "ObjC",
               "Custom",
               "Override",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Var",
-            "name": "reuseIdentifier",
-            "printedName": "reuseIdentifier",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "Swift.String?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "String",
-                    "printedName": "Swift.String",
-                    "usr": "s:SS"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12RecyclerView0aB4CellC15reuseIdentifierSSSgvp",
-            "mangledName": "$s12RecyclerView0aB4CellC15reuseIdentifierSSSgvp",
-            "moduleName": "RecyclerView",
-            "declAttributes": [
-              "Custom",
-              "Final",
-              "AccessControl",
-              "RawDocComment"
-            ],
-            "accessors": [
-              {
-                "kind": "Accessor",
-                "name": "Get",
-                "printedName": "Get()",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "Optional",
-                    "printedName": "Swift.String?",
-                    "children": [
-                      {
-                        "kind": "TypeNominal",
-                        "name": "String",
-                        "printedName": "Swift.String",
-                        "usr": "s:SS"
-                      }
-                    ],
-                    "usr": "s:Sq"
-                  }
-                ],
-                "declKind": "Accessor",
-                "usr": "s:12RecyclerView0aB4CellC15reuseIdentifierSSSgvg",
-                "mangledName": "$s12RecyclerView0aB4CellC15reuseIdentifierSSSgvg",
-                "moduleName": "RecyclerView",
-                "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
-                "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
-                "declAttributes": [
-                  "Final"
-                ],
-                "accessorKind": "get"
-              }
-            ]
-          },
-          {
-            "kind": "Function",
-            "name": "updateRecyclerItemPayload",
-            "printedName": "updateRecyclerItemPayload(_:index:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "ProtocolComposition",
-                "printedName": "Any"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:12RecyclerView0aB4CellC06updateA11ItemPayload_5indexyyp_SitF",
-            "mangledName": "$s12RecyclerView0aB4CellC06updateA11ItemPayload_5indexyyp_SitF",
-            "moduleName": "RecyclerView",
-            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
-            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "prepareForReuseAtIndex",
-            "printedName": "prepareForReuseAtIndex(_:with:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "CellLayoutContext",
-                "printedName": "RecyclerView.CellLayoutContext",
-                "usr": "s:12RecyclerView17CellLayoutContextC"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:12RecyclerView0aB4CellC22prepareForReuseAtIndex_4withySi_AA0C13LayoutContextCtF",
-            "mangledName": "$s12RecyclerView0aB4CellC22prepareForReuseAtIndex_4withySi_AA0C13LayoutContextCtF",
-            "moduleName": "RecyclerView",
-            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
-            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "prepareForDequeue",
-            "printedName": "prepareForDequeue()",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:12RecyclerView0aB4CellC17prepareForDequeueyyF",
-            "mangledName": "$s12RecyclerView0aB4CellC17prepareForDequeueyyF",
-            "moduleName": "RecyclerView",
-            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
-            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
-              "AccessControl"
-            ],
-            "funcSelfKind": "NonMutating"
-          },
-          {
-            "kind": "Function",
-            "name": "applyLayoutAttributes",
-            "printedName": "applyLayoutAttributes(_:at:index:)",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Void",
-                "printedName": "()"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "LayoutAttributes",
-                "printedName": "RecyclerView.LayoutAttributes",
-                "usr": "s:12RecyclerView16LayoutAttributesV"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "RecyclerViewContainerState",
-                "printedName": "RecyclerView.RecyclerViewContainerState",
-                "usr": "s:12RecyclerView0aB14ContainerStateO"
-              },
-              {
-                "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
-              }
-            ],
-            "declKind": "Func",
-            "usr": "s:12RecyclerView0aB4CellC21applyLayoutAttributes_2at5indexyAA0eF0V_AA0aB14ContainerStateOSitF",
-            "mangledName": "$s12RecyclerView0aB4CellC21applyLayoutAttributes_2at5indexyAA0eF0V_AA0aB14ContainerStateOSitF",
-            "moduleName": "RecyclerView",
-            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Equatable>",
-            "sugared_genericSig": "<Payload where Payload : Swift.Equatable>",
-            "isOpen": true,
-            "declAttributes": [
-              "Custom",
               "AccessControl"
             ],
             "funcSelfKind": "NonMutating"
@@ -16930,8 +17270,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH00G12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAK_Siq_tc7PayloadQzAK_Siq_tcyAK_AMSiq_AOtctcfc",
-            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH00G12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAK_Siq_tc7PayloadQzAK_Siq_tcyAK_AMSiq_AOtctcfc",
+            "usr": "s:12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH00G12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAK_Siq_tScMYcc7PayloadQzAK_Siq_tScMYccyAK_AMSiq_AOtScMYcctcfc",
+            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH00G12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAK_Siq_tScMYcc7PayloadQzAK_Siq_tScMYccyAK_AMSiq_AOtScMYcctcfc",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_1 : Swift.Hashable>",
             "sugared_genericSig": "<Engine, ItemIdentifierType where Engine : RecyclerView.RecyclerViewEngine, ItemIdentifierType : Swift.Hashable>",
@@ -17183,6 +17523,43 @@
             "funcSelfKind": "NonMutating"
           },
           {
+            "kind": "Function",
+            "name": "applySnapshotUsingReloadData",
+            "printedName": "applySnapshotUsingReloadData(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "DiffableDataSourceSnapshot",
+                "printedName": "RecyclerView.DiffableDataSourceSnapshot<τ_0_1>",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_1"
+                  }
+                ],
+                "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView0aB18DiffableDataSourceC024applySnapshotUsingReloadD0yyAA0cdeG0Vyq_GF",
+            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceC024applySnapshotUsingReloadD0yyAA0cdeG0Vyq_GF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_1 : Swift.Hashable>",
+            "sugared_genericSig": "<Engine, ItemIdentifierType where Engine : RecyclerView.RecyclerViewEngine, ItemIdentifierType : Swift.Hashable>",
+            "isOpen": true,
+            "declAttributes": [
+              "Custom",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
             "kind": "Constructor",
             "name": "init",
             "printedName": "init(recyclerView:cellProvider:payloadProvider:)",
@@ -17307,8 +17684,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH0ACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAJ_Siq_tc7PayloadQzAJ_Siq_tctcfc",
-            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH0ACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAJ_Siq_tc7PayloadQzAJ_Siq_tctcfc",
+            "usr": "s:12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH0ACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAJ_Siq_tScMYcc7PayloadQzAJ_Siq_tScMYcctcfc",
+            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceC08recyclerB012cellProvider07payloadH0ACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAJ_Siq_tScMYcc7PayloadQzAJ_Siq_tScMYcctcfc",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_1 : Swift.Hashable>",
             "sugared_genericSig": "<Engine, ItemIdentifierType where Engine : RecyclerView.RecyclerViewEngine, ItemIdentifierType : Swift.Hashable>",
@@ -17455,8 +17832,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProvider0H12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAM_Siq_tcyAM_AOSiq_AFtctcfc",
-            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProvider0H12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAM_Siq_tcyAM_AOSiq_AFtctcfc",
+            "usr": "s:12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProvider0H12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAM_Siq_tScMYccyAM_AOSiq_AFtScMYcctcfc",
+            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProvider0H12ConfiguratorACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAM_Siq_tScMYccyAM_AOSiq_AFtScMYcctcfc",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_1 : Swift.Hashable, τ_0_0.Payload : RecyclerView.RecyclerViewPayload>",
             "sugared_genericSig": "<Engine, ItemIdentifierType where Engine : RecyclerView.RecyclerViewEngine, ItemIdentifierType : Swift.Hashable, Engine.Payload : RecyclerView.RecyclerViewPayload>",
@@ -17549,8 +17926,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProviderACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAL_Siq_tctcfc",
-            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProviderACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAL_Siq_tctcfc",
+            "usr": "s:12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProviderACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAL_Siq_tScMYcctcfc",
+            "mangledName": "$s12RecyclerView0aB18DiffableDataSourceCA2A0aB7Payload0F0RpzrlE08recyclerB012cellProviderACyxq_GAA0a6ScrollB0CyxG_So6UIViewCAL_Siq_tScMYcctcfc",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0, τ_0_1 where τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_1 : Swift.Hashable, τ_0_0.Payload : RecyclerView.RecyclerViewPayload>",
             "sugared_genericSig": "<Engine, ItemIdentifierType where Engine : RecyclerView.RecyclerViewEngine, ItemIdentifierType : Swift.Hashable, Engine.Payload : RecyclerView.RecyclerViewPayload>",
@@ -21780,8 +22157,8 @@
         "children": [
           {
             "kind": "Var",
-            "name": "cellIdentifiers",
-            "printedName": "cellIdentifiers",
+            "name": "itemIdentifiers",
+            "printedName": "itemIdentifiers",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -21798,8 +22175,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV15cellIdentifiersSayxGvp",
-            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV15cellIdentifiersSayxGvp",
+            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV15itemIdentifiersSayxGvp",
+            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV15itemIdentifiersSayxGvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl"
@@ -21825,8 +22202,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV15cellIdentifiersSayxGvg",
-                "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV15cellIdentifiersSayxGvg",
+                "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV15itemIdentifiersSayxGvg",
+                "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV15itemIdentifiersSayxGvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : Swift.Hashable>",
                 "sugared_genericSig": "<ItemIdentifierType where ItemIdentifierType : Swift.Hashable>",
@@ -22186,7 +22563,7 @@
           {
             "kind": "Function",
             "name": "insertItems",
-            "printedName": "insertItems(_:at:)",
+            "printedName": "insertItems(_:before:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -22208,14 +22585,54 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV11insertItems_2atySayxG_SitF",
-            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV11insertItems_2atySayxG_SitF",
+            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV11insertItems_6beforeySayxG_xtF",
+            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV11insertItems_6beforeySayxG_xtF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Hashable>",
+            "sugared_genericSig": "<ItemIdentifierType where ItemIdentifierType : Swift.Hashable>",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl"
+            ],
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "insertItems",
+            "printedName": "insertItems(_:after:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[τ_0_0]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "GenericTypeParam",
+                    "printedName": "τ_0_0"
+                  }
+                ],
+                "usr": "s:Sa"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV11insertItems_5afterySayxG_xtF",
+            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV11insertItems_5afterySayxG_xtF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.Hashable>",
             "sugared_genericSig": "<ItemIdentifierType where ItemIdentifierType : Swift.Hashable>",
@@ -22286,8 +22703,8 @@
           },
           {
             "kind": "Function",
-            "name": "moveItemAt",
-            "printedName": "moveItemAt(_:to:)",
+            "name": "moveItem",
+            "printedName": "moveItem(_:beforeItem:)",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -22296,20 +22713,51 @@
               },
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
               },
               {
                 "kind": "TypeNominal",
-                "name": "Int",
-                "printedName": "Swift.Int",
-                "usr": "s:Si"
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV10moveItemAt_2toySi_SitF",
-            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV10moveItemAt_2toySi_SitF",
+            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV8moveItem_06beforeH0yx_xtF",
+            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV8moveItem_06beforeH0yx_xtF",
+            "moduleName": "RecyclerView",
+            "genericSig": "<τ_0_0 where τ_0_0 : Swift.Hashable>",
+            "sugared_genericSig": "<ItemIdentifierType where ItemIdentifierType : Swift.Hashable>",
+            "declAttributes": [
+              "Mutating",
+              "AccessControl"
+            ],
+            "funcSelfKind": "Mutating"
+          },
+          {
+            "kind": "Function",
+            "name": "moveItem",
+            "printedName": "moveItem(_:afterItem:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "GenericTypeParam",
+                "printedName": "τ_0_0"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12RecyclerView26DiffableDataSourceSnapshotV8moveItem_05afterH0yx_xtF",
+            "mangledName": "$s12RecyclerView26DiffableDataSourceSnapshotV8moveItem_05afterH0yx_xtF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0 where τ_0_0 : Swift.Hashable>",
             "sugared_genericSig": "<ItemIdentifierType where ItemIdentifierType : Swift.Hashable>",
@@ -22524,6 +22972,53 @@
                 "declKind": "Accessor",
                 "usr": "s:12RecyclerView16CellRegistrationV7handleryyx_Siq_q0_tScMYccvg",
                 "mangledName": "$s12RecyclerView16CellRegistrationV7handleryyx_Siq_q0_tScMYccvg",
+                "moduleName": "RecyclerView",
+                "genericSig": "<τ_0_0, τ_0_1, τ_0_2 where τ_0_0 : RecyclerView.RecyclerViewCell<τ_0_2>, τ_0_2 : Swift.Equatable>",
+                "sugared_genericSig": "<Cell, Item, Payload where Cell : RecyclerView.RecyclerViewCell<Payload>, Payload : Swift.Equatable>",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "reuseIdentifier",
+            "printedName": "reuseIdentifier",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12RecyclerView16CellRegistrationV15reuseIdentifierSSvp",
+            "mangledName": "$s12RecyclerView16CellRegistrationV15reuseIdentifierSSvp",
+            "moduleName": "RecyclerView",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "isLet": true,
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12RecyclerView16CellRegistrationV15reuseIdentifierSSvg",
+                "mangledName": "$s12RecyclerView16CellRegistrationV15reuseIdentifierSSvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0, τ_0_1, τ_0_2 where τ_0_0 : RecyclerView.RecyclerViewCell<τ_0_2>, τ_0_2 : Swift.Equatable>",
                 "sugared_genericSig": "<Cell, Item, Payload where Cell : RecyclerView.RecyclerViewCell<Payload>, Payload : Swift.Equatable>",
@@ -36398,56 +36893,35 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
       "kind": "Dictionary",
-      "offset": 530,
+      "offset": 993,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
       "kind": "BooleanLiteral",
-      "offset": 1043,
-      "length": 4,
-      "value": "true"
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
-      "kind": "StringLiteral",
-      "offset": 1088,
-      "length": 34,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
-      "kind": "StringLiteral",
-      "offset": 1121,
-      "length": 1,
-      "value": "\"\""
-    },
-    {
-      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
-      "kind": "BooleanLiteral",
-      "offset": 1154,
+      "offset": 2481,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
       "kind": "BooleanLiteral",
-      "offset": 2453,
+      "offset": 3392,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
       "kind": "BooleanLiteral",
-      "offset": 2498,
+      "offset": 3437,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/RecyclerViewCell.swift",
       "kind": "BooleanLiteral",
-      "offset": 2546,
+      "offset": 6061,
       "length": 5,
       "value": "false"
     },
@@ -36622,98 +37096,105 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "FloatLiteral",
-      "offset": 1445,
+      "offset": 1452,
       "length": 4,
       "value": "0.01"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3030,
+      "offset": 3037,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5206,
+      "offset": 5213,
       "length": 20,
       "value": "\"Speed: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5225,
+      "offset": 5232,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5366,
+      "offset": 5373,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5435,
+      "offset": 5442,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5759,
+      "offset": 5766,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5831,
+      "offset": 5838,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6051,
+      "offset": 6058,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6329,
+      "offset": 6336,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6396,
+      "offset": 6403,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6445,
+      "offset": 6452,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "Array",
+      "offset": 12468,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 2208,
+      "offset": 2215,
       "length": 18,
       "value": "\"RecyclerView.RecyclerScrollView\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 60796,
+      "offset": 61583,
       "length": 5,
       "value": "false"
     },
@@ -36741,14 +37222,14 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/SwiftUI\/SUIRecyclerView.swift",
       "kind": "Array",
-      "offset": 1675,
+      "offset": 1729,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/SwiftUI\/SUIRecyclerView.swift",
       "kind": "BooleanLiteral",
-      "offset": 2321,
+      "offset": 2542,
       "length": 5,
       "value": "false"
     },
@@ -37245,21 +37726,21 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/CellRegistration.swift",
       "kind": "StringLiteral",
-      "offset": 445,
+      "offset": 452,
       "length": 51,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/CellRegistration.swift",
       "kind": "StringLiteral",
-      "offset": 461,
+      "offset": 468,
       "length": 1,
       "value": "\"-\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/CellRegistration.swift",
       "kind": "StringLiteral",
-      "offset": 495,
+      "offset": 502,
       "length": 1,
       "value": "\"\""
     },
