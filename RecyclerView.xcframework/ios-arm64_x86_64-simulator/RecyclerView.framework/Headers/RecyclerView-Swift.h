@@ -277,8 +277,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import CoreFoundation;
-@import UIKit;
 #endif
 
 #endif
@@ -299,25 +297,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@class NSLayoutConstraint;
-
-@interface NSLayoutAnchor<AnchorType> (SWIFT_EXTENSION(RecyclerView))
-- (NSLayoutConstraint * _Nonnull)constraintWithEqualTo:(NSLayoutAnchor<AnchorType> * _Nonnull)anchor constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithGreaterThanOrEqualTo:(NSLayoutAnchor<AnchorType> * _Nonnull)anchor constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithLessThanOrEqualTo:(NSLayoutAnchor<AnchorType> * _Nonnull)anchor constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface NSLayoutDimension (SWIFT_EXTENSION(RecyclerView))
-- (NSLayoutConstraint * _Nonnull)constraintWithEqualTo:(NSLayoutDimension * _Nonnull)anchor multiplier:(CGFloat)m constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithGreaterThanOrEqualTo:(NSLayoutDimension * _Nonnull)anchor multiplier:(CGFloat)m constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithLessThanOrEqualTo:(NSLayoutDimension * _Nonnull)anchor multiplier:(CGFloat)m constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithEqualToConstant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithGreaterThanOrEqualToConstant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithLessThanOrEqualToConstant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 
 
@@ -608,8 +587,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
-@import CoreFoundation;
-@import UIKit;
 #endif
 
 #endif
@@ -630,25 +607,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@class NSLayoutConstraint;
-
-@interface NSLayoutAnchor<AnchorType> (SWIFT_EXTENSION(RecyclerView))
-- (NSLayoutConstraint * _Nonnull)constraintWithEqualTo:(NSLayoutAnchor<AnchorType> * _Nonnull)anchor constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithGreaterThanOrEqualTo:(NSLayoutAnchor<AnchorType> * _Nonnull)anchor constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithLessThanOrEqualTo:(NSLayoutAnchor<AnchorType> * _Nonnull)anchor constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-@interface NSLayoutDimension (SWIFT_EXTENSION(RecyclerView))
-- (NSLayoutConstraint * _Nonnull)constraintWithEqualTo:(NSLayoutDimension * _Nonnull)anchor multiplier:(CGFloat)m constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithGreaterThanOrEqualTo:(NSLayoutDimension * _Nonnull)anchor multiplier:(CGFloat)m constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithLessThanOrEqualTo:(NSLayoutDimension * _Nonnull)anchor multiplier:(CGFloat)m constant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithEqualToConstant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithGreaterThanOrEqualToConstant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-- (NSLayoutConstraint * _Nonnull)constraintWithLessThanOrEqualToConstant:(CGFloat)c priority:(UILayoutPriority)priority SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
 
 
 
