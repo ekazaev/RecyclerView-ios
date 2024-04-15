@@ -30,7 +30,7 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		6cvbi6Jq42f120RiQb0xfVUkRw8=
+		Ym0m27RI6c5i2EMhc5JQ9urG9+0=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		1QXeKpZWENLyOEMlfFy5YmJjB/A=
+		OZF31KIijYeKElyCqLhj+8wcxCo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -98,7 +98,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			SQJyuvvKHk50KBqoqO2a3lnBTyzVfuyEV7ueFi38n/c=
+			IQz8VCM0MdVy+fxYojvlX/hOqJE/El1lo5FWKROfuXU=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
@@ -133,7 +133,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fdzj0Ho+xP2LFksSDabPK3yg7phbge3h/VLsq3n3Xug=
+			Q89FJdopIGROVzxoc0z+P82JmFwSxkwKV3ZFcUfJASE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
