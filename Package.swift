@@ -2,9 +2,9 @@
 
 import PackageDescription
 
-let version = "0.1.23"
+let version = "0.1.24"
 let moduleName = "RecyclerView"
-let checksum = "d1ae8e2909349cd3e52e987d5d8c9df5cfc0ff661f0e1997d49f205ab08477f4"
+let checksum = "223409ce1821d2e1f419da467982621853ea5db0f05c40df500b1a7c3faea5fd"
 
 let package = Package(
     name: moduleName,
