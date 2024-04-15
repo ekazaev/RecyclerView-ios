@@ -22,7 +22,7 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: moduleName,
-            url: "https://github.com/ekazaev/RecyclerView-ios/Distribution/\(version)/\(moduleName).xcframework.zip",
+            url: "https://github.com/ekazaev/RecyclerView-ios/releases/download/\(version)/\(moduleName).xcframework.zip",
             checksum: checksum
         )
     ]
