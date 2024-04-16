@@ -14,7 +14,7 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		UFQdshWTTnut60ucXmiT5MVDhpo=
+		pWKL4V6udgQKqJQVs+5WkSYT2uU=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -34,7 +34,7 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		UFQdshWTTnut60ucXmiT5MVDhpo=
+		pWKL4V6udgQKqJQVs+5WkSYT2uU=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
@@ -70,7 +70,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aSZRAVCmAwr+d08Rc44++yCexx1wy8/6FHNyHYVuUaw=
+			Tg+R+1ZQd0vmtJn1M7zK6rXIM4/BbgOiD2JSlDlYXoU=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
@@ -105,7 +105,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aSZRAVCmAwr+d08Rc44++yCexx1wy8/6FHNyHYVuUaw=
+			Tg+R+1ZQd0vmtJn1M7zK6rXIM4/BbgOiD2JSlDlYXoU=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
