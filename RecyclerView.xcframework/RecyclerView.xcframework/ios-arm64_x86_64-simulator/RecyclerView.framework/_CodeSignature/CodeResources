@@ -14,11 +14,11 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
 		<data>
-		pipXevwUVuGg6V8BqOzmX66wOtQ=
+		UFQdshWTTnut60ucXmiT5MVDhpo=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		GAR6SYBYSsCP7FLpwlqbcGJTO60=
+		w05AkqnS3aXUHcz5LFTvECXBXuw=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -26,19 +26,19 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		GAR6SYBYSsCP7FLpwlqbcGJTO60=
+		w05AkqnS3aXUHcz5LFTvECXBXuw=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		Ym0m27RI6c5i2EMhc5JQ9urG9+0=
+		EjmdjANVZVYwqjgOytDxrEyy7go=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<data>
-		pipXevwUVuGg6V8BqOzmX66wOtQ=
+		UFQdshWTTnut60ucXmiT5MVDhpo=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<data>
-		ufPy+T/d3NLe61gpAPGhoMHkzaI=
+		bWXXYWzMEO6g3F89/SMfqQzDJmw=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -46,11 +46,11 @@
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ufPy+T/d3NLe61gpAPGhoMHkzaI=
+		bWXXYWzMEO6g3F89/SMfqQzDJmw=
 		</data>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		OZF31KIijYeKElyCqLhj+8wcxCo=
+		a1PctvViNK/JHyMjykVPBsA4OkU=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -70,14 +70,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			WMueJJ2vwB3KeJlKZofONgCWE/OBAON7xWZmySBGJPo=
+			aSZRAVCmAwr+d08Rc44++yCexx1wy8/6FHNyHYVuUaw=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			RbQwWaYkdvDCjzMOOFlIOXVKv5LBrbhIZUeJtI3dCH8=
+			DU/uT00GeoIEcfoWm7yBdWwE8OISBUUVBV/UAr44HFw=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -91,28 +91,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RbQwWaYkdvDCjzMOOFlIOXVKv5LBrbhIZUeJtI3dCH8=
+			DU/uT00GeoIEcfoWm7yBdWwE8OISBUUVBV/UAr44HFw=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IQz8VCM0MdVy+fxYojvlX/hOqJE/El1lo5FWKROfuXU=
+			X5AuGsF3kA2TWdesBzMQgAyk5P0f96HK0ZIekXfoRnI=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			WMueJJ2vwB3KeJlKZofONgCWE/OBAON7xWZmySBGJPo=
+			aSZRAVCmAwr+d08Rc44++yCexx1wy8/6FHNyHYVuUaw=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			fOzfmzi2lfHtM3HbUqeAFhuXn92P+mdQVaM8q/hdFtM=
+			2ZBmQchYI5XFnxrRcQ5moJfktchC+2Bz3CDgdYDp5t0=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -126,14 +126,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			fOzfmzi2lfHtM3HbUqeAFhuXn92P+mdQVaM8q/hdFtM=
+			2ZBmQchYI5XFnxrRcQ5moJfktchC+2Bz3CDgdYDp5t0=
 			</data>
 		</dict>
 		<key>Modules/RecyclerView.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Q89FJdopIGROVzxoc0z+P82JmFwSxkwKV3ZFcUfJASE=
+			/pQsEpHYjRpNeVLlmxuKWy6slrj3ryZjNPbXN2JeGpU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

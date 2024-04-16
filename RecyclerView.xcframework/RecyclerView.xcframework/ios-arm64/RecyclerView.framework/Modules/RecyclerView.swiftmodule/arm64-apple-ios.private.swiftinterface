@@ -18,23 +18,41 @@ public struct Segment : Swift.Hashable {
     set
   }
   @inline(__always) @_effects(releasenone) public init(origin: CoreFoundation.CGFloat, length: CoreFoundation.CGFloat)
-  @inline(__always) public init(origin: Swift.Int, length: Swift.Int)
-  @inline(__always) public init(origin: CoreFoundation.CGFloat, length: Swift.Int)
-  @inline(__always) public init(origin: Swift.Int, length: CoreFoundation.CGFloat)
-  @inline(__always) public func contains(_ point: CoreFoundation.CGFloat) -> Swift.Bool
-  @inline(__always) public func containsWithin(_ point: CoreFoundation.CGFloat) -> Swift.Bool
-  @inline(__always) public func intersects(_ segment: RecyclerView.Segment) -> Swift.Bool
-  @inline(__always) public var isEmpty: Swift.Bool {
-    get
+  @inline(__always) @_effects(releasenone) public init(origin: Swift.Int, length: Swift.Int)
+  @inline(__always) @_effects(releasenone) public init(origin: CoreFoundation.CGFloat, length: Swift.Int)
+  @inline(__always) @_effects(releasenone) public init(origin: Swift.Int, length: CoreFoundation.CGFloat)
+  @_transparent @inlinable @inline(__always) public func contains(_ point: CoreFoundation.CGFloat) -> Swift.Bool {
+        point >= self.min && point < self.max
+    }
+  @_transparent @inlinable @inline(__always) public func containsWithin(_ point: CoreFoundation.CGFloat) -> Swift.Bool {
+        point > self.min && point < self.max
+    }
+  @_transparent @inlinable @inline(__always) public func intersects(_ segment: RecyclerView.Segment) -> Swift.Bool {
+        segment == self ||
+            segment.min > self.min && segment.min < self.max ||
+            segment.max > self.min && segment.max < self.max ||
+            self.min > segment.min && self.min < segment.max ||
+            self.max > segment.min && self.max < segment.max
+    }
+  @_transparent @inlinable @inline(__always) public var isEmpty: Swift.Bool {
+    @_transparent get {
+        length <= 0
+    }
   }
-  @inline(__always) public var min: CoreFoundation.CGFloat {
-    get
+  @_transparent @inlinable @inline(__always) public var min: CoreFoundation.CGFloat {
+    @_transparent get {
+        origin
+    }
   }
-  @inline(__always) public var mid: CoreFoundation.CGFloat {
-    get
+  @_transparent @inlinable @inline(__always) public var mid: CoreFoundation.CGFloat {
+    @_transparent get {
+        max - min / 2
+    }
   }
-  @inline(__always) public var max: CoreFoundation.CGFloat {
-    get
+  @_transparent @inlinable @inline(__always) public var max: CoreFoundation.CGFloat {
+    @_transparent get {
+        origin + length
+    }
   }
   public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: RecyclerView.Segment, b: RecyclerView.Segment) -> Swift.Bool
