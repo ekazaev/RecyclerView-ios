@@ -38781,7 +38781,7 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 61621,
+      "offset": 61656,
       "length": 5,
       "value": "false"
     },
@@ -39600,7 +39600,7 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 53969,
+      "offset": 53962,
       "length": 4,
       "value": "true"
     },
