@@ -999,7 +999,7 @@ public protocol RecyclerViewEngine {
 }
 #endif
 public protocol CellContext {
-  @_Concurrency.MainActor func borrowCellView<C>(_ block: (UIKit.UIView) -> C) -> C
+  @_Concurrency.MainActor func borrowCellView<C>(_ block: (borrowing UIKit.UIView) -> C) -> C
 }
 @_Concurrency.MainActor public protocol InteractiveMoveInteractionDelegate : AnyObject {
   func interactiveMovementWillBeginAtIndex(_ index: Swift.Int)
