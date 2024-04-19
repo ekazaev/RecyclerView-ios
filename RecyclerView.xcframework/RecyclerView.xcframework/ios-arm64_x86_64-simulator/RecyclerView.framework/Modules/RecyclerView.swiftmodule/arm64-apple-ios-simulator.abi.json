@@ -38781,14 +38781,14 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 62011,
+      "offset": 62058,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 61764,
+      "offset": 61811,
       "length": 31,
       "value": "\"RecyclerView.InternalScrollViewDelegateProxy\""
     },
@@ -39145,7 +39145,7 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/UIInteractions\/Drop Interaction\/DropInteraction.swift",
       "kind": "BooleanLiteral",
-      "offset": 10059,
+      "offset": 10084,
       "length": 5,
       "value": "false"
     },
