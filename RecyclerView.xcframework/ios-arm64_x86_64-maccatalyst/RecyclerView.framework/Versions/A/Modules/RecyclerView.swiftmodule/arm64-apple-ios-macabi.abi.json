@@ -802,15 +802,15 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecyclerView17ModelStateStorageV7initialxvp",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV7initialxvp",
+            "usr": "s:12RecyclerView17ModelStateStorageC7initialxvp",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC7initialxvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
+              "Final",
               "HasStorage",
               "SetterAccess",
               "AccessControl"
             ],
-            "fixedbinaryorder": 0,
             "hasStorage": true,
             "accessors": [
               {
@@ -825,14 +825,14 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView17ModelStateStorageV7initialxvg",
-                "mangledName": "$s12RecyclerView17ModelStateStorageV7initialxvg",
+                "usr": "s:12RecyclerView17ModelStateStorageC7initialxvg",
+                "mangledName": "$s12RecyclerView17ModelStateStorageC7initialxvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0>",
                 "sugared_genericSig": "<Model>",
                 "implicit": true,
                 "declAttributes": [
-                  "Transparent"
+                  "Final"
                 ],
                 "accessorKind": "get"
               }
@@ -850,10 +850,11 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecyclerView17ModelStateStorageV8modifiedxvp",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV8modifiedxvp",
+            "usr": "s:12RecyclerView17ModelStateStorageC8modifiedxvp",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC8modifiedxvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
+              "Final",
               "SetterAccess",
               "AccessControl"
             ],
@@ -870,85 +871,17 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView17ModelStateStorageV8modifiedxvg",
-                "mangledName": "$s12RecyclerView17ModelStateStorageV8modifiedxvg",
+                "usr": "s:12RecyclerView17ModelStateStorageC8modifiedxvg",
+                "mangledName": "$s12RecyclerView17ModelStateStorageC8modifiedxvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0>",
                 "sugared_genericSig": "<Model>",
                 "declAttributes": [
-                  "Mutating"
+                  "Final"
                 ],
                 "accessorKind": "get"
               }
             ]
-          },
-          {
-            "kind": "Var",
-            "name": "_modified",
-            "printedName": "_modified",
-            "children": [
-              {
-                "kind": "TypeNominal",
-                "name": "Optional",
-                "printedName": "τ_0_0?",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ],
-                "usr": "s:Sq"
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12RecyclerView17ModelStateStorageV9_modified33_1A5241C443B3DB12F0F60CAAA4482C82LLxSgvp",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV9_modified33_1A5241C443B3DB12F0F60CAAA4482C82LLxSgvp",
-            "moduleName": "RecyclerView",
-            "isInternal": true,
-            "declAttributes": [
-              "HasInitialValue",
-              "HasStorage",
-              "AccessControl"
-            ],
-            "fixedbinaryorder": 1,
-            "hasStorage": true
-          },
-          {
-            "kind": "Var",
-            "name": "copyBlock",
-            "printedName": "copyBlock",
-            "children": [
-              {
-                "kind": "TypeFunc",
-                "name": "Function",
-                "printedName": "(τ_0_0) -> τ_0_0",
-                "children": [
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  },
-                  {
-                    "kind": "TypeNominal",
-                    "name": "GenericTypeParam",
-                    "printedName": "τ_0_0"
-                  }
-                ]
-              }
-            ],
-            "declKind": "Var",
-            "usr": "s:12RecyclerView17ModelStateStorageV9copyBlock33_1A5241C443B3DB12F0F60CAAA4482C82LLyxxcvp",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV9copyBlock33_1A5241C443B3DB12F0F60CAAA4482C82LLyxxcvp",
-            "moduleName": "RecyclerView",
-            "isInternal": true,
-            "declAttributes": [
-              "HasStorage",
-              "AccessControl"
-            ],
-            "fixedbinaryorder": 2,
-            "isLet": true,
-            "hasStorage": true
           },
           {
             "kind": "Var",
@@ -963,10 +896,11 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecyclerView17ModelStateStorageV18isAfterUpdateSetupSbvp",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV18isAfterUpdateSetupSbvp",
+            "usr": "s:12RecyclerView17ModelStateStorageC18isAfterUpdateSetupSbvp",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC18isAfterUpdateSetupSbvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
+              "Final",
               "AccessControl"
             ],
             "accessors": [
@@ -983,11 +917,14 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView17ModelStateStorageV18isAfterUpdateSetupSbvg",
-                "mangledName": "$s12RecyclerView17ModelStateStorageV18isAfterUpdateSetupSbvg",
+                "usr": "s:12RecyclerView17ModelStateStorageC18isAfterUpdateSetupSbvg",
+                "mangledName": "$s12RecyclerView17ModelStateStorageC18isAfterUpdateSetupSbvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0>",
                 "sugared_genericSig": "<Model>",
+                "declAttributes": [
+                  "Final"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -1008,7 +945,7 @@
                     "printedName": "τ_0_0"
                   }
                 ],
-                "usr": "s:12RecyclerView17ModelStateStorageV"
+                "usr": "s:12RecyclerView17ModelStateStorageC"
               },
               {
                 "kind": "TypeNominal",
@@ -1049,8 +986,8 @@
               }
             ],
             "declKind": "Constructor",
-            "usr": "s:12RecyclerView17ModelStateStorageV12beforeUpdate05afterG09copyUsingACyxGx_xSgxxctcfc",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV12beforeUpdate05afterG09copyUsingACyxGx_xSgxxctcfc",
+            "usr": "s:12RecyclerView17ModelStateStorageC12beforeUpdate05afterG09copyUsingACyxGx_xSgxxctcfc",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC12beforeUpdate05afterG09copyUsingACyxGx_xSgxxctcfc",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<Model>",
@@ -1072,17 +1009,17 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView17ModelStateStorageV15dropAfterUpdateyyF",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV15dropAfterUpdateyyF",
+            "usr": "s:12RecyclerView17ModelStateStorageC15dropAfterUpdateyyF",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC15dropAfterUpdateyyF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<Model>",
             "declAttributes": [
-              "Mutating",
+              "Final",
               "AccessControl",
               "Inline"
             ],
-            "funcSelfKind": "Mutating"
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -1096,17 +1033,17 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView17ModelStateStorageV21moveModifiedToInitialyyF",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV21moveModifiedToInitialyyF",
+            "usr": "s:12RecyclerView17ModelStateStorageC21moveModifiedToInitialyyF",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC21moveModifiedToInitialyyF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<Model>",
             "declAttributes": [
-              "Mutating",
+              "Final",
               "AccessControl",
               "Inline"
             ],
-            "funcSelfKind": "Mutating"
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -1126,17 +1063,17 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView17ModelStateStorageV9storageAtyxAA0cD0OF",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV9storageAtyxAA0cD0OF",
+            "usr": "s:12RecyclerView17ModelStateStorageC9storageAtyxAA0cD0OF",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC9storageAtyxAA0cD0OF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<Model>",
             "declAttributes": [
-              "Mutating",
+              "Final",
               "AccessControl",
               "Inline"
             ],
-            "funcSelfKind": "Mutating"
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -1161,17 +1098,17 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView17ModelStateStorageV03setE0_2atyx_AA0cD0OtF",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV03setE0_2atyx_AA0cD0OtF",
+            "usr": "s:12RecyclerView17ModelStateStorageC03setE0_2atyx_AA0cD0OtF",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC03setE0_2atyx_AA0cD0OtF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<Model>",
             "declAttributes": [
-              "Mutating",
+              "Final",
               "AccessControl",
               "Inline"
             ],
-            "funcSelfKind": "Mutating"
+            "funcSelfKind": "NonMutating"
           },
           {
             "kind": "Function",
@@ -1211,29 +1148,28 @@
               }
             ],
             "declKind": "Func",
-            "usr": "s:12RecyclerView17ModelStateStorageV06updateE2AtyyAA0cD0O_yxzXEtF",
-            "mangledName": "$s12RecyclerView17ModelStateStorageV06updateE2AtyyAA0cD0O_yxzXEtF",
+            "usr": "s:12RecyclerView17ModelStateStorageC06updateE2AtyyAA0cD0O_yxzXEtF",
+            "mangledName": "$s12RecyclerView17ModelStateStorageC06updateE2AtyyAA0cD0O_yxzXEtF",
             "moduleName": "RecyclerView",
             "genericSig": "<τ_0_0>",
             "sugared_genericSig": "<Model>",
             "declAttributes": [
-              "Mutating",
+              "Final",
               "AccessControl",
               "Inline"
             ],
-            "funcSelfKind": "Mutating"
+            "funcSelfKind": "NonMutating"
           }
         ],
-        "declKind": "Struct",
-        "usr": "s:12RecyclerView17ModelStateStorageV",
-        "mangledName": "$s12RecyclerView17ModelStateStorageV",
+        "declKind": "Class",
+        "usr": "s:12RecyclerView17ModelStateStorageC",
+        "mangledName": "$s12RecyclerView17ModelStateStorageC",
         "moduleName": "RecyclerView",
         "genericSig": "<τ_0_0>",
         "sugared_genericSig": "<Model>",
         "declAttributes": [
-          "MoveOnly",
+          "Final",
           "AccessControl",
-          "Frozen",
           "RawDocComment"
         ]
       },

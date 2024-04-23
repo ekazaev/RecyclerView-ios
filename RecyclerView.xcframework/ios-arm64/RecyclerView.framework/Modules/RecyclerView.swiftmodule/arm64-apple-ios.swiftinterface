@@ -65,27 +65,24 @@ extension RecyclerView.Segment : Swift.CustomDebugStringConvertible {
     get
   }
 }
-#if compiler(>=5.3) && $MoveOnly
-@frozen @_moveOnly public struct ModelStateStorage<Model> {
-  @_hasStorage public var initial: Model {
+final public class ModelStateStorage<Model> {
+  final public var initial: Model {
     get
   }
-  public var modified: Model {
-    mutating get
+  final public var modified: Model {
+    get
   }
-  private var _modified: Model?
-  private let copyBlock: (Model) -> Model
-  public var isAfterUpdateSetup: Swift.Bool {
+  final public var isAfterUpdateSetup: Swift.Bool {
     get
   }
   @inline(__always) public init(beforeUpdate: Model, afterUpdate: Model? = nil, copyUsing copyBlock: @escaping (Model) -> Model = { $0 })
-  @inline(__always) public mutating func dropAfterUpdate()
-  @inline(__always) public mutating func moveModifiedToInitial()
-  @inline(__always) public mutating func storageAt(_ state: RecyclerView.ModelState) -> Model
-  @inline(__always) public mutating func setStorage(_ storage: Model, at state: RecyclerView.ModelState)
-  @inline(__always) public mutating func updateStorageAt(_ state: RecyclerView.ModelState, _ mutator: (inout Model) -> Swift.Void)
+  @inline(__always) final public func dropAfterUpdate()
+  @inline(__always) final public func moveModifiedToInitial()
+  @inline(__always) final public func storageAt(_ state: RecyclerView.ModelState) -> Model
+  @inline(__always) final public func setStorage(_ storage: Model, at state: RecyclerView.ModelState)
+  @inline(__always) final public func updateStorageAt(_ state: RecyclerView.ModelState, _ mutator: (inout Model) -> Swift.Void)
+  @objc deinit
 }
-#endif
 @_hasMissingDesignatedInitializers @_Concurrency.MainActor final public class CellLayoutContext {
   @_Concurrency.MainActor final public func invalidateLayout(_ type: RecyclerView.BatchUpdateAnimationType = .default, completion: ((Swift.Bool) -> Swift.Void)? = nil)
   @objc deinit
