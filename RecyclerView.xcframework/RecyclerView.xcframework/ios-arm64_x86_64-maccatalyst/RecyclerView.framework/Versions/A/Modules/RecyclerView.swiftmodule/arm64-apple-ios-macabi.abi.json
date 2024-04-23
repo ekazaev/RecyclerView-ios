@@ -1966,8 +1966,8 @@
         "usr": "s:12RecyclerView35TapSelectionGestureSupportingEngineP",
         "mangledName": "$s12RecyclerView35TapSelectionGestureSupportingEngineP",
         "moduleName": "RecyclerView",
-        "genericSig": "<τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_0.Payload : RecyclerView.TapSelectionStateSupporting>",
-        "sugared_genericSig": "<Self : RecyclerView.RecyclerViewEngine, Self.Payload : RecyclerView.TapSelectionStateSupporting>",
+        "genericSig": "<τ_0_0 : RecyclerView.RecyclerViewEngine>",
+        "sugared_genericSig": "<Self : RecyclerView.RecyclerViewEngine>",
         "declAttributes": [
           "AccessControl",
           "Custom"
@@ -30352,8 +30352,8 @@
           },
           {
             "kind": "Var",
-            "name": "enableOppositeAnchor",
-            "printedName": "enableOppositeAnchor",
+            "name": "inverseDefaultScrollAnchor",
+            "printedName": "inverseDefaultScrollAnchor",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -30363,8 +30363,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvp",
-            "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvp",
+            "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvp",
+            "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
               "HasInitialValue",
@@ -30388,8 +30388,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvg",
-                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvg",
+                "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvg",
+                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.ContinuousLayoutEngineSupporting, τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable>",
@@ -30417,8 +30417,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvs",
-                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvs",
+                "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvs",
+                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvs",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.ContinuousLayoutEngineSupporting, τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable>",
@@ -30440,8 +30440,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvM",
-                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvM",
+                "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvM",
+                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvM",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.ContinuousLayoutEngineSupporting, τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable>",
@@ -38593,14 +38593,14 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/UIInteractions\/Selection\/TapSelectionGestureRecogniser.swift",
       "kind": "BooleanLiteral",
-      "offset": 1165,
+      "offset": 1122,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/UIInteractions\/Selection\/TapSelectionGestureRecogniser.swift",
       "kind": "BooleanLiteral",
-      "offset": 1276,
+      "offset": 1233,
       "length": 4,
       "value": "true"
     },
@@ -38782,14 +38782,14 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 62058,
+      "offset": 61953,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 61811,
+      "offset": 61706,
       "length": 31,
       "value": "\"RecyclerView.InternalScrollViewDelegateProxy\""
     },
@@ -38971,21 +38971,21 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousCellConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 512,
+      "offset": 521,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousCellConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 529,
+      "offset": 547,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousCellConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 591,
+      "offset": 627,
       "length": 5,
       "value": "false"
     },
@@ -39559,56 +39559,56 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 4265,
+      "offset": 4271,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 4410,
+      "offset": 4416,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 4468,
+      "offset": 4474,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Dictionary",
-      "offset": 4588,
+      "offset": 4594,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Dictionary",
-      "offset": 4638,
+      "offset": 4644,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 4793,
+      "offset": 4799,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 5238,
+      "offset": 5244,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 53841,
+      "offset": 53901,
       "length": 4,
       "value": "true"
     },

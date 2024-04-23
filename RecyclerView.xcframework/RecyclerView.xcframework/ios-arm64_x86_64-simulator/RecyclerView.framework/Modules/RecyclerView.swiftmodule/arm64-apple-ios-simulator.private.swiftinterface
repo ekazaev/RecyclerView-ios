@@ -103,7 +103,7 @@ public struct TapSelectionState : Swift.Hashable, Swift.Sendable {
     get
   }
 }
-@_Concurrency.MainActor public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewEngine where Self.Payload : RecyclerView.TapSelectionStateSupporting {
+@_Concurrency.MainActor public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewEngine {
   @_Concurrency.MainActor var highlightedIndexes: Swift.Set<Swift.Int> { get }
   @_Concurrency.MainActor var selectedIndexes: Swift.Set<Swift.Int> { get }
   @_Concurrency.MainActor func setSelectionState(_ selectionState: RecyclerView.TapSelectionState, to index: Swift.Int)
@@ -1278,7 +1278,7 @@ extension RecyclerView.ContinuousLayoutEngine where Payload == RecyclerView.Empt
     get
     set
   }
-  @_Concurrency.MainActor final public var enableOppositeAnchor: Swift.Bool
+  @_Concurrency.MainActor final public var inverseDefaultScrollAnchor: Swift.Bool
   @_Concurrency.MainActor final public var numberOfCells: Swift.Int {
     get
   }
