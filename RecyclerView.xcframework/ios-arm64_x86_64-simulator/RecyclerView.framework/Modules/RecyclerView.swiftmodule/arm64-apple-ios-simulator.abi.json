@@ -806,8 +806,8 @@
             "mangledName": "$s12RecyclerView17ModelStateStorageC7initialxvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
-              "Final",
               "HasStorage",
+              "Final",
               "SetterAccess",
               "AccessControl"
             ],
@@ -877,7 +877,8 @@
                 "genericSig": "<τ_0_0>",
                 "sugared_genericSig": "<Model>",
                 "declAttributes": [
-                  "Final"
+                  "Final",
+                  "Inline"
                 ],
                 "accessorKind": "get"
               }
@@ -39543,7 +39544,7 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 53901,
+      "offset": 53973,
       "length": 4,
       "value": "true"
     },

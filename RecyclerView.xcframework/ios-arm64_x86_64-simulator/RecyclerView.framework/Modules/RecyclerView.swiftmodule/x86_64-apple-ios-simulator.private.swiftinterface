@@ -70,7 +70,7 @@ final public class ModelStateStorage<Model> {
     get
   }
   final public var modified: Model {
-    get
+    @inline(__always) get
   }
   final public var isAfterUpdateSetup: Swift.Bool {
     get
