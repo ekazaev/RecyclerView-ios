@@ -1,4 +1,0 @@
-framework module RecyclerView {
-  header "RecyclerView-Swift.h"
-  requires objc
-}

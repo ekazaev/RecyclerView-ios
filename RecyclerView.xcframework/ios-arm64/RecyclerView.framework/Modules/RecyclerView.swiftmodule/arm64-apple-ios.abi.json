@@ -266,6 +266,7 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
+              "Effects",
               "Inline"
             ],
             "init_kind": "Designated"
@@ -300,6 +301,7 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
+              "Effects",
               "Inline"
             ],
             "init_kind": "Designated"
@@ -334,6 +336,7 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
+              "Effects",
               "Inline"
             ],
             "init_kind": "Designated"
@@ -362,7 +365,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -390,7 +395,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -418,7 +425,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "funcSelfKind": "NonMutating"
           },
@@ -440,7 +449,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "accessors": [
               {
@@ -459,6 +470,9 @@
                 "usr": "s:12RecyclerView7SegmentV7isEmptySbvg",
                 "mangledName": "$s12RecyclerView7SegmentV7isEmptySbvg",
                 "moduleName": "RecyclerView",
+                "declAttributes": [
+                  "Transparent"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -481,7 +495,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "accessors": [
               {
@@ -500,6 +516,9 @@
                 "usr": "s:12RecyclerView7SegmentV3min14CoreFoundation7CGFloatVvg",
                 "mangledName": "$s12RecyclerView7SegmentV3min12CoreGraphics7CGFloatVvg",
                 "moduleName": "RecyclerView",
+                "declAttributes": [
+                  "Transparent"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -522,7 +541,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "accessors": [
               {
@@ -541,6 +562,9 @@
                 "usr": "s:12RecyclerView7SegmentV3mid14CoreFoundation7CGFloatVvg",
                 "mangledName": "$s12RecyclerView7SegmentV3mid12CoreGraphics7CGFloatVvg",
                 "moduleName": "RecyclerView",
+                "declAttributes": [
+                  "Transparent"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -563,7 +587,9 @@
             "moduleName": "RecyclerView",
             "declAttributes": [
               "AccessControl",
-              "Inline"
+              "Inline",
+              "Inlinable",
+              "Transparent"
             ],
             "accessors": [
               {
@@ -582,6 +608,9 @@
                 "usr": "s:12RecyclerView7SegmentV3max14CoreFoundation7CGFloatVvg",
                 "mangledName": "$s12RecyclerView7SegmentV3max12CoreGraphics7CGFloatVvg",
                 "moduleName": "RecyclerView",
+                "declAttributes": [
+                  "Transparent"
+                ],
                 "accessorKind": "get"
               }
             ]
@@ -1937,8 +1966,8 @@
         "usr": "s:12RecyclerView35TapSelectionGestureSupportingEngineP",
         "mangledName": "$s12RecyclerView35TapSelectionGestureSupportingEngineP",
         "moduleName": "RecyclerView",
-        "genericSig": "<τ_0_0 : RecyclerView.RecyclerViewEngine, τ_0_0.Payload : RecyclerView.TapSelectionStateSupporting>",
-        "sugared_genericSig": "<Self : RecyclerView.RecyclerViewEngine, Self.Payload : RecyclerView.TapSelectionStateSupporting>",
+        "genericSig": "<τ_0_0 : RecyclerView.RecyclerViewEngine>",
+        "sugared_genericSig": "<Self : RecyclerView.RecyclerViewEngine>",
         "declAttributes": [
           "AccessControl",
           "Custom"
@@ -10293,20 +10322,6 @@
         ]
       },
       {
-        "kind": "Import",
-        "name": "SwiftUI",
-        "printedName": "SwiftUI",
-        "declKind": "Import",
-        "moduleName": "RecyclerView"
-      },
-      {
-        "kind": "Import",
-        "name": "UIKit",
-        "printedName": "UIKit",
-        "declKind": "Import",
-        "moduleName": "RecyclerView"
-      },
-      {
         "kind": "TypeDecl",
         "name": "RecyclerViewPayload",
         "printedName": "RecyclerViewPayload",
@@ -10338,8 +10353,23 @@
         "mangledName": "$s12RecyclerView0aB7PayloadP",
         "moduleName": "RecyclerView",
         "declAttributes": [
-          "AccessControl"
+          "AccessControl",
+          "RawDocComment"
         ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "RecyclerView"
+      },
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "RecyclerView"
       },
       {
         "kind": "TypeDecl",
@@ -23744,7 +23774,7 @@
               {
                 "kind": "TypeFunc",
                 "name": "Function",
-                "printedName": "(UIKit.UIView) -> τ_1_0",
+                "printedName": "(borrowing UIKit.UIView) -> τ_1_0",
                 "children": [
                   {
                     "kind": "TypeNominal",
@@ -30322,8 +30352,8 @@
           },
           {
             "kind": "Var",
-            "name": "enableOppositeAnchor",
-            "printedName": "enableOppositeAnchor",
+            "name": "inverseDefaultScrollAnchor",
+            "printedName": "inverseDefaultScrollAnchor",
             "children": [
               {
                 "kind": "TypeNominal",
@@ -30333,8 +30363,8 @@
               }
             ],
             "declKind": "Var",
-            "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvp",
-            "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvp",
+            "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvp",
+            "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvp",
             "moduleName": "RecyclerView",
             "declAttributes": [
               "HasInitialValue",
@@ -30358,8 +30388,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvg",
-                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvg",
+                "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvg",
+                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvg",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.ContinuousLayoutEngineSupporting, τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable>",
@@ -30387,8 +30417,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvs",
-                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvs",
+                "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvs",
+                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvs",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.ContinuousLayoutEngineSupporting, τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable>",
@@ -30410,8 +30440,8 @@
                   }
                 ],
                 "declKind": "Accessor",
-                "usr": "s:12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvM",
-                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC20enableOppositeAnchorSbvM",
+                "usr": "s:12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvM",
+                "mangledName": "$s12RecyclerView22ContinuousLayoutEngineC26inverseDefaultScrollAnchorSbvM",
                 "moduleName": "RecyclerView",
                 "genericSig": "<τ_0_0 where τ_0_0 : RecyclerView.ContinuousLayoutEngineSupporting, τ_0_0 : Swift.Equatable>",
                 "sugared_genericSig": "<Payload where Payload : RecyclerView.ContinuousLayoutEngineSupporting, Payload : Swift.Equatable>",
@@ -38546,16 +38576,30 @@
       "value": "\"Segment length can not be negative.\""
     },
     {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Utils\/Segment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1945,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Utils\/Segment.swift",
+      "kind": "IntegerLiteral",
+      "offset": 2166,
+      "length": 1,
+      "value": "2"
+    },
+    {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/UIInteractions\/Selection\/TapSelectionGestureRecogniser.swift",
       "kind": "BooleanLiteral",
-      "offset": 1165,
+      "offset": 1122,
       "length": 4,
       "value": "true"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/UIInteractions\/Selection\/TapSelectionGestureRecogniser.swift",
       "kind": "BooleanLiteral",
-      "offset": 1276,
+      "offset": 1233,
       "length": 4,
       "value": "true"
     },
@@ -38646,84 +38690,84 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 3001,
+      "offset": 3049,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5177,
+      "offset": 5225,
       "length": 20,
       "value": "\"Speed: \""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "StringLiteral",
-      "offset": 5196,
+      "offset": 5244,
       "length": 2,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5337,
+      "offset": 5385,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 5406,
+      "offset": 5454,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5730,
+      "offset": 5718,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 5802,
+      "offset": 5790,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6022,
+      "offset": 6010,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6300,
+      "offset": 6311,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 6367,
+      "offset": 6378,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "IntegerLiteral",
-      "offset": 6416,
+      "offset": 6427,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "Array",
-      "offset": 12432,
+      "offset": 12391,
       "length": 2,
       "value": "[]"
     },
@@ -38737,9 +38781,16 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
       "kind": "BooleanLiteral",
-      "offset": 61547,
+      "offset": 61953,
       "length": 5,
       "value": "false"
+    },
+    {
+      "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/RecyclerView\/RecyclerScrollView.swift",
+      "kind": "StringLiteral",
+      "offset": 61706,
+      "length": 31,
+      "value": "\"RecyclerView.InternalScrollViewDelegateProxy\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Content Differentiable\/Snapshots\/IdentifiableDiffableDataSourceSnapshot.swift",
@@ -38779,56 +38830,56 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 488,
+      "offset": 506,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 908,
+      "offset": 926,
       "length": 3,
       "value": "100"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 2734,
+      "offset": 3206,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3039,
+      "offset": 3533,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "Array",
-      "offset": 3102,
+      "offset": 3596,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3141,
+      "offset": 3635,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3480,
+      "offset": 3974,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/Model\/ContinuousLayoutModel.swift",
       "kind": "IntegerLiteral",
-      "offset": 3491,
+      "offset": 3985,
       "length": 1,
       "value": "0"
     },
@@ -38884,7 +38935,7 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/SwiftUI\/SUIRecyclerView.swift",
       "kind": "IntegerLiteral",
-      "offset": 231,
+      "offset": 283,
       "length": 1,
       "value": "1"
     },
@@ -38919,21 +38970,21 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousCellConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 494,
+      "offset": 521,
       "length": 1,
       "value": "1"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousCellConfiguration.swift",
       "kind": "IntegerLiteral",
-      "offset": 511,
+      "offset": 547,
       "length": 1,
       "value": "0"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousCellConfiguration.swift",
       "kind": "BooleanLiteral",
-      "offset": 573,
+      "offset": 627,
       "length": 5,
       "value": "false"
     },
@@ -39003,21 +39054,21 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/CellRegistration.swift",
       "kind": "StringLiteral",
-      "offset": 480,
+      "offset": 472,
       "length": 48,
       "value": "\"\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/CellRegistration.swift",
       "kind": "StringLiteral",
-      "offset": 493,
+      "offset": 485,
       "length": 1,
       "value": "\"-\""
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Helpers\/Cell Registration\/CellRegistration.swift",
       "kind": "StringLiteral",
-      "offset": 527,
+      "offset": 519,
       "length": 1,
       "value": "\"\""
     },
@@ -39094,7 +39145,7 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/UIInteractions\/Drop Interaction\/DropInteraction.swift",
       "kind": "BooleanLiteral",
-      "offset": 10059,
+      "offset": 10084,
       "length": 5,
       "value": "false"
     },
@@ -39486,77 +39537,77 @@
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 2918,
+      "offset": 2962,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 2943,
+      "offset": 2987,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 3574,
+      "offset": 3640,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 4199,
+      "offset": 4271,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 4344,
+      "offset": 4416,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 4402,
+      "offset": 4474,
       "length": 5,
       "value": "false"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Dictionary",
-      "offset": 4522,
+      "offset": 4594,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Dictionary",
-      "offset": 4572,
+      "offset": 4644,
       "length": 3,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 4727,
+      "offset": 4799,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "Array",
-      "offset": 5172,
+      "offset": 5244,
       "length": 2,
       "value": "[]"
     },
     {
       "filePath": "\/Users\/ekazaev\/Workplace\/RecyclerView\/RecyclerView\/Classes\/RecyclerView\/Engine\/Continous Engine\/ContinuousLayoutEngine.swift",
       "kind": "BooleanLiteral",
-      "offset": 53820,
+      "offset": 53901,
       "length": 4,
       "value": "true"
     },

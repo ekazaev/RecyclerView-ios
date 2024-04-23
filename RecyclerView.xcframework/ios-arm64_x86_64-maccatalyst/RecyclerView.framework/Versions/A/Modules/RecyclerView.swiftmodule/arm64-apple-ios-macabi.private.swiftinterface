@@ -1,6 +1,6 @@
 // swift-interface-format-version: 1.0
 // swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
-// swift-module-flags: -target arm64-apple-ios15.0-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name RecyclerView
+// swift-module-flags: -target arm64-apple-ios15.0-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=unchecked -O -enable-bare-slash-regex -module-name RecyclerView
 import CoreFoundation
 import Foundation
 import Swift
@@ -18,23 +18,41 @@ public struct Segment : Swift.Hashable {
     set
   }
   @inline(__always) @_effects(releasenone) public init(origin: CoreFoundation.CGFloat, length: CoreFoundation.CGFloat)
-  @inline(__always) public init(origin: Swift.Int, length: Swift.Int)
-  @inline(__always) public init(origin: CoreFoundation.CGFloat, length: Swift.Int)
-  @inline(__always) public init(origin: Swift.Int, length: CoreFoundation.CGFloat)
-  @inline(__always) public func contains(_ point: CoreFoundation.CGFloat) -> Swift.Bool
-  @inline(__always) public func containsWithin(_ point: CoreFoundation.CGFloat) -> Swift.Bool
-  @inline(__always) public func intersects(_ segment: RecyclerView.Segment) -> Swift.Bool
-  @inline(__always) public var isEmpty: Swift.Bool {
-    get
+  @inline(__always) @_effects(releasenone) public init(origin: Swift.Int, length: Swift.Int)
+  @inline(__always) @_effects(releasenone) public init(origin: CoreFoundation.CGFloat, length: Swift.Int)
+  @inline(__always) @_effects(releasenone) public init(origin: Swift.Int, length: CoreFoundation.CGFloat)
+  @_transparent @inlinable @inline(__always) public func contains(_ point: CoreFoundation.CGFloat) -> Swift.Bool {
+        point >= self.min && point < self.max
+    }
+  @_transparent @inlinable @inline(__always) public func containsWithin(_ point: CoreFoundation.CGFloat) -> Swift.Bool {
+        point > self.min && point < self.max
+    }
+  @_transparent @inlinable @inline(__always) public func intersects(_ segment: RecyclerView.Segment) -> Swift.Bool {
+        segment == self ||
+            segment.min > self.min && segment.min < self.max ||
+            segment.max > self.min && segment.max < self.max ||
+            self.min > segment.min && self.min < segment.max ||
+            self.max > segment.min && self.max < segment.max
+    }
+  @_transparent @inlinable @inline(__always) public var isEmpty: Swift.Bool {
+    @_transparent get {
+        length <= 0
+    }
   }
-  @inline(__always) public var min: CoreFoundation.CGFloat {
-    get
+  @_transparent @inlinable @inline(__always) public var min: CoreFoundation.CGFloat {
+    @_transparent get {
+        origin
+    }
   }
-  @inline(__always) public var mid: CoreFoundation.CGFloat {
-    get
+  @_transparent @inlinable @inline(__always) public var mid: CoreFoundation.CGFloat {
+    @_transparent get {
+        max - min / 2
+    }
   }
-  @inline(__always) public var max: CoreFoundation.CGFloat {
-    get
+  @_transparent @inlinable @inline(__always) public var max: CoreFoundation.CGFloat {
+    @_transparent get {
+        origin + length
+    }
   }
   public func hash(into hasher: inout Swift.Hasher)
   public static func == (a: RecyclerView.Segment, b: RecyclerView.Segment) -> Swift.Bool
@@ -85,7 +103,7 @@ public struct TapSelectionState : Swift.Hashable, Swift.Sendable {
     get
   }
 }
-@_Concurrency.MainActor public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewEngine where Self.Payload : RecyclerView.TapSelectionStateSupporting {
+@_Concurrency.MainActor public protocol TapSelectionGestureSupportingEngine : RecyclerView.RecyclerViewEngine {
   @_Concurrency.MainActor var highlightedIndexes: Swift.Set<Swift.Int> { get }
   @_Concurrency.MainActor var selectedIndexes: Swift.Set<Swift.Int> { get }
   @_Concurrency.MainActor func setSelectionState(_ selectionState: RecyclerView.TapSelectionState, to index: Swift.Int)
@@ -981,7 +999,7 @@ public protocol RecyclerViewEngine {
 }
 #endif
 public protocol CellContext {
-  @_Concurrency.MainActor func borrowCellView<C>(_ block: (UIKit.UIView) -> C) -> C
+  @_Concurrency.MainActor func borrowCellView<C>(_ block: (borrowing UIKit.UIView) -> C) -> C
 }
 @_Concurrency.MainActor public protocol InteractiveMoveInteractionDelegate : AnyObject {
   func interactiveMovementWillBeginAtIndex(_ index: Swift.Int)
@@ -1260,7 +1278,7 @@ extension RecyclerView.ContinuousLayoutEngine where Payload == RecyclerView.Empt
     get
     set
   }
-  @_Concurrency.MainActor final public var enableOppositeAnchor: Swift.Bool
+  @_Concurrency.MainActor final public var inverseDefaultScrollAnchor: Swift.Bool
   @_Concurrency.MainActor final public var numberOfCells: Swift.Int {
     get
   }

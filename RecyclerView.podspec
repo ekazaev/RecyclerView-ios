@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "RecyclerView"
-    s.version      = "0.1.43"
+    s.version      = "0.1.44"
     s.summary      = "A brief description of RecyclerView project."
     s.description  = <<-DESC
     An extended description of RecyclerView project.
